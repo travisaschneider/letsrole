@@ -1,0 +1,23 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    <a href="#" class="dropdown-item" data-action="create-entry"><i class="fas fa-file-plus"></i> {{ __('New entry') }}</a>
+
+    {% if not isRoot %}
+    <div class="btn-group dropdown-item dropright">
+        <button type="button" data-action="show-share-users" class="dropdown-item dropdown-toggle share-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users"></i> {{ __('Share') }}
+        </button>
+        <div class="dropdown-menu menu folder-share-users">
+            <a href="#" class="dropdown-item"><i class="fas fa-spinner fa-spin"></i> {{ __('Loading...') }}</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <a href="#" class="dropdown-item" data-action="create-folder"><i class="fas fa-folder-plus"></i> {{ __('Create subfolder') }}</a>
+
+    {% if not isRoot %}
+        <a href="#" class="dropdown-item" data-action="rename"><i class="fas fa-edit"></i> {{ __('Rename') }}</a>
+        <a href="#" class="dropdown-item" data-action="delete"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+    {% endif %}
+
+    <a href="#" class="dropdown-item" data-action="upload"><i class="fas fa-file-upload"></i> {{ __('Upload') }}</a>
+</div>

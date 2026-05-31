@@ -1,0 +1,40 @@
+<div class="encyclopedia-share">
+    <table class="table access-users">
+        <col>
+        <col width="100">
+        <col width="250">
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>
+                    {% if user.can_write %}
+                        <span><strong>{{ __('Can edit') }}</strong></span>
+                    {% else %}
+                        <span>{{ __('Read only') }}</span><br>
+                    {% endif %}
+                </td>
+                <td class="text-right">
+                    {% if user.can_write %}
+                        <a href="#" class="btn-secondary btn btn-sm grant-btn" data-id="{{ user.id }}" data-mode="read">{{ __('Make read only') }}</a>
+                    {% else %}
+                        <a href="#" class="write-btn btn-secondary btn btn-sm grant-btn" data-id="{{ user.id }}" data-mode="write">{{ __('Grant edit') }}</a>
+                    {% endif %}
+                    <a href="#" class="revoke-btn btn btn-secondary btn-sm btn-danger" data-id="{{ user.id }}">{{ __('Revoke') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        {% for user in allUsers %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>
+                    <span class="text-muted">{{ __('No access') }}</span><br>
+                </td>
+                <td class="text-right">
+                    <a href="#" class="btn-secondary btn btn-sm grant-btn" data-id="{{ user.id }}" data-mode="read">{{ __('Grant read') }}</a>
+                    <a href="#" class="btn-secondary btn btn-sm grant-btn" data-id="{{ user.id }}" data-mode="write">{{ __('Grant edit') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

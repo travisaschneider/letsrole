@@ -1,0 +1,35 @@
+<div class="drawing-options" data-tool="rect">
+    <div class="d-flex">
+        <div class="form-group mr-2">
+            <label>{{ __('Border') }}</label>
+            <input type="number" step="1" min="0" max="30" class="form-control attribute" data-bind="weight" data-type="float" value="{{weight}}">
+        </div>
+
+        <div class="form-group mr-2">
+            <label>{{ __('Radius') }}</label>
+            <input type="number" step="1" min="0" max="30" class="form-control attribute" data-bind="radius" data-type="float" value="{{radius}}">
+        </div>
+
+        <div class="form-group mr-2">
+            <label>{{ __('Border color') }}</label>
+            <input class="form-control color-picker attribute" data-bind="borderColor" value="{{borderColor}}" data-type="color">
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <div class="form-group mr-2">
+            <label>{{ __('Fill Color') }}</label>
+            <input class="form-control color-picker attribute" data-bind="fillColor" value="{{fillColor}}" data-type="color">
+        </div>
+
+        <div class="form-group">
+            <label>{{ __('Texture') }}</label>
+            <select class="attribute form-control" data-bind="texture">
+                <option value=""></option>
+                {% for key, text in textures %}
+                    <option value="{{ key }}" {% if key == texture %}selected{% endif %}>{{ text }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>

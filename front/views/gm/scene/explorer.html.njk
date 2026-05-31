@@ -1,0 +1,42 @@
+{% for scene in scenes %}
+<div class="scene-box">
+    <div class="d-flex align-items-center">
+        <div class="thumbnail-container" style="background-image:url('{{cdnReadUrl}}/{% if scene.thumbnail %}{{ scene.thumbnail }}{% else %}static/default-scene.jpg{% endif %}')"></div>
+
+        <span class="name flex-grow-1">
+            {% if scene.name %}
+                {{ scene.name }}
+            {% else %}
+                {{ __('Untitled') }}
+            {% endif %}
+        </span>
+
+        <div class="loaders">
+            <div>
+                <a href="#" data-id="{{ scene.id }}" class="action-load player-btn {% if scene.id == current.player %}active{% endif %}">
+                    <i class="fas fa-user-friends"></i>
+                    {{ __('Players') }}
+                </a>
+            </div>
+            <div>
+                <a href="#" data-id="{{ scene.id }}" class="action-load dm-btn {% if scene.id == current.dm %}active{% endif %}">
+                    <i class="fas fa-crown"></i>
+                    {{ __('GM') }}
+                </a>
+            </div>
+        </div>
+
+        <div class="actions d-flex justify-content-around">
+            {% if scene.isArchived %}
+                <a href="#" class="action-restore" data-id="{{ scene.id }}"><i class="fas fa-archive"></i> {{ __('Restore') }}</a>
+            {% else %}
+                <a href="#" class="action-archive" data-id="{{ scene.id }}"><i class="fas fa-archive"></i> {{ __('Archive') }}</a>
+            {% endif %}
+
+            {% if scene.id != current.dm and scene.id != current.player %}
+                <a href="#" class="action-delete" data-id="{{ scene.id }}"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,84 @@
+{% macro folder_tree(folder, statuses) %}
+    <li class="folder-item {% if folder.folders|length %}has-children{% endif %} {% if state[folder.id] %}open{% else %}closed{% endif %} {% if active == folder.id %}active{% endif %}">
+        <a href="#" data-id="{{ folder.id }}" data-type="folder" draggable="true">
+            <span class="folder"></span>
+            <span class="folder-name">{{ folder.name }}</span>
+
+            {% if scope == "owned" and is_shared(folder.sharing) %}
+                {{ sharing(folder.sharing) }}
+            {% endif %}
+        </a>
+        <ul>
+            {% if folder.folders|length %}
+                {% for child in folder.folders %}
+                    {{ folder_tree(child, statuses) }}
+                {% endfor %}
+            {% endif %}
+
+            {% if folder.pages|length %}
+                {% for page in folder.pages %}
+                    {{ folder_page(page) }}
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </li>
+{% endmacro %}
+
+{% macro sharing(sharing) -%}
+<span class="sharing-icon">
+    <i class="fas fa-share-alt-square">
+        <span class="d-none sharing-content">
+            {%- set items = get_shared_with(sharing) -%}
+            <ul>
+                {%- for item in items -%}
+                <li>
+                    <strong>{{- item.name -}}</strong>
+                    {% if item.subtitle -%}
+                        <em>{{- item.subtitle -}}</em>
+                    {%- endif -%}
+                    {#
+                    {%- if item.permission == 'r' -%}<i class="fas fa-eye"></i>{%- endif -%}
+                    {%- if item.permission == 'w' -%}<i class="fas fa-pencil"></i>{%- endif -%}
+                    #}
+                </li>
+                {%- endfor -%}
+            </ul>
+        </span>
+    </i>
+</span>
+{%- endmacro %}
+
+{% macro folder_page(page) %}
+    <li class="page-item">
+        <a href="letsrole://journal/{{ page.keyid }}" data-id="{{ page.id }}" data-type="page" data-keyid="{{ page.keyid }}" data-icon="{{ page.icon }}" draggable="true">
+            <span class="page"><i class="{{ get_icon_path(page.icon) }}"></i></span>
+            <span class="page-title">{{ page.title }}</span>
+
+            {% if scope == "owned" and is_shared(page.sharing) %}
+                {{ sharing(page.sharing) }}
+            {% endif %}
+        </a>
+    </li>
+{% endmacro %}
+
+<div class="folders">
+    <ul class="root">
+        <li class="open folder-item">
+            <a href="#" data-id="" data-type="folder" draggable="false">
+                <span class="folder"></span>
+                <em>
+                    {% if scope == "owned" %}{{ __('My entries') }}{% endif %}
+                    {% if scope == "shared" %}{{ __("Entries from others") }}{% endif %}
+                </em>
+            </a>
+            <ul>
+                {% for folder in root.folders %}
+                    {{ folder_tree(folder, statuses) }}
+                {% endfor %}
+                {% for page in root.pages %}
+                    {{ folder_page(page) }}
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</div>

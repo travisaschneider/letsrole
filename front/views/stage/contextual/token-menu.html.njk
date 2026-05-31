@@ -1,0 +1,21 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    {% if title %}
+    <h6 class="dropdown-header">
+        {{ title }}
+        {% include 'stage/contextual/layer.html.njk' %}
+    </h6>
+    {% endif %}
+
+    <a href="#" class="dropdown-item btn-open-sheet"><i class="fas fa-scroll-old"></i> {{ __('Character sheet') }}</a>
+    <a href="#" class="dropdown-item btn-open-bars"><i class="fas fa-circle-notch"></i> {{ __('Bars') }}</a>
+    <a href="#" class="dropdown-item btn-open-aura"><i class="fas fa-quote-right"></i> {{ __('Status') }}</a>
+
+    {% include 'stage/contextual/order.html.njk' %}
+
+    {% if isGm %}
+        {% include 'stage/contextual/layer-move.html.njk' %}
+        {% include 'stage/contextual/controls.html.njk' %}
+    {% endif %}
+
+    <a href="#" class="dropdown-item turn-order-action"><i class="fas fa-sort-amount-down"></i> {{ __('Add to turn order') }}</a>
+</div>

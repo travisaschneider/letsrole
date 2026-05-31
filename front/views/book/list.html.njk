@@ -1,0 +1,13 @@
+{% for book in books %}
+<div class="book-entry" data-id="{{ book.id }}">
+    <div class="d-flex">
+        <span class="icon">
+            <i class="fas fa-book"></i>
+        </span>
+        <span class="title">
+            <strong>{{ book.name }}</strong>
+            <small>{{ book.tagline }}</small>
+        </span>
+    </div>
+</div>
+{% endfor %}

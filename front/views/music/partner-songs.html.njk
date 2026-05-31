@@ -1,0 +1,31 @@
+<div class="partner-songs">
+    {% for song in songs %}
+        <div class="song d-flex">
+            {% if song.thumbnail_url %}
+                <div class="thumbnail mr-2">
+                    <img src="{{ song.thumbnail_url }}">
+                </div>
+            {% endif %}
+            <div class="content flex-grow-1">
+                <h5>{{ song.title|capitalize }}</h5>
+                <div>{{ humanDuration(song.duration) }}</div>
+            </div>
+            <div class="controls d-flex flex-column justify-content-center ml-2">
+                {% if mode === "playlist" %}
+                    <a href="#" title="{{ __('Add to playlist') }}" class="add-song-btn" data-provider="{{ song.provider }}" data-provider-id="{{ song.provider_id }}"><i class="fas fa-plus-circle"></i></a>
+                {% else %}
+                    <a href="#" title="{{ __('Play this song now') }}" class="play-song-btn" data-provider="{{ song.provider }}" data-provider-id="{{ song.provider_id }}"><i class="fas fa-play-circle"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="partner-info d-flex align-items-center">
+            <img src="{{ cdnReadUrl }}/{{ song.partner_logo_path }}">
+            <div>
+                {{ __('This track is provided by <a href="%{url}" target="_blank">%{name}</a>', {
+                    url: song.partner_url,
+                    name: song.partner_name
+                })|safe }}
+            </div>
+        </div>
+    {% endfor %}
+</div>

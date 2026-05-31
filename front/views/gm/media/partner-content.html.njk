@@ -1,0 +1,52 @@
+<div class="partner-heading">
+    <div class="d-flex">
+        {% if partner.logo_path %}
+        <div class="logo">
+            <img src="{{ cdnReadUrl }}/{{ partner.logo_path }}">
+        </div>
+        {% endif %}
+        <div>
+            <h3>{{ partner.name }}</h3>
+            <p>
+                <a href="{{ partner.url }}" target="_blank" class="referer">
+                    {{ __('Do you enjoy this content?')}} <br>
+                    {{ __('Check out <strong>%{partner}</strong> Patreon for more!', {partner: partner.name})|safe }}
+                </a>
+            </p>
+        </div>
+    </div>
+    <a href="#" class="back-root"><i class="fas fa-arrow-left"></i></a>
+</div>
+
+<div class="media-scroller">
+    {% if inFolder %}
+    <p>
+        <a href="#" class="go-back"><i class="fas fa-arrow-left"></i> {{ __('Go back') }}</a>
+    </p>
+    {% endif %}
+    <div class="folders row no-gutters">
+        {% for folder in folders %}
+        <div class="col-3">
+            <div class="media-wrapper mr-2 folder-item" title="{{ folder.name }}" data-id="{{ folder.id }}">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-folder mr-2"></i>
+                    <span class="flex-grow-2 folder-name">{{ folder.name }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="medias row no-gutters">
+        {% for media in medias %}
+        <div class="col-3 media-box" draggable="true" data-partner-id="{{ media.id }}" data-source="{{ cdnReadUrl }}/{{ media.path }}">
+            <div class="media-wrapper mr-2">
+                <div class="img-container">
+                    <img src="{{ cdnThumbnailUrl }}/{{ media.path }}" height="150">
+                </div>
+
+                <h5 class="card-title">{{ media.title }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

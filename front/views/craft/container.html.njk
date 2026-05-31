@@ -1,0 +1,32 @@
+<div class="crafts">
+
+    <div class="d-flex search-container">
+        <div class="flex-grow-1">
+            <input type="search" class="form-control search-input" placeholder="{{ __('Search in your crafts...') }}">
+        </div>
+        <div>
+            <select class="filter-input">
+                <option value="">{{ __('All') }}</option>
+                {% for view in crafts %}
+                <option value="{{ view.id }}">{{ view.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="crafts-container"></div>
+
+    <a class="ml-2 btn btn-secondary open-crafts-btn d-none">{{ __('View all crafts') }}</a>
+
+    <div class="toolbar d-flex">
+        <span class="text">
+            {{ __('Create a') }}
+        </span>
+        <select class="create-craft-type">
+            {% for view in crafts %}
+                <option value="{{ view.id }}">{{ view.name }}</option>
+            {% endfor %}
+        </select>
+        <a href="#" class="create-btn"><i class="fas fa-check-circle"></i></a>
+    </div>
+</div>

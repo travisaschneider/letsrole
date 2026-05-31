@@ -1,0 +1,27 @@
+<div class="sounds">
+    <div class="content px-2 pt-2">
+
+    </div>
+    <div class="volume d-flex p-2 align-items-center">
+        <span class="volume-icon">
+            <i class="fas fa-volume-mute"></i>
+        </span>
+        <input type="range" min="0" max="100" class="flex-grow-1">
+        <span class="volume-icon">
+            <i class="fas fa-volume-up"></i>
+        </span>
+    </div>
+
+    <div class="gm-only d-none px-2 pt-2">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="disable-sound">
+            <label class="custom-control-label" for="disable-sound">{{ __('Prevent players from playing sounds') }}</label>
+        </div>
+    </div>
+
+    <div class="toolbar d-flex justify-content-between">
+        <select class="playlist-select">
+        </select>
+        <a href="#" class="explore-sounds-btn"><i class="fas fa-headphones"></i> {{ __('Sound Library') }}</a>
+    </div>
+</div>

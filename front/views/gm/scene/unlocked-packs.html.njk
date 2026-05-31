@@ -1,0 +1,12 @@
+{% for pack in packs %}
+    <div class="scene-pack" style="background-image: url('{{ cdnReadUrl }}/{{ pack.thumb_path }}')" data-id="{{ pack.id }}">
+        <strong>
+            {{ pack.title }}
+            {% if pack.author %}
+                <small>{{ pack.author }}</small>
+            {% endif %}
+        </strong>
+    </div>
+{% else %}
+    <p>{{ __('You do not have any unlocked scene packs at this time.') }}</p>
+{% endfor %}

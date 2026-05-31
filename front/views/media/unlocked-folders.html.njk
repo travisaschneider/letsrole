@@ -1,0 +1,10 @@
+{% for pack in packs %}
+    <div class="media-pack" style="background-image: url('{{ cdnReadUrl }}/{{ pack.thumb_path }}')" data-id="{{ pack.id }}">
+        <strong>
+            {{ pack.title }}
+            {% if pack.author %}
+                <small>{{ pack.author }}</small>
+            {% endif %}
+        </strong>
+    </div>
+{% endfor %}

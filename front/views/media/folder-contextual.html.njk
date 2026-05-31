@@ -1,0 +1,11 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    <h6 class="dropdown-header">
+        {{ name }}
+    </h6>
+
+    <a href="#" class="dropdown-item" data-action="create-folder"><i class="fas fa-folder-plus"></i> {{ __('Create subfolder') }}</a>
+    <a href="#" class="dropdown-item" data-action="rename"><i class="fas fa-edit"></i> {{ __('Rename') }}</a>
+    <a href="#" class="dropdown-item" data-action="delete"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+    <a href="#" class="dropdown-item" data-action="order-date"><i class="fas fa-sort-amount-down"></i> {{ __('Order by date') }}</a>
+    <a href="#" class="dropdown-item" data-action="order-name"><i class="fas fa-sort-alpha-down"></i> {{ __('Order by name') }}</a>
+</div>

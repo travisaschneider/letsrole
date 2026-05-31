@@ -1,0 +1,20 @@
+{% for partner in partners %}
+    <ul class="root">
+        <li class="closed">
+            <a href="#" data-partner-id="{{ partner.id }}">
+                <span class="folder"></span>
+                <img src="{{ cdnReadUrl }}/{{ partner.logo_path }}" class="logo">
+                {{ partner.name }}
+            </a>
+            <ul>
+                {% for folder in partner.folders %}
+                    <li>
+                        <a href="#" data-partner-id="{{ partner.id }}" data-folder-id="{{ folder.id }}">
+                            {{ folder.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+{% endfor %}

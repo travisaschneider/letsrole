@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-end align-items-center">
+    <div class="btn-share btn-share-read">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="everyone-read-switch-{{ page.id }}-{{ user.id }}">
+            <label class="custom-control-label" for="everyone-read-switch-{{ page.id }}-{{ user.id }}">
+                {{ __('Everyone can read') }}
+            </label>
+        </div>
+    </div>
+
+    <div class="btn-share btn-share-write">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="everyone-edit-switch-{{ page.id }}-{{ user.id }}">
+            <label class="custom-control-label" for="everyone-edit-switch-{{ page.id }}-{{ user.id }}">
+                {{ __('Everyone can edit') }}
+            </label>
+        </div>
+    </div>
+
+    <div class="btn-share btn-reveal" title="{{ __("Displays the entry on the screen of all the players currently connected and shares it in reading with the whole table.") }}">
+        <i class="fas fa-eye"></i>
+        {{ __('Reveal to everyone') }}
+    </div>
+</div>

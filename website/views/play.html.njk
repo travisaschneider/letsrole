@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/play.css">
+    <link rel="stylesheet" href="/css/sheet.css">
+    <title>{{ table.name }} · Let's Role</title>
+</head>
+<body>
+
+<div id="app" class="app-role-gm taskbar-top">
+    <div id="loading">
+        <i class="fas fa-yin-yang fa-spin"></i> Loading...
+    </div>
+    <div class="h-100 d-flex">
+        <div id="character-col">
+            <div id="character-list"></div>
+        </div>
+        <div id="main-menu">
+            <div class="main-menu-inside">
+                <div id="menu-items"></div>
+            </div>
+            <div class="main-menu-title">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                    <span>Menu</span>
+                </a>
+            </div>
+        </div>
+        <div class="column left-column" id="left-column"></div>
+        <div class="column right-column" id="right-column"></div>
+        <div class="map-container h-100">
+            <div id="map"></div>
+        </div>
+        <div id="token-action-container"></div>
+        <div id="dice-result-container"></div>
+        <div id="popin-container"></div>
+        <div id="zoom" class="d-flex flex-column">
+            <div class="btn-group-vertical" role="group" aria-label="Zoom In/Out">
+                <a href="#" class="btn btn-secondary btn-sm" title="Zoom in" id="zoom-in-btn" data-placement="left">
+                    <i class="fas fa-plus"></i>
+                </a>
+                <a href="#" class="btn btn-secondary btn-sm" title="Zoom out" id="zoom-out-btn" data-placement="left">
+                    <i class="fas fa-minus"></i>
+                </a>
+            </div>
+            <a href="#" class="btn btn-secondary btn-sm" title="Ping (p)" id="ping-btn" data-placement="left">
+                <i class="fas fa-bullseye"></i>
+            </a>
+            <a href="#" class="btn btn-secondary btn-sm" title="Display the full map (m)" id="zoom-map-btn" data-placement="left">
+                <i class="fas fa-map"></i>
+            </a>
+        </div>
+        <div id="quickbar">
+            <div class="toggle"></div>
+            <div class="items"></div>
+        </div>
+        <div id="dice"></div>
+        <div id="poi"></div>
+        <div id="contextual"></div>
+        <div id="bindings"></div>
+        <div id="tools"></div>
+        <div id="connecting">
+            <div class="loading-bar">
+                <div class="progress" id="loading-status">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connecting-error-message">
+                We recommend the following steps:
+                <ul>
+                    <li>Check your Internet connection</li>
+                    <li>Make sure you are using the latest version of your browser (Chrome or Firefox)</li>
+                    <li>If the problem seems to come from Let\'s Role, don\'t hesitate to report it on <a href="https://discordapp.com/invite/C8uXgB9">Discord</a>. Thank you!</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                🧡 Let's Role Open Source Developers
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  window.architect = {
+    cluster: {
+      host: "ws://gameserver.lets-role.localhost",
+      port: 7500,
+      region: "eu",
+      name: "quetzalcoatl"
+    },
+    token: "{{ token.id }}",
+    role: "{{ role }}",
+    table: "{{ table.id }}"
+  };
+
+  window.scriptPaths = {
+    lame: "/js/lame.min.js",
+    tuna: "/js/tuna-min.js"
+  };
+
+  window.configuration = {
+    cdnUrl:  'http://lets-role.localhost/cdn',
+    cdnReadUrl: 'http://lets-role.localhost/medias',
+    cdnThumbnailUrl: 'http://lets-role.localhost/medias',
+    avatarEditUrl: '/avatar/edit',
+    avatarEditOnSiteUrl: '/avatar/edit',
+    assetsUrl: 'http://lets-role.localhost',
+    pdfUrl: 'http://pdf.lets-role.localhost',
+    mobile: false,
+    defaultDice: {
+      id: 35,
+      name: "Default",
+      path: "default.gltf"
+    }
+  };
+
+  window.system = {{ system.content|safe }};
+  window.locale = "en";
+  window.translations = {{ translations|safe }};
+</script>
+
+<script src="/js/play-template.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

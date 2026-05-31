@@ -1,0 +1,91 @@
+.ruler-tooltip {
+  position: absolute;
+  z-index: $zRulerTooltip;
+  background: $main-background-color;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+
+  strong {
+    display: block;
+  }
+}
+
+.ruler-option {
+  max-width: 320px;
+  font-size: 11px;
+  font-family: $font1;
+  color: $white;
+
+  input,
+  input:focus,
+  input:active {
+    background: $dark1;
+    color: $white;
+    border-color: $grey2;
+  }
+
+  &.option-cone {
+    input {
+      max-width: 8rem;
+    }
+  }
+}
+
+.rulers-content {
+}
+
+.ruler-btn {
+  display: inline-block;
+  width: 50%;
+  margin-right: 2%;
+  background: $grey2;
+  color: $white;
+  font-family: $font1;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid $grey5;
+  height: 30px;
+  border-radius: 3px;
+
+  span {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 3px;
+  }
+
+  &:hover {
+    color: $orange;
+    text-decoration: none;
+  }
+
+  &.active {
+    color: $orange;
+    border-color: $orange;
+  }
+}
+
+.ruler-line-icon,
+.ruler-cone-icon,
+.ruler-circle-icon,
+.ruler-rect-icon {
+  width: 25px;
+  height: 30px;
+  display: inline-block;
+}
+
+.ruler-line-icon {
+  background: url($assetPath + "/img/theme/ruler-line.png") no-repeat 50% 50%;
+}
+
+.ruler-cone-icon {
+  background: url($assetPath + "/img/theme/ruler-cone.png") no-repeat 50% 50%;
+}
+
+.ruler-circle-icon {
+  background: url($assetPath + "/img/theme/ruler-circle.png") no-repeat 50% 50%;
+}
+
+.ruler-rect-icon {
+  background: url($assetPath + "/img/theme/ruler-rect.png") no-repeat 50% 50%;
+}

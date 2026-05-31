@@ -1,0 +1,128 @@
+@import "../variables";
+
+@font-face {
+  font-family: "saira";
+  src: url("Saira-SemiBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "saira";
+  src: url("Saira-SemiBoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+.sheet.skin-scifi {
+  font-family: saira;
+  background-color: #0f0f0f !important;
+  background-repeat: repeat-x, no-repeat !important;
+  background-position: top left, top right !important;
+
+  @each $name, $color in $themes {
+    &.theme-#{$name} {
+      background-image: linear-gradient(
+          rgba($color, 0.4),
+          darken(rgba($color, 0.8), 50%) 230px,
+          #182229 471px
+        ),
+        url("scifi-bg.jpg") !important;
+    }
+  }
+
+  .highlight-1 {
+    border-top: 1px solid #1acef8 !important;
+  }
+
+  .highlight-1,
+  .highlight-2 {
+    border-radius: 0;
+    background: rgba(#114a6a, 0.5) !important;
+    border: 1px solid #0f425e;
+  }
+
+  .widget.label {
+    font-family: saira;
+  }
+
+  select.widget.choice {
+    font-family: saira;
+    color: white;
+    border-radius: 0;
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    background: rgba(#0e2c3d, 0.9) url("scifi-caret.png") no-repeat center right !important;
+    padding-right: 18px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    background: rgba(#0e2c3d, 0.9);
+    color: #fff;
+    font-family: saira;
+    font-weight: bold;
+    border: 1px solid #123c54;
+    border-radius: 0;
+  }
+
+  .custom-checkbox .custom-control-input ~ .custom-control-label::before {
+    background-color: #142937;
+    border: 1px solid #163a4f;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #142937;
+    border: 1px solid #163a4f;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='aqua' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+  }
+
+  .nav-tabs {
+    border-bottom: 0 none;
+    margin-bottom: 2px;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(43, 139, 208, 0.25);
+  }
+
+  a.nav-link.active {
+    border-bottom: 0 none;
+    background: url("tab-bg.png") repeat;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top: 1px solid #1acef8;
+    color: #fff;
+  }
+
+  a.nav-link {
+    border-left: 0 none;
+    border-right: 0 none;
+    border-top: 0 none;
+    text-transform: none;
+    font-family: saira;
+    background: transparent;
+  }
+
+  a.btn-secondary {
+    font-family: saira;
+    border-radius: 0;
+    background: #1acef8;
+    border: 0 none;
+    color: #172a36;
+    clip-path: polygon(80% 0, 100% 25%, 100% 100%, 50% 100%, 0 100%, 0 0);
+  }
+
+  .repeater-container .repeater-element {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}

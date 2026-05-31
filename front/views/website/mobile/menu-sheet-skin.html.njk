@@ -1,0 +1,16 @@
+<div class="submenu">
+    {% if sheets|length %}
+        <ul class="sheet-skins">
+        {% for sheet in sheets %}
+            <li>
+                <a href="#" data-id="{{ sheet.id }}" data-path="{{ sheet.path }}">
+                    <img src="{{ cdnUrl }}/{{ sheet.thumb_path }}">
+                    <strong>{{ sheet.name }}</strong>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <strong class="empty">{{ __("You don't have any character sheet skins at the moment. Visit our website to buy some!") }}</strong>
+    {% endif %}
+</div>

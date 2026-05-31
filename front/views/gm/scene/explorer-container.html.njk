@@ -1,0 +1,47 @@
+<div class="scene-browser">
+    <div class="tabs d-flex">
+        <a class="tab active" href="#own-tab" data-tab="own"><i class="fas fa-user-tag"></i> {{ __('My own') }}</a>
+        <a class="tab" href="#unlocked-tab" data-tab="unlocked"><i class="fas fa-unlock"></i> {{ __('Unlocked') }}</a>
+    </div>
+
+    <div class="tab-content own-tab">
+        <div class="scene-explorer-header">
+            <div class="d-flex">
+                <div class="search flex-grow-1">
+                    <i class="fas fa-search icon"></i>
+                    <input type="search" placeholder="{{ __('Find a scene...') }}">
+                    <a href="#" class="clear-search"><i class="fas fa-times-circle"></i></a>
+                </div>
+                <div class="category">
+                    <select>
+                        <option value="active">{{ __('Active') }}</option>
+                        <option value="archived">{{ __('Archived') }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="scene-explorer"></div>
+
+        <div class="scene-explorer-toolbar toolbar d-flex">
+            <label for="import-scene-upload" class="import-scene-btn">
+                <i class="fas fa-cloud-upload"></i>
+                {{ __('Import scene') }}
+                <input type="file" id="import-scene-upload" class="d-none" accept=".dd2vtt,.uvtt">
+            </label>
+            <div id="import-progress" class="d-none"></div>
+            <a href="#" class="create-scene-btn ml-auto"><i class="fas fa-plus-circle"></i> {{ __('Create a new scene') }}</a>
+        </div>
+    </div>
+
+    <div class="tab-content unlocked-tab d-none">
+        <div class="unlocked-container">
+            <aside class="sidebar">
+                <div class="folders" id="unlocked-packs"></div>
+            </aside>
+            <div class="unlocked-scenes">
+                <p>{{ __("If you have any, please choose a scene pack on the left.") }}</p>
+            </div>
+        </div>
+    </div>
+</div>

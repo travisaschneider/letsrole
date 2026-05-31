@@ -1,0 +1,28 @@
+<h3>{{ character.name }}</h3>
+<small class="subtitle">{{ __('Selected') }}</small>
+
+<div class="row no-gutters">
+    <div class="col">
+        <div class="form-group">
+            <label>{{ __('Vision (%{unit})', { unit: unit }) }}</label>
+            <input type="number" class="form-control character-vision" value="{{ range|e }}">
+        </div>
+    </div>
+</div>
+
+<div class="row no-gutters">
+    <div class="col mr-2">
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="character-light" {% if emit %}checked{% endif %}>
+                <label class="custom-control-label" for="character-light">{{ __('Emits light') }}</label>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label>{{ __('Light color') }}</label>
+            <input class="form-control color-picker light-color" value="{{ emit_color|e }}">
+        </div>
+    </div>
+</div>

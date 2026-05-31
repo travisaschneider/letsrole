@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "bitter";
+  src: url($assetPath + "/fonts/Bitter-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bitter";
+  src: url($assetPath + "/fonts/Bitter-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bitter";
+  src: url($assetPath + "/fonts/Bitter-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "bitter";
+  src: url($assetPath + "/fonts/Bitter-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}

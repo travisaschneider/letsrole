@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label>{{ __('Name') }}</label>
+    <input type="text" class="form-control" name="name" value="{{ folder.name|e }}">
+</div>
+
+<div class="form-group">
+    <label>{{ __('Move folder to') }}</label>
+    <select class="form-control" name="parent">
+        <option value="">/</option>
+        {% for subfolder in tree %}
+            <option value="{{ subfolder.id }}" {% if subfolder.id == folder.parent_id %}selected{% endif %}>{% for i in range(0, subfolder.depth) %}&nbsp;&nbsp;{% endfor %}{{ subfolder.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<div class="form-group">
+    <div class="d-flex justify-content-between">
+        <a href="#" class="btn btn-primary save-btn">{{ __('Save') }}</a>
+        <a href="#" class="btn btn-secondary delete-btn">{{ __('Delete folder') }}</a>
+    </div>
+</div>

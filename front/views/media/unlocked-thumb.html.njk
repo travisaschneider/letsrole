@@ -1,0 +1,20 @@
+{% for media in medias %}
+    {% set name = media.title|default(media.filename) %}
+    <div class="col-4">
+        <div class="media-thumbnail media-entry"
+             style="background-image: url('{{ cdnThumbnailUrl }}/{{ media.path }}')"
+             draggable="true"
+             data-thumbnail="{{ cdnThumbnailUrl }}/{{ media.path }}"
+             data-url="{{ cdnReadUrl }}/{{ media.path }}"
+             data-id="{{ media.id }}"
+             data-unlocked-id="{{ media.id }}"
+             data-type="image"
+        >
+            <div class="info" title="{{ name|e }}">
+                <label for="media-{{ media.id }}">
+                    <span class="name name-container">{{ name }}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+{% endfor %}

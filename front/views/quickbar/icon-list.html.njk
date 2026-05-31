@@ -1,0 +1,5 @@
+{% for icon in pack.icons %}
+<a href="#" class="icon" data-pack="{{ pack.id }}" data-path="{{ icon.path }}">
+    <img src="{{ cdnReadUrl }}/{{ icon.path }}">
+</a>
+{% endfor %}

@@ -1,0 +1,43 @@
+{% for craft in crafts %}
+<div class="craft-item-simple" data-id="{{ craft.id }}" draggable="true" data-keyid="{{ craft.keyid }}" data-title="{{ craft.name }}">
+    <div class="d-flex">
+        <div class="avatar-container">
+            {% if craft.avatar %}
+                {% include "craft/list/avatar.html.njk" %}
+            {% endif %}
+        </div>
+
+        <div class="flex-grow-1">
+            <h6 class="craft-name">
+                {% if userId != craft.created_by %}
+                    <span class="text-muted" title="{{ __('Shared with me') }}"><i class="fas fa-share-alt"></i></span>
+                {% endif %}
+
+                {{ craft.name }}
+            </h6>
+            <small>{{ craftNames[craft.view] }}</small>
+        </div>
+        <div>
+            {#
+            {{#if tokenizable}}
+            <a href="#" class="drop-craft" title="You can drop this craft on the scene"><i class="fas fa-arrows-alt"></i></a>
+            {{/if}}
+            #}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<nav class="simple-pagination">
+    <div class="justify-content-between align-items-center d-flex">
+        {% if page > 1 %}
+            <a href="#" data-page="{{ page - 1 }}" class="pagination-page"><i class="fas fa-angle-left"></i> {{ __('Previous') }}</a>
+        {% endif %}
+
+            <span>{{ __('Crafts: %{count}', {count: total}) }}</span>
+
+        {% if page < pages %}
+            <a href="#" data-page="{{ page + 1 }}" class="pagination-page">{{ __('Next')}} <i class="fas fa-angle-right"></i></a>
+        {% endif %}
+    </div>
+</nav>

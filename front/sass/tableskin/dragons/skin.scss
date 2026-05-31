@@ -1,0 +1,209 @@
+@import "../../variables";
+@import "variables";
+@import "font";
+
+@import "../../all";
+
+#app #map {
+  background-color: #000;
+  background-image: url("./bg.jpg");
+}
+
+a {
+  color: $white;
+}
+
+.column {
+  overflow: visible;
+
+  section.dock {
+    &.closed {
+      box-shadow: none;
+      min-height: 35px !important;
+
+      > header {
+        background-image: url("./header.jpg");
+        background-size: cover;
+        height: 35px;
+        padding: 0;
+
+        h3 {
+          margin-top: -3px;
+        }
+      }
+    }
+
+    > header {
+      background: $grey2 url("./header.jpg") repeat-x;
+      background-size: auto 100%;
+      border-radius: 0;
+      height: 35px;
+
+      h3 {
+        font-weight: normal;
+        font-size: 14px;
+        height: 35px;
+        margin-top: 2px;
+
+        i {
+          font-size: 20px;
+          color: $white;
+        }
+      }
+
+      .dock-title {
+        position: relative;
+        top: -2px;
+      }
+
+      .dock-options {
+        margin-top: 0;
+      }
+    }
+
+    main {
+      background: $grey6 url("./bg-dock.jpg") repeat;
+    }
+  }
+}
+
+#quickbar {
+
+  &::before {
+    background: url("./quickbar.png") no-repeat;
+    width: 869px;
+    height:168px;
+    content: "";
+    position: absolute;
+    left: -42px;
+    top: -85px;
+  }
+
+  .toggle {
+    color: $yellow;
+    background: $grey1;
+  }
+
+  section {
+    background: url("./slot.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 0;
+
+    > a {
+      top: 2px;
+      left: 2px;
+      border-radius: 0;
+    }
+  }
+}
+
+.popin {
+  background-color: transparentize($dark1, 0.15);
+  background-repeat: repeat;
+  border: 1px solid $grey2;
+
+  > header {
+    background: $grey2;
+    background-image: url("./header.jpg");
+    background-repeat: repeat-x;
+    background-size: cover;
+
+    h3 {
+      color: $white;
+      font-size: 14px;
+    }
+
+    a {
+      color: $yellow !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+.popin.popin-journal {
+  background-color: transparentize($grey6, 0.25);
+  background-repeat: repeat;
+  color: $white;
+
+  > header {
+    background: $grey2;
+
+    h3 {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+
+  label {
+    color: #fff;
+  }
+
+  input,
+  select {
+    background-color: $grey5;
+    color: #fff;
+  }
+
+  main {
+    color: $white;
+
+    .encyclopedia-page-edit {
+      color: $dark1;
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+
+  .actions {
+    top: auto;
+    bottom: 10px;
+    left: -50px;
+
+    a {
+      background: transparent;
+      color: $yellow;
+
+      &:hover {
+        background: transparent;
+        color: $white;
+      }
+    }
+  }
+}
+
+.encyclopedia-share,
+.popin.popin-journal .access-users,
+.popin.popin-journal .access-tables {
+  color: $orange;
+}
+
+.popin.popin-journal input,
+.popin.popin-journal select {
+  background: $grey2;
+  color: white;
+}
+
+.media-manager .sidebar .available-disk .progress-bar {
+  background: $grey2;
+}
+
+.toolbar {
+  background-image: url("./dock-footer.jpg");
+  background-repeat: repeat-x;
+}
+
+.form-control, .popin input.form-control {
+  border: 1px solid $grey1;
+}

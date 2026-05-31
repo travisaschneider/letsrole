@@ -1,0 +1,25 @@
+<h2>{{ playlist.title }}</h2>
+<p class="playlist-actions">
+    <a href="#" class="rename-playlist-btn"><i class="fas fa-quote-right"></i> {{ __('Rename playlist') }}</a>
+    <a href="#" class="delete-playlist-btn"><i class="fas fa-trash-alt"></i> {{ __('Delete playlist') }}</a>
+</p>
+
+<div class="row">
+    {% for sound in sounds %}
+    <div class="col-6 mb-2 sound-entry" data-path="{{ sound.path }}" data-id="{{ sound.id }}" data-local-id="{{ sound.localId }}" draggable="true" data-type="{{ sound.type }}">
+        <div class="d-flex">
+            <a href="#" class="play-btn">
+                <i class="fas fa-play"></i>
+                <i class="fas fa-stop"></i>
+            </a>
+            <div class="ml-2">
+                <strong class="title">{{ sound.title }}</strong>
+                <small class="actions">
+                    <a href="#" class="rename-btn"><i class="fas fa-quote-right"></i> {{ __('Rename') }}</a>
+                    <a href="#" class="remove-btn"><i class="fas fa-trash-alt"></i> {{ __('Remove') }}</a>
+                </small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,19 @@
+<h2>{{ __("Connect to a table") }}</h2>
+
+<p>{{ __("You will see the other players' dice rolls and your own will be sent to them.") }}</p>
+
+<p>
+    <a href="#" class="btn btn-primary btn-copy"><i class="fas fa-copy"></i> {{ __('Join a table by copying its URL') }}</a>
+    <a href="#" class="btn btn-primary btn-qrcode"><i class="fas fa-qrcode"></i> {{ __('Join a table by QR Code') }}</a>
+</p>
+
+{% for table in tables %}
+    <div class="table-entry d-flex justify-content-between align-items-center" data-id="{{ table.id }}">
+        <strong>{{ table.name }}</strong>
+        <a href="#" class="btn btn-primary" data-connected="{{ __('Connected!') }}">{{ __('Connect') }}</a>
+    </div>
+{% else %}
+    <p>{{ __("You haven't joined any tables yet.") }}</p>
+{% endfor %}
+
+<a href="#" class="btn btn-secondary btn-cancel">{{ __('Cancel') }}</a>

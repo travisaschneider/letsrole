@@ -1,0 +1,112 @@
+/**
+ * Paths
+ */
+$assetPath: "/assets";
+
+/*
+ * Metrics
+ */
+$character-col-width: 165px;
+$taskbar-height: 114px;
+$dice-result-top: 80px;
+$taskbar-inside-height: 94px;
+$dock-header-height: 30px;
+$main-background-color: #17222c;
+$orange: #f15a24;
+$lightblue: #607283;
+$flashblue: #1dacff;
+$popin-header-height: 2rem;
+$error: #db3939;
+$sharedPassColor: #965cc5;
+
+/**
+ * Next
+ */
+$secondaryColor: #6b9aad;
+$backgroundColor: #242b3b;
+
+/**
+ * Color themes
+ */
+$theme-red: #c61b09;
+$theme-orange: #fa6900;
+$theme-yellow: #f8ca00;
+$theme-green: #7ab317;
+$theme-cyan: #00b4ff;
+$theme-lightblue: #1869d2;
+$theme-blue: #0b2e59;
+$theme-magenta: #bd1550;
+$theme-pink: #fe6196;
+
+$themes: (
+  "red": $theme-red,
+  "orange": $theme-orange,
+  "yellow": $theme-yellow,
+  "green": $theme-green,
+  "cyan": $theme-cyan,
+  "lightblue": $theme-lightblue,
+  "blue": $theme-blue,
+  "magenta": $theme-magenta,
+  "pink": $theme-pink,
+);
+
+$escapedThemes: (
+  "red": "%23c61b09",
+  "orange": "%23fa6900",
+  "yellow": "%23f8ca00",
+  "green": "%237ab317",
+  "cyan": "%2300b4ff",
+  "lightblue": "%231869d2",
+  "blue": "%230b2e59",
+  "magenta": "%23bd1550",
+  "pink": "%23fe6196",
+);
+
+$column-width: 270px;
+$column-margin: 9px;
+$column-with-taskbar-top: 60px;
+$closed-dock-width: 150px;
+
+$font1: "opensans";
+$font2: "bitter";
+
+$dark1: #272626;
+$grey1: #51545b;
+$grey2: #383838;
+$grey3: #ccc;
+$grey4: #e4e4e4;
+$grey5: #717681;
+$grey6: #474747;
+$white: #fff;
+$fumble: #fd6162;
+$critical: #5ad35c;
+
+$scrollbar-thumb: #666;
+$scrollbar-track: #222;
+
+$zMap: 1;
+$zCharacterBar: 10;
+$zColumn: 10;
+$zQuickBar: 10;
+$zPopper: 13;
+$zRulerTooltip: 15;
+$zChat: 20;
+$zQuickMusic: 22;
+$zTokenAction: 25;
+$zPopout: 50;
+$zBinding: 60;
+$zPoI: 70;
+$zContextual: 75;
+$zLoading: 85;
+$zZoomToolbar: 92;
+$zToolsState: 94;
+$zMainMenu: 98;
+$zDice: 100;
+$zDiceResult: 110;
+$zExit: 150;
+$zConnecting: 200;
+
+$doorOpenedUrl: url($assetPath + "/img/door-opened.png");
+$doorClosedUrl: url($assetPath + "/img/door-closed.png");
+
+$fa-font-path: $assetPath + "/fonts";

@@ -1,0 +1,12 @@
+{% if canGiveControl %}
+    <div class="btn-group dropdown-item dropright">
+        <button type="button" class="dropdown-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users"></i> {{ __('Give control to') }}
+        </button>
+        <div class="dropdown-menu menu">
+            {% for user in users %}
+                <a href="#" class="dropdown-item give-control-action {% if alreadyControl[user.id] %}bg-success text-white{% endif %}" data-user-id="{{ user.id }}"><i class="fas fa-user-plus"></i> {{ user.chatname }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

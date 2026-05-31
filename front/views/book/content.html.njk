@@ -1,0 +1,42 @@
+<div class="book-listing">
+    {% for entry in entries %}
+        {% if entry.type == "craft" %}
+            {% set view = craftViews[entry.craft_type] %}
+            <div class="book-item craft-item-simple" data-id="{{ entry.internal_id }}" draggable="true" data-type="craft" data-view="{{ entry.craft_type }}">
+                <div class="d-flex">
+                    <div class="avatar">
+                        {% if view.id == "monster" %}
+                            <img src="/assets/img/book-monster.png" height="30">
+                        {% elseif view.id == "spell" %}
+                            <img src="/assets/img/book-spell.png" height="30">
+                        {% elseif view.tokenizable %}
+                            <img src="{{cdnReadUrl}}/static/default-avatar.png" height="30">
+                        {% endif %}
+                    </div>
+                    <div class="flex-grow-1">
+                        <h6 class="craft-name">
+                            {{ entry.title }}
+                        </h6>
+                        <small>{{ __('Craft · %{name}', {name: view.name}) }}</small>
+                    </div>
+                    <div>
+                        <a href="#" class="clone-craft with-tooltip" data-id="{{ view.internal_id }}" title="{{ __('Clone into my crafts') }}"><i class="fas fa-plus-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+<div class="book-pagination d-flex mt-1">
+    {% if hasPrevious %}
+    <a class="page-action ml-2" data-page="{{ previousPage }}" href="#"><i class="fas fa-chevron-left"></i></a>
+    {% endif %}
+
+    <span class="total ml-auto mr-auto">{{ __('%{total} entries', {total: total}) }}</span>
+
+    {% if hasNext %}
+    <a class="page-action mr-2" data-page="{{ nextPage }}" href="#"><i class="fas fa-chevron-right"></i></a>
+    {% endif %}
+</div>

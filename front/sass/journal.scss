@@ -1,0 +1,818 @@
+.journal-dock {
+  $padding: 15px;
+  $maxListHeight: 450px;
+
+  font-family: $font1;
+
+  .loading,
+  .no-result {
+    color: $white;
+    padding: 30px 0;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+  }
+
+  .folders {
+    padding: 5px $padding;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: $maxListHeight;
+    overflow: auto;
+
+    .folder-input,
+    .entry-input {
+      min-width: 100px;
+    }
+
+    ul {
+      padding: 0 0 0 20px;
+      margin: 0 0 0 0;
+      list-style-type: none;
+      border-left: 1px solid $white;
+
+      &.root {
+        border-left: 0 none;
+        margin-left: -15px;
+
+        > li > a > span.folder::before,
+        > li > a > span.page::before {
+          width: 0;
+        }
+      }
+
+      li {
+        position: relative;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 4px 0;
+        color: $white;
+
+        &.folder-edit {
+          display: flex;
+          flex-direction: column;
+
+          input {
+            margin: 0;
+            height: 20px;
+            margin-left: 20px;
+          }
+        }
+
+        &.hide:not(.children-filtered) {
+          display: none;
+        }
+
+        &.open > a > span.folder::after {
+          content: "\f07c";
+        }
+
+        > a > span.folder::after {
+          content: "\f07b";
+        }
+
+        &.filtered {
+          > a {
+            color: $secondaryColor;
+          }
+        }
+
+        &.closed {
+          > ul {
+            display: none;
+          }
+        }
+
+        &.active {
+          > a {
+            color: $orange;
+          }
+        }
+
+        a {
+          color: $white;
+          white-space: nowrap;
+
+          &.drag {
+            color: $orange;
+            text-decoration: underline;
+          }
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+
+      span.folder {
+        width: 10px;
+        display: inline-block;
+        margin-right: 5px;
+
+        &::before {
+          content: "";
+          width: 10px;
+          border-bottom: 1px solid $white;
+          position: absolute;
+          left: -20px;
+          top: 8px;
+        }
+
+        &::after {
+          content: "\f07b";
+          font-family: "Font Awesome 5 Pro";
+          position: absolute;
+          font-weight: 900;
+          top: -4px;
+          left: -5px;
+          font-size: 16px;
+        }
+      }
+
+      span.page {
+        width: 10px;
+        display: inline-block;
+        margin-right: 5px;
+
+        &::before {
+          content: "";
+          width: 10px;
+          border-bottom: 1px solid $white;
+          position: absolute;
+          left: -20px;
+          top: 8px;
+        }
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+
+  .tabs {
+    background-color: $grey1;
+    display: flex;
+    padding: 5px 8px 0 8px;
+    align-items: center;
+    justify-content: space-evenly;
+
+    :first-child {
+      margin-right: 8px;
+    }
+
+    a.tab {
+      flex-grow: 1;
+      text-align: center;
+      padding: 5px;
+      color: $white;
+      font-family: $font1;
+      font-size: 13px;
+      font-weight: bold;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+
+      &.active {
+        background-color: $grey2;
+      }
+    }
+  }
+
+  .search {
+    background-color: $grey2;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+
+    input[type="search"] {
+      flex-grow: 1;
+      border: 1px solid $grey1;
+      background-color: $dark1;
+      color: $white;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: $font1;
+      padding: 3px 8px;
+    }
+
+    .refresh {
+      margin-left: 8px;
+      color: $white;
+      font-size: 13px;
+
+      i {
+        transition: transform 0.7s ease-in-out;
+      }
+
+      &:hover {
+        color: $orange;
+
+        i {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  #journal-upload-form {
+    width: 0;
+    height: 0;
+
+    input {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .new-entry-container {
+    padding: 5px $padding;
+
+    a {
+      display: inline-block;
+      color: $white;
+      background: $grey1;
+      border-radius: 3px;
+      padding: 5px 18px;
+      font-family: $font1;
+      font-size: 12px;
+      font-weight: bold;
+
+      i {
+        margin-right: 6px;
+        font-size: 17px;
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+
+  .journal-errors {
+    background-color: $error;
+    color: $white;
+    font-size: 12px;
+    font-family: $font1;
+    font-weight: bold;
+    margin-top: 15px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 8px;
+        margin: 0;
+      }
+    }
+  }
+
+  .journal-upload-progress {
+    $progressHeight: 6px;
+
+    height: $progressHeight;
+    width: 100%;
+    background: $white;
+    margin-top: 12px;
+
+    .progress-inside {
+      height: $progressHeight;
+      background-color: $orange;
+      transition: width 0.25s linear;
+    }
+  }
+}
+
+.encyclopedia-page-edit {
+}
+
+.popin.popin-journal {
+  main {
+    color: #000;
+  }
+}
+
+.journal-popin {
+  main {
+    padding: 0;
+    overflow-x: hidden;
+
+    .journal-entry {
+      height: calc(100% - 3.5rem);
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+
+  nav.tabs {
+    display: flex;
+    justify-content: space-between;
+    background: $grey1;
+    padding: 4px 4px 0 4px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 3px solid $grey2;
+
+    ul {
+      display: flex;
+      flex-grow: 1;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      a {
+        display: inline-block;
+        font-size: 13px;
+        color: #fff;
+        opacity: 0.5;
+        padding: 8px 16px;
+        font-weight: bold;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        i {
+          margin-right: 6px;
+        }
+
+        &.active {
+          opacity: 1;
+          background: $grey2;
+        }
+      }
+    }
+  }
+
+  .tab-panes {
+    height: 100%;
+
+    .pane {
+      display: none;
+      height: 100%;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .pane-view {
+    .content {
+      padding: 8px;
+
+      a {
+        color: $orange;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .pane-edit {
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      border: 1px solid $grey1;
+    }
+
+    .icons {
+      .d-flex {
+        gap: 3px;
+      }
+
+      .icon {
+        font-size: 16px;
+        background: $dark1;
+        border: 1px solid $grey1;
+        padding: 3px 5px;
+        color: #fff;
+        height: 30.5px;
+        width: 30.5px;
+        border-radius: 0.25rem;
+        line-height: 1.4rem;
+        text-align: center;
+        transition: border-color 0.2s linear, opacity 0.2s linear;
+
+        &:hover {
+          border-color: $white;
+
+          i {
+            opacity: 0.75;
+          }
+        }
+
+        i {
+          opacity: 0.5;
+        }
+
+        &.active {
+          border-color: $orange !important;
+
+          i {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .share-content {
+    height: calc(100% - 70px);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+
+  .share-table {
+    .permission-entry {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $dark1;
+
+      .character-avatar {
+        width: 42px;
+        min-width: 42px;
+        height: 42px;
+        background-position: 50% 50%;
+        background-size: cover;
+        margin-right: 8px;
+        margin-left: 8px;
+        border-radius: 21px;
+        border: 2px solid $dark1;
+      }
+
+      .user-col {
+        flex-grow: 1;
+
+        .username {
+          display: block;
+          font-size: 12px;
+        }
+
+        small {
+          margin-top: 2px;
+          font-size: 11px;
+        }
+      }
+      .perm-col {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        .read,
+        .write {
+          margin-right: 10px;
+
+          &.global {
+            opacity: 0.4;
+            pointer-events: none;
+          }
+        }
+
+        .read,
+        .write,
+        .reveal {
+          background: $dark1;
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-weight: bold;
+          cursor: pointer;
+          height: 35px;
+          display: flex;
+          align-items: center;
+        }
+
+        .reveal i {
+          margin-right: 5px;
+        }
+
+        .custom-switch
+          .custom-control-input:disabled:checked
+          ~ .custom-control-label::before {
+          background-color: #717681;
+        }
+
+        .custom-control-input ~ .custom-control-label {
+          color: $grey3;
+        }
+
+        .custom-control-input:checked ~ .custom-control-label {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border: 2px solid #666;
+    color: $white;
+
+    td {
+      border: 1px solid #999;
+    }
+
+    tr {
+      transition: background-color 0.35s ease-in;
+    }
+
+    tr.line-rolled {
+      background-color: $grey6;
+    }
+  }
+
+  figure.media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    > [data-oembed-url],
+    div {
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  blockquote {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: $white;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    border-left: 5px solid $grey5;
+    line-height: 1.2;
+    position: relative;
+    background: $grey1;
+    margin-bottom: 0.5rem;
+  }
+
+  blockquote::before {
+    content: "\201C";
+    color: $grey4;
+    font-size: 2.5rem;
+    position: absolute;
+    left: 6px;
+    top: 0;
+  }
+
+  .journal-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $grey1;
+    padding: 10px;
+
+    .btn-share {
+      background: $dark1;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      min-height: 35px;
+      padding-top: 7px;
+
+      &.global {
+        opacity: 0.45;
+        pointer-events: none;
+      }
+    }
+
+    .btn-share-read,
+    .btn-share-write {
+      margin-right: 10px;
+    }
+
+    .custom-control-input ~ .custom-control-label {
+      color: $grey3;
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+      color: $white;
+    }
+
+    .custom-switch
+      .custom-control-input:disabled:checked
+      ~ .custom-control-label::before {
+      background-color: #717681;
+    }
+  }
+
+  .ck.ck-editor__main {
+    height: 250px;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+
+  .ck-editor__editable {
+    color: $white;
+
+    a {
+      color: $orange;
+    }
+  }
+
+  .ck.ck-editor__editable_inline {
+    overflow: hidden;
+  }
+
+  //
+  // CKEditor custom theme
+  //
+
+  --ck-color-base-background: #{lighten($dark1, 3%)};
+  --ck-color-base-border: #{$grey5};
+  --ck-focus-ring: 1px solid #{$grey5};
+  --ck-color-base-active: #{$dark1};
+  --ck-color-button-on-color: #{$orange};
+  --ck-color-button-on-background: #{$grey6};
+
+  --ck-border-radius: 3px;
+  --ck-font-size-base: 12px;
+  --ck-custom-background: #{$dark1};
+  --ck-custom-foreground: #{$grey3};
+  --ck-custom-border: #{$grey5};
+  --ck-custom-white: #{$white};
+  --ck-color-base-foreground: var(--ck-custom-background);
+  --ck-color-focus-border: $orange;
+  --ck-color-text: #{$grey3};
+  --ck-color-shadow-drop: hsla(0, 0%, 0%, 0.2);
+  --ck-color-shadow-inner: hsla(0, 0%, 0%, 0.1);
+  --ck-color-button-default-background: var(--ck-custom-background);
+  --ck-color-button-default-hover-background: hsl(270, 1%, 22%);
+  --ck-color-button-default-active-background: hsl(270, 2%, 20%);
+  --ck-color-button-default-active-shadow: hsl(270, 2%, 23%);
+  --ck-color-button-default-disabled-background: var(--ck-custom-background);
+  --ck-color-button-on-hover-background: hsl(255, 4%, 16%);
+  --ck-color-button-on-active-background: hsl(255, 4%, 14%);
+  --ck-color-button-on-active-shadow: hsl(240, 3%, 19%);
+  --ck-color-button-on-disabled-background: var(--ck-custom-foreground);
+  --ck-color-button-action-background: hsl(168, 76%, 42%);
+  --ck-color-button-action-hover-background: hsl(168, 76%, 38%);
+  --ck-color-button-action-active-background: hsl(168, 76%, 36%);
+  --ck-color-button-action-active-shadow: hsl(168, 75%, 34%);
+  --ck-color-button-action-disabled-background: hsl(168, 76%, 42%);
+  --ck-color-button-action-text: var(--ck-custom-white);
+  --ck-color-button-save: hsl(120, 100%, 46%);
+  --ck-color-button-cancel: hsl(15, 100%, 56%);
+  --ck-color-dropdown-panel-background: var(--ck-custom-background);
+  --ck-color-dropdown-panel-border: var(--ck-custom-foreground);
+  --ck-color-split-button-hover-background: var(
+    --ck-color-button-default-hover-background
+  );
+  --ck-color-split-button-hover-border: var(--ck-custom-foreground);
+  --ck-color-input-background: var(--ck-custom-background);
+  --ck-color-input-border: hsl(257, 3%, 43%);
+  --ck-color-input-text: hsl(0, 0%, 98%);
+  --ck-color-input-disabled-background: hsl(255, 4%, 21%);
+  --ck-color-input-disabled-border: hsl(250, 3%, 38%);
+  --ck-color-input-disabled-text: hsl(0, 0%, 78%);
+  --ck-color-labeled-field-label-background: var(--ck-custom-background);
+  --ck-color-list-background: var(--ck-custom-background);
+  --ck-color-list-button-hover-background: var(--ck-color-base-foreground);
+  --ck-color-list-button-on-background: var(--ck-color-base-active);
+  --ck-color-list-button-on-background-focus: var(--ck-color-base-active-focus);
+  --ck-color-list-button-on-text: var(--ck-color-base-background);
+  --ck-color-panel-background: var(--ck-custom-background);
+  --ck-color-panel-border: var(--ck-custom-border);
+  --ck-color-toolbar-background: var(--ck-custom-background);
+  --ck-color-toolbar-border: var(--ck-custom-border);
+  --ck-color-tooltip-background: hsl(252, 7%, 14%);
+  --ck-color-tooltip-text: hsl(0, 0%, 93%);
+  --ck-color-image-caption-background: hsl(0, 0%, 97%);
+  --ck-color-image-caption-text: hsl(0, 0%, 20%);
+  --ck-color-widget-blurred-border: hsl(0, 0%, 87%);
+  --ck-color-widget-hover-border: hsl(43, 100%, 68%);
+  --ck-color-widget-editable-focus-background: var(--ck-custom-white);
+  --ck-color-link-default: hsl(190, 100%, 75%);
+}
+
+#contextual {
+  .folder-share-users {
+    em {
+      margin-left: 5px;
+      font-weight: normal !important;
+      font-size: 10px;
+    }
+  }
+}
+
+.popover.folder-sharing-popover {
+  .popover-header {
+    font-size: 85%;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 5px 0;
+  }
+
+  em {
+    font-size: 10px;
+  }
+
+  i {
+    margin-left: 6px;
+  }
+}
+
+.popover.journal-help {
+  max-width: 430px;
+
+  .journal-help-content {
+    max-height: 600px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+
+    h2 {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    a {
+      color: $orange;
+    }
+  }
+}

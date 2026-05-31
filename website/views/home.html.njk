@@ -1,0 +1,11 @@
+{% extends "layout.html.njk" %}
+
+{% block content %}
+    <a href="/table" class="btn btn-lg btn-primary">New table</a>
+
+    <h2 class="mt-5">My tables</h2>
+
+    {% for table in tables %}
+        {% include "table/card.html.njk" %}
+    {% endfor %}
+{% endblock %}

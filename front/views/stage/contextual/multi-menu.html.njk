@@ -1,0 +1,12 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    <h6 class="dropdown-header">
+        {{ __('Multiple selection') }}
+        <br><small>{{ __('%{itemcount} items', { itemcount: items.size }) }}</small>
+    </h6>
+
+    {% if isGm %}
+        {% include 'stage/contextual/layer-move.html.njk' %}
+    {% endif %}
+
+    <a href="#" class="dropdown-item delete-action"><i class="fas fa-trash-alt"></i> {{ __('Delete items') }}</a>
+</div>

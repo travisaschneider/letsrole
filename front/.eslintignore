@@ -1,0 +1,12 @@
+/node_modules
+/dist
+/shared
+/web
+/.vscode
+/.idea
+/webpack*
+/i18next-scanner*
+/src/Engine/Util/SuperGif*
+/src/View/Sound/Jungle.ts
+/src/View/Sound/Transformer/*
+/src/Website/grammar.ts

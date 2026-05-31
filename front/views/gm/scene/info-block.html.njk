@@ -1,0 +1,35 @@
+<h3 class="scene-name">
+    {% if scene.name %}
+        {{ scene.name }}
+    {% else %}
+        {{ __('Untitled scene') }}
+    {% endif %}
+
+    <a href="#" class="btn-secondary btn-sm" id="edit-scene-btn"><i class="fas fa-cog"></i></a>
+</h3>
+
+<div class="scene-details">
+    <span>
+        {{ __('%{width}x%{height} pixels', { width: scene.data.width, height: scene.data.height}) }}
+    </span>
+
+    {% if not same %}
+        <span class="mt-2 mb-2 p-2 border-danger border-top border-bottom">
+            <i class="text-danger fas fa-engine-warning"></i> {{ __('Your players are on a different scene.') }}
+            <a href="#" id="teleport-scene-btn">{{ __('Transport them here now.') }}</a>
+        </span>
+    {% endif %}
+
+    {% if scene.data.grid.enabled %}
+        <span>
+            {{ __('Grid enabled') }}<br>
+            <strong>{{scene.data.metrics.baseCount}} {{scene.data.metrics.baseType}} = {{scene.data.metrics.equalCount}} {{scene.data.metrics.equalType}}</strong>
+        </span>
+    {% endif %}
+
+    {% if scene.data.fog.enabled %}
+        <span>
+            {{ __('Fog of War enabled') }}
+        </span>
+    {% endif %}
+</div>

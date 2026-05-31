@@ -1,0 +1,20 @@
+{% for playlist in playlists %}
+<div class="playlist mb-2" data-id="{{ playlist.id }}">
+    <div class="d-flex justify-content-between align-items-stretch">
+        <div>
+            <h4><a href="#">{{ playlist.title }}</a></h4>
+            <div>
+                {% if playlist.songCount > 1 %}
+                    {{ __('%{count} songs', { count: playlist.songCount}) }}
+                {% else %}
+                    {{ __('%{count} song', { count: playlist.songCount}) }}
+                {% endif %}
+                ·
+                {{ humanDuration(playlist.totalDuration) }}
+            </div>
+        </div>
+
+        <a href="#" class="btn btn-secondary play-now-btn" data-id="{{ playlist.id }}" title="{{ __('Play now') }}"><i class="fas fa-play-circle"></i> {{ __('Play now') }}</a>
+    </div>
+</div>
+{% endfor %}

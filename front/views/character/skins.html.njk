@@ -1,0 +1,13 @@
+<h6 class="dropdown-header">{{ __('Change Skin') }}</h6>
+<a class="dropdown-item skin-btn" href="#" data-skin="0">{{ __('Default') }}</a>
+{% for skin in skins %}
+    <a class="dropdown-item skin-btn" href="#" data-skin="{{ skin.id }}">
+        <strong>{{ skin.name }}</strong>
+
+        {% if skin.shared_by %}
+            <em class="shared-by">
+                {{ __(' -- shared by %{username}', { 'username': skin.shared_by }) }}
+            </em>
+        {% endif %}
+    </a>
+{% endfor %}

@@ -1,0 +1,61 @@
+{
+  "_from": "@wizpanda/super-gif",
+  "_id": "@wizpanda/super-gif@0.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-B2DKgDuPPdi5XR/xcVkNR2CgS90u4BYXIvyLBzj+JIbHwfAZA8KVN2V/YE52xxEKePujqfir32zRtP9YBx4TLw==",
+  "_location": "/@wizpanda/super-gif",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@wizpanda/super-gif",
+    "name": "@wizpanda/super-gif",
+    "escapedName": "@wizpanda%2fsuper-gif",
+    "scope": "@wizpanda",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@wizpanda/super-gif/-/super-gif-0.0.5.tgz",
+  "_shasum": "11cf2b9662a331e985ab9855bbe9f0009be7fe7c",
+  "_spec": "@wizpanda/super-gif",
+  "_where": "/home/jonathan/w/letsrole/frontapp",
+  "author": {
+    "name": "Shashank Agrawal"
+  },
+  "bugs": {
+    "url": "https://github.com/wizpanda/super-gif/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "GIF parser & player in Typescript to work with node_modules (converted from https://github.com/buzzfeed/libgif-js)",
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  },
+  "homepage": "https://github.com/wizpanda/super-gif#readme",
+  "keywords": [
+    "gif",
+    "typescript",
+    "javascript",
+    "angular"
+  ],
+  "license": "MIT",
+  "main": "",
+  "name": "@wizpanda/super-gif",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizpanda/super-gif.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "postversion": "git push && git push --tags",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "npm run build && npm publish --access public"
+  },
+  "type": "dist/super-gif.d.ts",
+  "version": "0.0.5"
+}

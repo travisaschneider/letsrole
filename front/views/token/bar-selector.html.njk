@@ -1,0 +1,163 @@
+<div class="bar-selector">
+
+    <div class="row">
+        <div class="col">
+            <h3>{{ __('Bar 1') }}</h3>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="enabled-bar-1">
+                <label class="custom-control-label" for="enabled-bar-1">{{ __('Enabled') }}</label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="share-bar-1">
+                <label class="custom-control-label" for="share-bar-1">{{ __('Share this bar with everyone at the table') }}</label>
+            </div>
+
+            <div class="mt-2">
+                <div class="form-group d-none connect-1-group">
+                    <label>{{ __('Connect to') }}</label>
+                    <select class="connect-1-select form-control">
+                        <option value="">{{ __('Nothing - Manual') }}</option>
+                    </select>
+                </div>
+
+                <div class="row manual-1-group">
+                    <div class="col">
+
+                        <div class="form-group">
+                            <label>{{ __('Value') }}</label>
+
+                            <div class="row">
+                                <div class="col d-none">
+                                    <select class="form-control bar-1-value-type">
+                                        <option value="custom">{{ __('Custom') }}</option>
+                                        <option value="linked">{{ __('Linked') }}</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <div class="bar-1-value-custom-container">
+                                        <input type="number" class="form-control bar-1-value-custom">
+                                    </div>
+                                    <div class="bar-1-value-linked-container d-none">
+                                        <select class="form-control bar-1-value-linked"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label>{{ __('Maximum') }}</label>
+
+                            <div class="row">
+                                <div class="col d-none">
+                                    <select class="form-control bar-1-max-type">
+                                        <option value="custom">{{ __('Custom') }}</option>
+                                        <option value="linked">{{ __('Linked') }}</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <div class="bar-1-max-custom-container">
+                                        <input type="number" class="form-control bar-1-max-custom">
+                                    </div>
+                                    <div class="bar-1-max-linked-container d-none">
+                                        <select class="form-control bar-1-max-linked"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                {% for color in colors %}
+                <div class="col">
+                    <div class="bar-color-selector bar1-color" data-color="{{ color }}" style="background-color: {{ color }}"></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>{{ __('Bar 2') }}</h3>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="enabled-bar-2">
+                <label class="custom-control-label" for="enabled-bar-2">{{ __('Enabled') }}</label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="share-bar-2">
+                <label class="custom-control-label" for="share-bar-2">{{ __('Share this bar with everyone at the table') }}</label>
+            </div>
+
+            <div class="mt-2">
+                <div class="form-group d-none connect-2-group">
+                    <label>{{ __('Connect to') }}</label>
+                    <select class="connect-2-select form-control">
+                        <option value="">{{ __('Nothing - Manual') }}</option>
+                    </select>
+                </div>
+
+                <div class="row manual-2-group">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>{{ __('Value') }}</label>
+
+                            <div class="row">
+                                <div class="col d-none">
+                                    <select class="form-control bar-2-value-type">
+                                        <option value="custom">{{ __('Custom') }}</option>
+                                        <option value="linked">{{ __('Linked') }}</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <div class="bar-2-value-custom-container">
+                                        <input type="number" class="form-control bar-2-value-custom">
+                                    </div>
+                                    <div class="bar-2-value-linked-container d-none">
+                                        <select class="form-control bar-2-value-linked"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label>{{ __('Maximum') }}</label>
+
+                            <div class="row">
+                                <div class="col d-none">
+                                    <select class="form-control bar-2-max-type">
+                                        <option value="custom">{{ __('Custom') }}</option>
+                                        <option value="linked">{{ __('Linked') }}</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <div class="bar-2-max-custom-container">
+                                        <input type="number" class="form-control bar-2-max-custom">
+                                    </div>
+                                    <div class="bar-2-max-linked-container d-none">
+                                        <select class="form-control bar-2-max-linked"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                {% for color in colors %}
+                <div class="col">
+                    <div class="bar-color-selector bar2-color" data-color="{{ color }}" style="background-color: {{ color }}"></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="row">
+    {% for partner in partners %}
+    <div class="col-4">
+        <div class="partner" data-id="{{ partner.id }}">
+            <img src="{{ cdnReadUrl }}/{{ partner.logo_path }}">
+            <h3>{{ partner.name }}</h3>
+        </div>
+    </div>
+    {% endfor %}
+</div>

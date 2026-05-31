@@ -1,0 +1,52 @@
+#app.mobile {
+  #character-col {
+    display: none;
+  }
+
+  #quickbar {
+    display: none;
+  }
+
+  .left-column,
+  .right-column {
+    display: none;
+  }
+
+  #main-menu {
+    left: 0;
+    max-width: 320px;
+    max-height: 100%;
+    display: flex;
+    transition: left 0.25s ease-out;
+
+    .main-menu-title {
+      text-align: left;
+
+      a {
+        font-size: 32px;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .main-menu-inside {
+      max-height: 100%;
+      overflow-y: scroll;
+    }
+
+    #menu-items {
+      .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    section {
+      .buttons {
+        display: none;
+      }
+    }
+  }
+}

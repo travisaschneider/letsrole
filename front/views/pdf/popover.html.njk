@@ -1,0 +1,40 @@
+<div class="pdf-info">
+    <ul class="pdf-attributes">
+        {% if pdf.locale %}
+        <li>{{ __('Language:') }} <img height="12px" src="/assets/img/flag/{{ pdf.locale }}.svg"> <strong>{{ pdf.locale_name }}</strong></li>
+        {% endif %}
+
+        {% if pdf.publisher_name %}
+        <li>{{ __('Publisher:') }} <strong>{{ pdf.publisher_name }}</strong></li>
+        {% endif %}
+
+        {% if pdf.genres %}
+            <li>{{ __('Genres:') }} <strong>{{ pdf.genres }}</strong></li>
+        {% endif %}
+
+        {% if pdf.ruleset %}
+            <li>{{ __('Ruleset:') }} <strong>{{ pdf.ruleset }}</strong></li>
+        {% endif %}
+
+        {% if pdf.published_at %}
+            <li>{{ __('Publication:') }} <strong>{{ pdf.published_at }}</strong></li>
+        {% endif %}
+    </ul>
+
+    <div>
+        <form action="#" class="pdf-search-form d-flex">
+            <input type="search" class="form-control pdf-search flex-grow-1" placeholder="{{ __('Find something in this PDF...') }}">
+            <button type="submit" class="btn btn-search"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
+    <div class="filenames">
+        {% for file in pdf.files %}
+            <div class="pdf-file" id="file-{{ file.id }}">
+                <span class="filename">{{ file.filename }}</span>
+                <a href="#" class="btn btn-primary">{{ __('Read full PDF') }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

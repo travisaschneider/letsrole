@@ -1,0 +1,243 @@
+.popin.dice-roller-popin {
+  background: transparentize($dark1, 0.15) !important;
+
+  main {
+    background: transparent !important;
+  }
+}
+
+.dice-roller {
+  .header {
+    margin-bottom: 3%;
+  }
+
+  .msg-success,
+  .msg-error {
+    color: $white;
+    font-family: $font1;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+  }
+
+  .msg-success {
+    background-color: $critical;
+  }
+
+  .msg-error {
+    background-color: $fumble;
+  }
+
+  .roll-render {
+    background: $grey2;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 30px;
+    color: $white;
+    border-top: 1px solid $grey5;
+    border-left: 1px solid $grey5;
+    border-bottom: 1px solid $grey5;
+  }
+
+  .roll {
+    background: $orange;
+    height: 30px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0 none;
+  }
+
+  .visibility-picker {
+    font-size: 11px;
+    font-family: $font1;
+    height: 30px;
+    border: 1px solid $grey5;
+    background-color: $grey2;
+  }
+
+  .func-bar {
+    margin-bottom: 3%;
+
+    .separator {
+      margin-right: 5%;
+    }
+
+    .row {
+      gap: 2%;
+    }
+
+    .node {
+      aspect-ratio: 4 / 3;
+
+      a {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .main-content {
+    .dice-grid {
+      .node {
+        &.node-action {
+          a {
+            background-color: darken($grey1, 10%);
+          }
+        }
+
+        a {
+          background-color: $grey1;
+
+          &:hover {
+            background-color: $orange;
+          }
+        }
+      }
+    }
+
+    .dice-grid {
+      display: grid;
+      grid-template-columns: 20% 20% 20% 20% 20%;
+
+      .node {
+        padding: 4%;
+      }
+    }
+  }
+
+  .node {
+    aspect-ratio: 1 / 1;
+
+    svg {
+      width: 35px;
+    }
+
+    &.more-less-node {
+      a {
+        background-color: transparent !important;
+        font-size: 16px;
+      }
+    }
+
+    a {
+      background-color: darken($grey1, 10%);
+      border-radius: 3px;
+      color: $white;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      transition: background-color 0.11s linear;
+      overflow-wrap: anywhere;
+      text-align: center;
+      position: relative;
+
+      .count {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        height: 18px;
+        background-color: $orange;
+        color: $white;
+        font-size: 12px;
+        padding: 0 4px;
+        border-radius: 9px;
+        display: none;
+
+        &.active {
+          display: inherit;
+        }
+      }
+
+      &[data-action="quickbar"] {
+        cursor: grab;
+      }
+
+      &.active {
+        background-color: $white !important;
+        color: $dark1;
+      }
+
+      .dice-d100 {
+        background: url($assetPath + "/img/d100-icon.png") no-repeat;
+        background-size: 39px 36px;
+        background-position: center center;
+        display: block;
+        aspect-ratio: 39 / 36;
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: $orange;
+        text-decoration: none;
+
+        .count {
+          color: $orange;
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  .more-less-node {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .more,
+    .less {
+      width: 100%;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+  .value-node {
+    overflow: hidden;
+
+    input {
+      width: 100%;
+      height: 100%;
+      -moz-appearance: textfield;
+      text-align: center;
+      font-size: 18px;
+      transition: font-size 0.15s linear;
+      background-color: $grey1;
+      border: 1px solid $grey2;
+      border-radius: 4px;
+
+      &.big {
+        font-size: 24px;
+      }
+
+      &.small {
+        font-size: 14px;
+      }
+
+      &.tiny {
+        font-size: 11px;
+      }
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}

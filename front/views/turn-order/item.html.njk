@@ -1,0 +1,23 @@
+{% for item in items %}
+<div class="item d-flex align-items-center" {% if item.character %}data-character-id="{{ item.character }}"{% endif %}>
+    {% if item.color %}
+        <div class="turn-order-color bg-theme-{{ item.color }}"></div>
+    {% endif %}
+
+    {% if item.avatar %}
+        <div class="character-avatar" style="background-image: url('{{ cdnReadUrl }}/{{ item.avatar }}')"></div>
+    {% endif %}
+
+    <span {% if gm %}contenteditable="true" spellcheck="false"{% endif %} class="name flex-grow-1 mr-2" data-index="{{ loop.index0 }}">
+        {{ item.name }}
+    </span>
+
+    <a href="#" class="ml-2 mr-2 remove-btn" data-index="{{ loop.index0 }}"><i class="fas fa-trash-alt"></i></a>
+
+    <span {% if gm %}contenteditable="true" spellcheck="false"{% endif %} class="value flex-shrink-1" data-index="{{ loop.index0 }}">{{ item.value }}</span>
+</div>
+{% else %}
+    <div class="help">
+        <p class="text-muted">{{ __('No entries in the turn order') }}</p>
+    </div>
+{% endfor %}

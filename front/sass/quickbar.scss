@@ -1,0 +1,162 @@
+#quickbar {
+  position: absolute;
+  z-index: $zQuickBar;
+  bottom: 0;
+  font-size: 0.85rem;
+  width: 785px;
+  height: 83px;
+  left: 50%;
+  margin-left: -392px;
+  background: transparentize($dark1, 0.4);
+  border-radius: 6px;
+  transition: bottom 0.2s;
+
+  &.closed {
+    bottom: -83px;
+  }
+
+  .toggle {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: $dark1;
+    color: #fff;
+    left: calc(50% - 15px);
+    top: -15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+
+    i {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  .items {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  section {
+    width: 73px;
+    height: 74px;
+    background: url($assetPath + "/img/theme/quickbar-empty-flat.jpg") no-repeat;
+    /*background: darken($dark1, 5%);*/
+    border-radius: 5px;
+    margin-right: 5px;
+    position: relative;
+
+    a.drag-enter {
+      border: 2px solid $orange;
+    }
+
+    > a {
+      display: block;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 70px;
+      height: 70px;
+      border-radius: 5px;
+
+      &.item-default {
+        background: url($assetPath + "/img/theme/quickbar-default.jpg")
+          no-repeat;
+        border: 1px solid $orange;
+        background-size: 100% 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &.item-sound {
+        background: url($assetPath + "/img/theme/quickbar-sound.jpg") no-repeat;
+        border: 1px solid $orange;
+        background-size: 100% 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &.item-journal {
+        background: url($assetPath + "/img/theme/quickbar-journal.jpg")
+          no-repeat;
+        border: 1px solid $orange;
+        background-size: 100% 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .journal-icon {
+        background: url($assetPath + "/img/theme/journal-icon.png") no-repeat;
+        width: 17px;
+        height: 20px;
+        pointer-events: none;
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+      }
+
+      .sound-icon {
+        background: url($assetPath + "/img/theme/sound-icon.png") no-repeat;
+        width: 16px;
+        height: 20px;
+        pointer-events: none;
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+      }
+    }
+  }
+}
+
+.quickbar-tooltip {
+  em.formula {
+    font-style: normal;
+    font-weight: bold;
+    text-transform: none;
+    font-variant: small-caps;
+    font-size: 13px;
+  }
+
+  small {
+    display: block;
+    margin-top: 5px;
+    color: $grey5;
+  }
+}
+
+.quickbar-icons {
+  #icons {
+    margin-top: 8px;
+  }
+
+  a {
+    border: 1px solid $dark1;
+    display: inline-block;
+
+    &:hover {
+      border-color: $orange;
+    }
+
+    img {
+      max-width: 64px;
+      max-height: 64px;
+    }
+  }
+}

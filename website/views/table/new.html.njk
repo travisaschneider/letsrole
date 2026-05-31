@@ -1,0 +1,16 @@
+{% extends "layout.html.njk" %}
+
+{% block content %}
+<h2>New table</h2>
+<form method="post" action="/table">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input name="name" type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="url">System URL</label>
+        <input name="url" type="url" class="form-control" id="url" placeholder="https://lets-role.com/system/...">
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock %}

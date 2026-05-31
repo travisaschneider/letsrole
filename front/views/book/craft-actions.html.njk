@@ -1,0 +1,13 @@
+<a href="#" class="clone-btn book-btn mr-2"><i class="fas fa-clone"></i> {{ __('Clone %{craft} into my library', {craft: craft.name}) }}</a>
+
+{% if view.droppable %}
+<a href="#" class="drop-btn book-btn mr-2" draggable="true">
+    <i class="fas fa-hand-rock"></i> {{ __("Drag'n drop me onto a Character Sheet") }}
+</a>
+{% endif %}
+
+{% if view.tokenizable %}
+<a href="#" class="token-btn book-btn mr-2" draggable="true">
+    <i class="fas fa-arrows-alt"></i> {{ __("Drag'n drop me onto the scene") }}
+</a>
+{% endif %}

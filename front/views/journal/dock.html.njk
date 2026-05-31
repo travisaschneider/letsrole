@@ -1,0 +1,57 @@
+<div class="journal-dock">
+    <div class="tabs">
+        <a href="#owned" class="tab active">{{ __('My content') }}</a>
+        <a href="#shared" class="tab">{{ __('Shared with me') }}</a>
+    </div>
+    <div class="tab-content" id="owned-tab">
+        <div class="search">
+            <input type="search" placeholder="Find something...">
+        </div>
+        <div class="search-result d-none" id="journal-search">
+            <span class="no-result">{{ __('No documents were found for this query.') }}</span>
+            <div class="folders">
+                <ul class="root"></ul>
+            </div>
+        </div>
+        <div class="tree" id="journal-tree">
+            <span class="loading"><i class="fas fa-spinner-third fa-spin"></i> {{ __('Loading...') }}</span>
+        </div>
+        <div class="new-entry-container">
+            <a href="#" class="new-journal-btn"><i class="fas fa-file-plus"></i> {{ __("New entry") }}</a>
+        </div>
+
+        <form id="journal-upload-form" onsubmit="return false" method="post" class="invisible">
+            <input type="file" id="journal-file" name="media[]" accept="application/pdf,image/jpeg,image/jpg,image/gif,image/png,image/webp">
+        </form>
+    </div>
+
+    <div class="tab-content d-none" id="shared-tab">
+        <div class="search">
+            <input type="search" placeholder="Find something...">
+            <a href="#" class="refresh"><i class="fas fa-sync-alt"></i></a>
+        </div>
+        <div class="search-result d-none" id="journal-search">
+            <span class="no-result">{{ __('No documents were found for this query.') }}</span>
+            <div class="folders">
+                <ul class="root"></ul>
+            </div>
+        </div>
+        <div class="tree" id="journal-tree">
+            <span class="loading"><i class="fas fa-spinner-third fa-spin"></i> {{ __('Loading...') }}</span>
+        </div>
+    </div>
+
+    <div class="journal-errors d-none"></div>
+    <div class="journal-upload-progress d-none">
+        <div class="progress-inside" style="width: 74%"></div>
+    </div>
+
+    <footer class="create-menu">
+        <div id="progress-container"></div>
+        <div class="d-flex toolbar">
+            <a class="new-folder-btn" href="#"><i class="fas fa-folder-plus"></i> {{ __('New folder') }}</a>
+            <a class="upload-journal-btn" href="#"><i class="fas fa-file-pdf"></i> {{ __('Upload') }}</a>
+            <a href="#" class="help-icon ml-auto"><i class="fas fa-question-circle"></i></a>
+        </div>
+    </footer>
+</div>

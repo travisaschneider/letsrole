@@ -1,0 +1,83 @@
+.books {
+  .search-container {
+    background: $grey6;
+    padding: 6px;
+
+    .flex-grow-1 {
+      margin-right: 6px;
+    }
+
+    .search-input {
+      border: 0 none;
+      margin-right: 6px;
+      background: $dark1;
+      color: #fff;
+      font-family: $font1;
+      font-size: 13px;
+    }
+  }
+
+  .book-entry {
+    background: $grey2;
+    font-family: $font1;
+    color: #fff;
+    margin: 3px 6px;
+    border-radius: 3px;
+    padding: 3px;
+    cursor: pointer;
+
+    .title {
+      font-size: 13px;
+    }
+
+    .icon {
+      font-size: 1.6rem;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+
+    small {
+      display: block;
+    }
+
+    &:hover {
+      .icon {
+        color: $orange;
+      }
+    }
+  }
+
+  .book-pagination {
+    font-family: $font1;
+    font-size: 13px;
+    padding: 5px;
+    background: $dark1;
+    color: $white;
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}
+
+.book-actions {
+  .book-btn {
+    display: inline-block;
+    border-radius: 3px;
+    background: $grey1;
+    color: #fff;
+    font-family: $font1;
+    font-size: 12px;
+    padding: 7px 18px;
+
+    &:hover {
+      background: $orange;
+      text-decoration: none;
+      color: $white;
+    }
+  }
+}

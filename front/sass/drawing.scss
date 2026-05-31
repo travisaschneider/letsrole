@@ -1,0 +1,81 @@
+#drawings-box {
+  .color-picker {
+    border-radius: 4px;
+    background: darkred;
+    border: 1px solid #fff;
+    min-height: 2rem;
+    cursor: pointer;
+  }
+}
+
+.drawing-tools {
+  .cursor,
+  .tool-btn {
+    display: inline-block;
+    background: $grey2;
+    color: $grey3;
+    border: 1px solid $grey5;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    padding: 3px;
+    text-align: center;
+    margin-bottom: 4px;
+
+    &:hover,
+    &.active {
+      color: $orange;
+      border-color: $orange;
+    }
+  }
+}
+
+#drawing-options-container {
+  font-family: $font1;
+  font-size: 11px;
+  color: $white;
+
+  label {
+    font-size: 11px;
+  }
+
+  .form-group {
+    margin-bottom: 0.2rem;
+  }
+
+  .draw-help {
+    color: $grey5;
+    margin-top: 0.2rem;
+  }
+
+  input,
+  select,
+  textarea,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    background: $dark1;
+    border-color: $dark1;
+    color: $white;
+    font-family: $font1;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+#poi {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: $zPoI;
+  pointer-events: none;
+}
+
+.poi-link {
+  position: absolute;
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}

@@ -1,0 +1,16 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    <a href="#" class="dropdown-item" data-action="open"><i class="fas fa-book-open"></i> {{ __('Open') }}</a>
+    <a href="#" class="dropdown-item" data-action="rename"><i class="fas fa-edit"></i> {{ __('Rename') }}</a>
+
+    <div class="btn-group dropdown-item dropright">
+        <button type="button" data-action="show-share-users" class="dropdown-item dropdown-toggle share-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users"></i> {{ __('Share') }}
+        </button>
+        <div class="dropdown-menu menu folder-share-users">
+            <a href="#" class="dropdown-item"><i class="fas fa-spinner fa-spin"></i> {{ __('Loading...') }}</a>
+        </div>
+    </div>
+
+    <a href="#" class="dropdown-item" data-action="reveal"><i class="fas fa-eye"></i> {{ __('Reveal') }}</a>
+    <a href="#" class="dropdown-item" data-action="delete"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+</div>

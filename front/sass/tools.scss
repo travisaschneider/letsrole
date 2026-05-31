@@ -1,0 +1,21 @@
+#tools {
+  position: absolute;
+  left: 50%;
+  bottom: 120px;
+  margin-left: -250px;
+  width: 500px;
+  background: rgba($orange, 0.85);
+  z-index: $zToolsState;
+  font-family: $font1;
+  font-size: 14px;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  display: none;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}

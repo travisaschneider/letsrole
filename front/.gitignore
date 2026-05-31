@@ -1,0 +1,13 @@
+/node_modules
+/shared
+/dist
+/.sass-cache
+/build
+
+# IDE
+.idea
+.vscode
+
+# Proprietary files
+/sass/tableskin/fateforge
+/sass/skin/fateforge.scss

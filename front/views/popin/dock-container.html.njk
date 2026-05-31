@@ -1,0 +1,38 @@
+<section id="dock-{{ id }}" class="dock">
+    <header class="d-flex" draggable="true">
+        <h3 class="flex-grow-1">
+            {% if icon %}
+                <i class="{{ icon }}"></i>
+            {% endif %}
+
+            <span class="dock-title">
+                {{ title }}
+            </span>
+        </h3>
+
+        <div class="dock-options d-flex align-items-center">
+            <div class="dropleft">
+                <a href="#" class="options-btn dropdown-toggle dock-header-item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <div class="dropdown-menu options">
+                    {% if not fixed %}
+                        <a class="popout dropdown-item" href="#"><i class="fas fa-external-link"></i> <span>{{ __('Popout') }}</span></a>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if not fixed %}
+                <a href="#" class="close-btn dock-header-item"><i class="far fa-times-square"></i></a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main>
+        {{ html|safe }}
+    </main>
+
+    <footer class="caret-closed">
+        <a href="#" class="open-dock-btn"><i class="fas fa-caret-down"></i></a>
+    </footer>
+</section>

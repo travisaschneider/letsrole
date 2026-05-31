@@ -1,0 +1,225 @@
+@import "../../variables";
+@import "variables";
+@import "font";
+
+@import "../../all";
+
+#app #map {
+  background-image: url("./bg.jpg");
+}
+
+.column section.dock {
+  > header {
+    height: $dock-header-height;
+    background: #09080a;
+    border-top: 1px solid #343334;
+    border-left: 1px solid #343334;
+
+    h3 {
+      color: $white;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-top: 0;
+
+      .fas,
+      .far {
+        color: $white;
+        font-size: 18px;
+        margin-right: 4px;
+      }
+
+      .dock-title {
+        margin-top: 6px;
+      }
+    }
+
+    .dock-header-item {
+      color: $grey4;
+    }
+  }
+
+  &.closed {
+    > header {
+      border-radius: 0;
+    }
+  }
+
+  .toolbar {
+    background: #cbbca5 url("./paper-2.jpg") no-repeat;
+    background-size: cover;
+    color: $grey6;
+
+    a {
+      color: $grey6;
+    }
+
+    select {
+      color: $grey6 !important;
+      background: transparent !important;
+      border-bottom: 1px solid $grey6 !important;
+    }
+  }
+}
+
+#quickbar {
+  &.closed {
+    &:before {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 809px;
+    height: 90px;
+    left: -12px;
+    top: -8px;
+    background: url("./quickbar-bg.png") no-repeat;
+    transition: opacity 0.2s linear;
+  }
+
+  .toggle {
+    background-color: #c28d4d;
+    color: $grey6;
+  }
+
+  section {
+    background: url("./slot.png") no-repeat;
+  }
+}
+
+.popin.popin-journal {
+  background: transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url("journal-bg.jpg") !important;
+    background-size: cover !important;
+    top: -20px;
+    right: -20px;
+    left: -20px;
+    bottom: -20px;
+    z-index: -2;
+    border-top-left-radius: 15px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #f4eadb;
+    background-image: url("journal-paper-top-2.png"),
+      url("journal-paper-bottom-2.jpg");
+    background-size: 100%, 100%;
+    background-position: top left, bottom left;
+    background-repeat: no-repeat;
+    top: -5px;
+    right: -5px;
+    left: -5px;
+    bottom: -5px;
+    z-index: -1;
+    transform: rotate(-1deg);
+  }
+
+  header {
+    background: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -14px;
+      right: 15px;
+      width: 29px;
+      height: 50px;
+      background: url("./pin.png") no-repeat;
+    }
+  }
+
+  .actions {
+    bottom: -20px;
+    top: auto;
+    left: -52px;
+    padding-top: 45px;
+    background: url("./journal-tabs.png") no-repeat;
+    width: 48px;
+    height: 198px;
+
+    a {
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  main {
+    background: transparent;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+}
+
+.btn-secondary {
+  &:hover {
+    background: $grey2;
+  }
+}
+
+.media-manager .sidebar .actions .new-folder-btn,
+.media-manager .upload-container label[for="upload"] span {
+  color: $grey2;
+
+  &:hover {
+    color: $grey1;
+  }
+}
+
+.media-manager .sidebar .available-disk .progress-bar {
+  background: $grey2;
+}
+
+.journal-dock .tabs,
+.media-manager .tabs,
+.journal-popin nav.tabs,
+.scene-browser .tabs {
+  background-image: url("paper-2.jpg");
+  background-size: cover;
+
+  ul a,
+  .tab,
+  a.tab {
+    color: $grey2;
+
+    &.active {
+      color: $white;
+    }
+  }
+}
+
+.dice-roller {
+  a.roll {
+    color: $dark1;
+  }
+
+  .node a:hover {
+    color: $dark1;
+  }
+}

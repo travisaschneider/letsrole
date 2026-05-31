@@ -1,0 +1,21 @@
+<div id="offline-roll" class="sheet {% if skin %}skin-{{ skin }}{% endif %} popin-sheet">
+    <div class="widget widget-container p-1 highlight-1 d-flex flex-column">
+        <small class="muted">{{ __('IRL Dice Roll') }}</small>
+        {% if title %}
+            <h4>{{ title }}</h4>
+        {% endif %}
+
+        <strong class="expression">{{ expression }}</strong>
+
+        {% if helpers|length %}
+        <small class="help">
+            <ul>
+                {% for helper in helpers %}
+                    <li><strong>{{ helper.name }}</strong>: {{ helper.description }}</li>
+                {% endfor %}
+            </ul>
+        </small>
+        {% endif %}
+
+    </div>
+</div>

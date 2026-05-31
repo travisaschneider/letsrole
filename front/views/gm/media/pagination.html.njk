@@ -1,0 +1,20 @@
+{% if display %}
+<nav>
+    <ul class="pagination justify-content-center">
+        {% if prev %}
+            <li class="page-item"><a class="page-link" href="#" data-page="{{ prevPage }}"><i class="fas fa-angle-left"></i> {{ __('Previous') }}</a></li>
+        {% endif %}
+
+        <li class="page-item">
+            <span class="page-link">
+                <span class="page-number">{{ __('Page %{page}', { page: page })}}</span>
+                <span class="loading d-none"><i class="fas fa-circle-notch fa-spin"></i></span>
+            </span>
+        </li>
+
+        {% if next %}
+            <li class="page-item "><a class="page-link" href="#" data-page="{{ nextPage }}">{{ __('Next')}} <i class="fas fa-angle-right"></i></a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

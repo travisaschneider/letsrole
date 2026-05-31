@@ -1,0 +1,265 @@
+@use "sass:math";
+
+$controlSize: 40px;
+$volumeHeight: 150px;
+
+#youtube-container {
+  display: block;
+}
+
+.quick-music {
+  .progress-bar {
+    transition: none;
+
+    &.playing {
+      transition: width 1s linear;
+    }
+  }
+
+  .video-time {
+    width: $controlSize;
+    color: $grey4;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .controls {
+    background: $grey2;
+    border-left: 1px solid $dark1;
+    position: relative;
+    display: flex;
+
+    &.no-flow .flow-ctrl {
+      display: none;
+    }
+
+    &.playing {
+      display: flex;
+
+      .play-btn {
+        display: none;
+      }
+
+      .pause-btn {
+        display: flex;
+      }
+    }
+
+    &.paused {
+      display: flex;
+      .play-btn {
+        display: flex;
+      }
+
+      .pause-btn {
+        display: none;
+      }
+    }
+  }
+
+  a.control {
+    height: $controlSize;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    color: $grey5;
+    font-size: 1rem;
+    border-right: 1px solid $dark1;
+
+    &:hover {
+      background-color: lighten($color: $grey2, $amount: 10%);
+      text-decoration: none;
+    }
+
+    & .activated,
+    &.activated {
+      color: #fff;
+    }
+  }
+
+  .seek-controls {
+    height: $controlSize;
+    border-right: 1px solid $dark1;
+    border-left: 1px solid $dark1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .pointed-time {
+      font-size: 0.7rem;
+      position: absolute;
+      color: $grey4;
+      margin-top: -1.5rem;
+    }
+
+    .progress {
+      background-color: #272727;
+      width: 90%;
+      cursor: pointer;
+
+      .progress-bar {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+
+  .quick-playlist,
+  .quick-play-input {
+    font-family: $font1;
+    font-size: 11px;
+  }
+
+  .quick-playlist {
+    height: 27px;
+  }
+
+  .quick-play-input {
+    height: 25px;
+  }
+
+  .volume-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: $volumeHeight;
+    height: $controlSize;
+    transform: rotate(270deg)
+      translate(
+        math.div($volumeHeight + $controlSize, 2),
+        math.div($volumeHeight - $controlSize, 2)
+      );
+    background: #383838;
+
+    input {
+      width: 100%;
+      margin: 0 10px;
+    }
+  }
+}
+
+.playlist {
+  padding: 4px 8px;
+  background: $dark1;
+  border-radius: 0.3rem;
+  cursor: pointer;
+
+  h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+
+    a {
+      font-size: 14px;
+      font-family: $font1;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+    }
+  }
+
+  .play-now-btn {
+    padding-top: 10px;
+  }
+
+  &:hover {
+    h4 a {
+      color: $orange;
+    }
+  }
+}
+
+.song {
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: $dark1;
+  cursor: pointer;
+
+  .play-song-btn,
+  .delete-btn {
+    font-size: 1.2rem;
+    color: $grey1;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  .thumbnail {
+    max-width: 120px;
+
+    img {
+      width: 120px;
+    }
+  }
+}
+
+.song-dropper {
+  height: 0.2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  &.active {
+    background: $orange;
+  }
+}
+
+.playlist-edit {
+  h2 {
+    font-family: $font2;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .back-btn,
+  .edit-name-btn,
+  .delete-playlist-btn {
+    color: $white;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+.partner-songs {
+  .song {
+    margin-top: 10px;
+
+    h5 {
+      text-transform: none;
+      font-weight: bold;
+    }
+
+    .play-song-btn,
+    .add-song-btn {
+      font-size: 30px;
+      color: $grey1;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+  .partner-info {
+    background: transparentize($dark1, 0.4);
+    color: $grey3;
+    padding: 5px;
+
+    img {
+      margin-right: 20px;
+      margin-left: 5px;
+      border-radius: 15px;
+      height: 30px;
+      width: 30px;
+    }
+
+    a {
+      color: $orange;
+    }
+  }
+}

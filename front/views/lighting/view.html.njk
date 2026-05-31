@@ -1,0 +1,28 @@
+<div class="p-2">
+    <div class="dynamic-lighting-tools tools">
+        <a href="#" class="tool-btn" title="{{ __('Selection') }}" data-tool="selection"><i class="fas fa-mouse-pointer"></i></a>
+        <a href="#" class="tool-btn" title="{{ __('Wall') }}" data-tool="wall">{% include 'lighting/wall-icon.svg.njk' %}</a>
+        <a href="#" class="tool-btn" title="{{ __('Door') }}" data-tool="door"><i class="fas fa-dungeon"></i></a>
+        <a href="#" class="tool-btn" title="{{ __('Light') }}" data-tool="light"><i class="fas fa-lightbulb-on"></i></a>
+        <a href="#" class="tool-btn" title="{{ __('Simulate light') }}" data-tool="simulate"><i class="fas fa-bullseye-pointer"></i></a>
+    </div>
+
+    <div class="dynamic-lighting-tools tools options">
+        <div class="custom-control custom-switch" title="{{ __("Lock lights and walls") }}" data-toggle="tooltip" data-placement="top">
+            <input type="checkbox" class="custom-control-input" id="light-locked">
+            <label class="custom-control-label" for="light-locked">{{ __('Locked') }}</label>
+        </div>
+
+        <div class="custom-control custom-switch" title="{{ __("Disables all door interactions for all players at the table") }}" data-toggle="tooltip" data-placement="top">
+            <input type="checkbox" class="custom-control-input" id="doors-locked">
+            <label class="custom-control-label" for="doors-locked">{{ __('Lock doors') }}</label>
+        </div>
+
+        <div class="custom-control custom-switch" title="{{ __("Players cannot go trough walls") }}" data-toggle="tooltip" data-placement="top">
+            <input type="checkbox" class="custom-control-input" id="collisions">
+            <label class="custom-control-label" for="collisions">{{ __('Enable collisions') }}</label>
+        </div>
+    </div>
+
+    <div id="lighting-options-container"></div>
+</div>

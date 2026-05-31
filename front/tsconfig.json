@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "allowJs": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "types": ["reflect-metadata", "youtube", "jest"],
+    "lib": ["dom", "es2021", "dom.iterable"],
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "inversify": ["./node_modules/inversify"],
+      "trumbowyg": ["./node_modules/trumbowyg/dist/trumbowyg"],
+      "handlebars": ["./node_modules/handlebars/dist/cjs/handlebars"],
+      "uuid": ["./node_modules/uuid"]
+    }
+  },
+  "include": ["src", "shared"],
+  "compileOnSave": false
+}

@@ -1,0 +1,27 @@
+<div class="pack-header">
+    <h3>{{ pack.title }}</h3>
+
+    {% if pack.author %}
+        {% if pack.url %}
+            {% set link = '<a href="' ~ pack.url|e ~ '" target="_blank">' ~ pack.author|e ~ "</a>" %}
+            <p>{{ __("Scenes provided by %{link}.", { link: link })|safe }}</p>
+        {% else %}
+            <p>{{ __("Scenes provided by %{author}.", { author: pack.author }) }}</p>
+        {% endif %}
+    {% endif %}
+
+    <p>{{ __("Click on a thumbnail to use that scene.") }}</p>
+</div>
+
+<div class="row">
+    {% for scene in scenes %}
+        <div class="col-6">
+            <div class="scene-entry" style="background-image: url('{{ cdnThumbnailUrl }}/{{ scene.thumb_path }}')" data-id="{{ scene.id }}">
+                <div class="info" title="{{ scene.title|e }}">
+                    <span class="name name-container">{{ scene.title }}</span>
+                    <a href="#" class="use-scene">{{ __('Use') }}</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

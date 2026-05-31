@@ -1,0 +1,29 @@
+{% macro folder_tree(folder, statuses) %}
+    <li class="{% if folder.children|length %}has-children{% endif %} {% if statuses[folder.id] and statuses[folder.id].open %}open{% else %}closed{% endif %}">
+        <a href="#" data-id="{{ folder.id }}" draggable="true">
+            <span class="folder"></span>
+            {{ folder.name }}
+        </a>
+        {% if folder.children|length %}
+        <ul>
+            {% for child in folder.children %}
+                {{ folder_tree(child, statuses) }}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
+
+<ul class="root">
+    <li class="open {% if folders|length %}has-children{% endif %}">
+        <a href="#" data-id="">
+            <span class="folder"></span>
+            <em>{{ __('My Medias') }}</em>
+        </a>
+        <ul>
+            {% for folder in folders %}
+                {{ folder_tree(folder, statuses) }}
+            {% endfor %}
+        </ul>
+    </li>
+</ul>

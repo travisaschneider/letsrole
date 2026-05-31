@@ -1,0 +1,41 @@
+<div class="share-table">
+    {% for user in users %}
+    <div class="permission-entry" data-user-id="{{ user.id }}">
+        <div class="avatar-col">
+            <div class="character-avatar" style="background-image: url('{{ cdnReadUrl }}/{{ get_avatar(user) }}')"></div>
+        </div>
+        <div class="user-col">
+            <strong class="username">{{ user.username }}</strong>
+            {% if user.characters|length %}
+                <small>
+                    {% for character in user.characters %}
+                    {{ character.name }}{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                </small>
+            {% endif %}
+        </div>
+        <div class="perm-col">
+            <div class="read">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="read-switch-{{ page.id }}-{{ user.id }}" data-user-id="{{ user.id }}">
+                    <label class="custom-control-label" for="read-switch-{{ page.id }}-{{ user.id }}">
+                        {{ __('Read') }}
+                    </label>
+                </div>
+            </div>
+            <div class="write">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="write-switch-{{ page.id }}-{{ user.id }}" data-user-id="{{ user.id }}">
+                    <label class="custom-control-label" for="write-switch-{{ page.id }}-{{ user.id }}">
+                        {{ __('Edit') }}
+                    </label>
+                </div>
+            </div>
+            <div class="reveal" data-user-id="{{ user.id }}" title="{{ __("Show the entry on the player's screen now. The player must be connected. This will also share the entry with them in reading mode.") }}">
+                <i class="fas fa-eye"></i>
+                {{ __('Reveal') }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

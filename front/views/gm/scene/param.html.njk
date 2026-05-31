@@ -1,0 +1,129 @@
+<div class="scene-params">
+
+    <div class="param-group">
+        <div class="form-group">
+            <label><strong>{{ __('Name') }}</strong></label>
+            <input class="form-control" value="{{ scene.name|e }}" name="name">
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="form-group">
+                <div class="d-flex align-items-center">
+                    <label class="col-form-label mr-2">{{ __('Width') }}</label>
+                    <div class="flex-grow-1 mr-2">
+                        <input type="number" min="250" max="5000" value="{{ scene.data.width|e }}" class="form-control" name="width">
+                    </div>
+                    <label class="col-form-label mr-2">{{ __('Height') }}</label>
+                    <div class="flex-grow-1 mr-2">
+                        <input type="number" min="250" max="5000" value="{{ scene.data.height|e }}" class="form-control" name="height">
+                    </div>
+                    <label class="col-form-label mr-2">{{ __('Color') }}</label>
+                    <div class="flex-grow-1">
+                        <input class="form-control bg-color-picker" value="{{ scene.data.backgroundColor|e }}" name="backgroundColor">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="param-group mt-2">
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input class="custom-control-input" type="checkbox" value="" id="lighting-enabled" {% if scene.data.lighting.enabled %}checked{% endif %}>
+                <label class="custom-control-label" for="lighting-enabled">
+                    <strong>{{ __('Dynamic Lighting') }}</strong>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="param-group mt-2">
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input class="custom-control-input" type="checkbox" value="" id="grid-enabled" {% if scene.data.grid.enabled %}checked{% endif %}>
+                <label class="custom-control-label" for="grid-enabled">
+                    <strong>{{ __('Grid') }}</strong>
+                </label>
+            </div>
+
+            <div class="grid-container d-none">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <select class="form-control" id="grid-type">
+                            <option value="square" {% if scene.data.grid.type == 'square' %}selected{% endif %}>{{ __('Type: Square') }}</option>
+                            <option value="hex" {% if scene.data.grid.type == 'hex' %}selected{% endif %}>{{ __('Type: Hex') }}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="custom-control custom-switch mt-2">
+                            <input class="custom-control-input" type="checkbox" value="1" id="grid-snap" {% if scene.data.grid.snap %}checked{% endif %}>
+                            <label class="custom-control-label" for="grid-snap">
+                                {{ __('Snap to grid') }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex mt-1 align-items-center">
+                    <label for="grid-color" class="col-form-label mr-2">{{ __('Color') }}</label>
+                    <div class="flex-grow-1 mr-2">
+                        <input id="grid-color" class="form-control grid-color-picker" value="{{ scene.data.grid.color|e }}">
+                    </div>
+                    <label for="grid-opacity" class="col-form-label mr-2">{{ __('Opacity') }}</label>
+                    <div class="flex-grow-1 mr-2 pt-1">
+                        <input type="range" class="custom-range" id="grid-opacity" min="0" max="1" step="0.1" value="{{ scene.data.grid.opacity|e }}">
+                    </div>
+                    <label for="grid-size" class="col-form-label mr-2">{{ __('Size') }}</label>
+                    <div>
+                        <input type="number" class="form-control" id="grid-size" value="{{ scene.data.grid.size|e }}" min="1" max="5000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="param-group mt-2">
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input class="custom-control-input" type="checkbox" value="" id="fog-enabled" {% if scene.data.fog.enabled %}checked{% endif %}>
+                <label class="custom-control-label" for="fog-enabled">
+                    <strong>{{ __('Fog of War') }}</strong>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="param-group mt-2">
+        <div class="form-group grid-group">
+            <label><strong>{{ __('Metrics') }}</strong></label>
+            <div class="d-flex align-items-center">
+                <div class="mr-2">
+                    <input type="number" min="1" step="1" id="metrics-base-count" class="form-control mr-1" value="{{ scene.data.metrics.baseCount|e }}">
+                </div>
+                <div class="flex-grow-1 mr-2">
+                    {{ __('Unit') }}
+                </div>
+                <div class="flex-grow-1 mr-2 text-nowrap">
+                    {{ __('is equal to') }}
+                </div>
+                <div class="mr-2">
+                    <input type="number" min="0.1" step="0.1" id="metrics-equal-count" class="form-control mr-1" value="{{ scene.data.metrics.equalCount|e }}">
+                </div>
+                <div class="flex-grow-1 mr-2">
+                    <select class="form-control" id="metrics-equal-type">
+                        {% for key, name in metrics %}
+                            <option value="{{ key }}" {% if key == scene.data.metrics.equalType %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="param-group mt-2">
+        <div class="form-group">
+            <label><strong>{{ __('Play music when loading') }}</strong></label>
+            <select class="form-control playlist-list">
+            </select>
+        </div>
+    </div>
+</div>

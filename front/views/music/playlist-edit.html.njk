@@ -1,0 +1,73 @@
+<div class="playlist-edit">
+    <div class="d-flex justify-content-between playlist-header">
+        <h2>{{ playlist.title }}</h2>
+        <div class="rename-container d-none align-items-center">
+            <input type="text" class="form-control rename-input">
+            <a href="#" class="button button-primary save-rename-btn ml-2"><i class="fas fa-check"></i> {{ __('Save') }}</a>
+            <a href="#" class="cancel-rename-btn text-danger ml-2">{{ __('Cancel') }}</a>
+        </div>
+        <span>
+            <a href="#" class="back-btn"><i class="fas fa-arrow-left"></i> {{ __('Back') }}</a>
+        </span>
+    </div>
+
+    <p class="d-flex align-items-center mt-2">
+        <a href="#" class="btn btn-secondary play-now-button"><i class="fas fa-play-circle"></i> {{ __('Play now') }}</a>
+        <a href="#" class="edit-name-btn ml-2"><i class="fas fa-edit"></i> {{ __('Rename') }}</a>
+        <a href="#" class="delete-playlist-btn ml-2"><i class="fas fa-trash"></i> {{ __('Delete') }}</a>
+    </p>
+    <div class="d-flex align-items-center mt-2">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="option-shuffle">
+            <label class="form-check-label" for="option-shuffle">{{__('Shuffle')}}</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="option-repeat">
+            <label class="form-check-label" for="option-repeat">{{__('Repeat')}}</label>
+        </div>
+    </div>
+
+    <div>
+        {% if playlist.songCount > 1 %}
+            {{ __('%{count} songs', { count: playlist.songCount}) }}
+        {% else %}
+            {{ __('%{count} song', { count: playlist.songCount}) }}
+        {% endif %}
+        ·
+        {{ humanDuration(playlist.totalDuration) }}
+    </div>
+
+    <form class="add-form d-flex mt-2 align-items-center">
+        <input type="text" class="form-control add-input" placeholder="{{ __('Search a track or paste YouTube URL...') }}">
+        <a href="#" class="btn btn-secondary add-btn ml-2"><i class="fas fa-angle-double-right"></i></a>
+    </form>
+
+    <div id="search-result-container">
+
+    </div>
+
+    <div class="add-loading d-none">
+        <i class="fas fa-circle-notch fa-spin"></i> {{ __('Adding song(s) to the playlist, please wait...') }}
+    </div>
+
+    <div class="songs mt-2">
+        {% for song in songs %}
+            <div class="song-dropper"></div>
+            <div class="song d-flex" draggable="true" data-id="{{ song.id }}" data-position="{{ song.position }}">
+                {% if song.thumbnailUrl %}
+                    <div class="thumbnail mr-2">
+                        <img src="{{ song.thumbnailUrl }}">
+                    </div>
+                {% endif %}
+                <div class="content flex-grow-1">
+                    <h5>{{ song.title }}</h5>
+                    <div>{{ humanDuration(song.duration) }}</div>
+                </div>
+                <div class="controls d-flex flex-column justify-content-between ml-2">
+                    <a href="#" class="play-song-btn" data-provider="{{ song.provider }}" data-provider-id="{{ song.providerId }}"><i class="fas fa-play-circle"></i></a>
+                    <a href="#" class="delete-btn" data-id="{{ song.id }}" title="{{ __('Remove from the playlist') }}"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    <h6 class="dropdown-header">
+        {{ names[item.type] }}
+        <br><small class="text-muted"><em><i class="fas fa-paint-brush-alt"></i> {{ __('Drawing') }}</em></small>
+
+        {% include 'stage/contextual/layer.html.njk' %}
+    </h6>
+
+    {% include 'stage/contextual/order.html.njk' %}
+    {% include 'stage/contextual/controls.html.njk' %}
+</div>

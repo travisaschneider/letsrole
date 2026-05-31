@@ -1,0 +1,7 @@
+<div class="list-group">
+    {% for binding in bindings %}
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light p-1 {% if loop.last %}active{% endif %}" data-code="[{{ binding.name }}]" data-name="{{ binding.name }}" data-type="binding">
+            {{ binding.name }}
+        </a>
+    {% endfor %}
+</div>

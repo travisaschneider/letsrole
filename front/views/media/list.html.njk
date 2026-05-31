@@ -1,0 +1,18 @@
+{% for media in medias %}
+    {% set name = media.filename %}
+
+    {% if media.title %}
+        {% set name = media.title %}
+    {% endif %}
+    <tr draggable="true" class="media-entry" data-thumbnail="{{ cdnThumbnailUrl }}/{{ media.path }}" data-id="{{ media.id }}" data-url="{{ cdnReadUrl }}/{{ media.path }}" data-type="{{ media.type }}">
+        <td class="name" title="{{ name|e }}">
+            <label for="media-{{ media.id }}">
+                <input type="checkbox" id="media-{{ media.id }}">
+                <i class="{{ get_icon(media) }}"></i>
+                <span class="name-container">{{ name }}</span>
+            </label>
+        </td>
+        <td class="date">{{ media.created_at|isoDate }}</td>
+        <td class="size">{{ humanDiskSpace(media.size) }}</td>
+    </tr>
+{% endfor %}

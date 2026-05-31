@@ -1,0 +1,111 @@
+@import "../../variables";
+@import "variables";
+@import "font";
+
+@import "../../all";
+
+#app #map {
+  background-image: url("./bg.jpg");
+}
+
+.column section.dock {
+  > header {
+    height: $dock-header-height;
+    background: url("./dock-open-header.png") no-repeat;
+    background-size: 100% 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    h3 {
+      color: $grey3;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-top: 0;
+
+      .fas,
+      .far {
+        color: $grey3;
+        font-size: 18px;
+        margin-right: 4px;
+      }
+    }
+
+    .dock-header-item {
+      color: $grey4;
+    }
+  }
+
+  &.closed {
+    > header {
+      background: url("./dock-closed-header.png") no-repeat;
+      background-size: 100% 100%;
+      border-radius: 0;
+
+      h3 .dock-title {
+        padding-top: 2px;
+      }
+    }
+  }
+
+  .toolbar {
+    background: #4a1411 url("./toolbar.png") no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.popin header {
+  background: #2d2720 url("./popin-header.jpg") no-repeat !important;
+  background-size: cover !important;
+  color: $grey3;
+  border: #444444 outset 1px;
+
+  h3,
+  a,
+  a.close {
+    color: $grey3 !important;
+  }
+
+  h3 {
+    padding-left: 12px;
+    padding-right: 12px;
+    background: url("./popin-title-left.png") no-repeat,
+      url("./popin-title-right.png") no-repeat;
+    background-position: center left, center right;
+    background-size: contain, contain;
+  }
+}
+
+#quickbar {
+  &.closed {
+    &:before {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 832px;
+    height: 103px;
+    left: -23px;
+    top: -20px;
+    background: url("./quickbar-bg.png") no-repeat;
+    transition: opacity 0.2s linear;
+  }
+
+  section {
+    background: url("./slot.png") no-repeat;
+  }
+}
+
+.journal-dock .tabs,
+.media-manager .tabs,
+.journal-popin nav.tabs,
+.scene-browser .tabs {
+  background-image: url("journal-tabs-bg.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
+}

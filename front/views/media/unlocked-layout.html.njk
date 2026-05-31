@@ -1,0 +1,24 @@
+<div class="pack-info">
+    <div>
+        <h3>
+            {{ pack.title }}
+
+            {% if pack.author %}
+                <small>
+                {% if pack.url %}
+                    <a href="{{ pack.url }}" target="_blank">{{ pack.author }}</a>
+                {% else %}
+                    {{ pack.author }}
+                {% endif %}
+                </small>
+            {% endif %}
+        </h3>
+        {% if pack.description %}
+            <p class="minimized">{{ pack.description }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row media-thumb-layout" id="medias-container">
+
+</div>

@@ -1,0 +1,101 @@
+<div class="media-manager">
+    <div class="tabs d-flex">
+        <a class="tab active" href="#my-content"><i class="fas fa-user-tag"></i> {{ __('My own') }}</a>
+        <a class="tab" href="#unlocked-content"><i class="fas fa-unlock"></i> {{ __('Unlocked') }}</a>
+        <a class="tab" href="#partner-content"><i class="fas fa-mug-hot"></i> {{ __('Free') }}</a>
+    </div>
+
+    <div class="tab-content my-content">
+        <aside class="search-bar">
+            <form action="#" method="get" id="media-search">
+                <div class="search-input-container">
+                    <i class="fas fa-search"></i>
+                    <input type="search" class="media-search-q" id="q" placeholder="{{ __('Search my medias') }}">
+                </div>
+                <select class="media-search-type" id="type">
+                    {% for media_type in media_types %}
+                    <option value="{{ media_type.type }}">{{ media_type.label }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+
+            <div class="view-selector">
+                <a href="#" data-mode="thumbnail" class="active"><i class="fas fa-grip-vertical"></i> {{ __('Thumbnails') }}</a>
+                <a href="#" data-mode="list"><i class="fas fa-list"></i> {{ __('List') }}</a>
+            </div>
+        </aside>
+
+        <div class="media-browser">
+            <aside class="sidebar">
+                <div class="actions">
+                    <a href="#" class="new-folder-btn"><i class="fas fa-folder-plus"></i> {{ __('New folder') }}</a>
+                    <div class="folder-filter">
+                        <i class="fas fa-search"></i>
+                        <input type="search" class="filter-folders-input" id="folder-query" placeholder="{{ __('Filter folders...') }}">
+                    </div>
+                </div>
+
+                <div class="folders" id="folder-tree">
+
+                </div>
+
+                <div class="available-disk mt-auto">
+
+                </div>
+
+            </aside>
+            <div class="main-container">
+                <div id="medias">
+
+                </div>
+                <div class="upload-container">
+                    <form id="upload-form" method="post" action="#">
+                        <label for="upload">
+                            <span>
+                                <div class="progress-bar"></div>
+                                <strong class="normal">
+                                    <i class="fas fa-cloud-upload"></i>
+                                    {{ __('Import files') }}
+                                </strong>
+                                <strong class="error">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    {{ __('An error occurred') }}
+                                </strong>
+                            </span>
+                            <input type="file" id="upload" multiple name="media[]" accept=".jpg,.jpeg,.png,.gif,.webm,.webp,.mp4,.m4v">
+                        </label>
+                    </form>
+
+                    <div class="upload-errors">
+                        <div class="error-messages"></div>
+                        <a href="#">{{ __('Ok') }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-content unlocked-content d-none">
+        <div class="media-browser">
+            <aside class="sidebar">
+                <div class="folders" id="unlocked-packs"></div>
+            </aside>
+            <div class="main-container">
+                <div id="unlocked-medias"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content partner-content d-none">
+        <div class="media-browser">
+            <aside class="sidebar">
+                <div class="folders" id="partner-folder-tree"></div>
+            </aside>
+            <div class="main-container">
+                <div id="partner-medias"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

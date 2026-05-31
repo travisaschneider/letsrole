@@ -1,0 +1,21 @@
+<div class="pdf-toolbar">
+    <div class="section">
+        <a href="#" class="back-btn"><i class="fas fa-angle-left"></i> {{ __('Go back') }}</a>
+    </div>
+    <div class="section share-section mr-auto">
+        <a href="#" class="share-btn"><i class="fas fa-share-alt"></i> {{ __('Share in the journal') }}</a>
+    </div>
+
+    {% if page > 1 %}
+    <div class="section">
+        <a href="#" class="page-btn" data-page="{{ page - 1 }}"><i class="fas fa-angle-left"></i> {{ __('Previous page') }}</a>
+    </div>
+    {% endif %}
+
+    <div class="section">
+        <a href="#" class="page-btn" data-page="{{ page + 1 }}">{{ __('Next page') }} <i class="fas fa-angle-right"></i></a>
+    </div>
+</div>
+
+<embed src="{{ pdfUrl }}/page/{{ file.id }}/{{ page }}/inline#view=FitH{% if page %}&page={{ page }}{% endif %}" width="100%"
+       type="application/pdf" id="pdf-reader">

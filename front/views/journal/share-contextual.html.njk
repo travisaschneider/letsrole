@@ -1,0 +1,23 @@
+<a class="dropdown-item {% if is_table_shared() %}enabled{% endif %}" href="#" data-action="share-table">
+    <i class="fas fa-users-medical"></i>
+    <span>
+        {{ __("Share with everyone") }}
+    </span>
+</a>
+
+{% for user in users %}
+    <a class="dropdown-item {% if is_user_shared(user) %}enabled{% endif %}" href="#" data-action="share" data-user-id="{{ user.id }}">
+        <i class="fas fa-user-plus"></i>
+        <span>
+            <strong>{{ user.username }}</strong>
+
+            {% if user.characters|length %}
+                <em>
+                    {% for character in user.characters %}
+                        {{ character.name }}{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                </em>
+            {% endif %}
+        </span>
+    </a>
+{% endfor %}

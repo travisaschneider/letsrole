@@ -1,0 +1,37 @@
+#bindings {
+  z-index: $zBinding;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+
+  .binding-view {
+    border-radius: 3px;
+    background: $dark1;
+    position: absolute;
+    color: $white;
+    padding: 1rem;
+    max-width: 300px;
+    font-family: $font1;
+
+    .character {
+      display: block;
+      font-style: italic;
+      border-top: 1px solid $grey1;
+      padding-top: 0.8rem;
+      margin-top: 0.7rem;
+
+      img {
+        max-height: 40px;
+        max-width: 40px;
+        margin-right: 0.2rem;
+      }
+    }
+  }
+}
+
+a.binding {
+  color: $orange;
+}

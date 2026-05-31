@@ -1,0 +1,145 @@
+@import "../variables";
+
+@font-face {
+  font-family: "kinder";
+  src: url("kindergarten.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  size-adjust: 115%;
+}
+
+.sheet.skin-notebook {
+  background: #fff url("bg.jpg");
+  background-size: cover;
+  font-family: kinder;
+  color: #000;
+
+  input[type="text"],
+  input[type="number"] {
+    background-size: 100% 100%;
+  }
+
+  @each $name, $color in $themes {
+    &.theme-#{$name} {
+      input[type="number"],
+      input[type="text"],
+      .btn-secondary,
+      .nav-tabs .nav-link.active {
+        background-color: rgba(lighten($color, 30%), 0.75) !important;
+        background-blend-mode: screen !important;
+        color: #000 !important;
+      }
+    }
+  }
+
+  .widget.label,
+  a {
+    font-family: kinder;
+    color: #000;
+  }
+
+  .highlight-1,
+  .highlight-2 {
+    color: #000;
+  }
+
+  .btn-secondary {
+    background-blend-mode: overlay !important;
+    background-image: url("title-bg.png");
+    background-size: 100% 100%;
+  }
+
+  .highlight-1 {
+    background: transparent url("highlight-lines.png") repeat !important;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+    .highlight-1 {
+      rotate: -1deg;
+    }
+  }
+
+  .highlight-2 {
+    background: rgba(255, 255, 255, 0.5) url("field-bg-2.png") no-repeat !important;
+    background-size: cover !important;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    background: white url("title-bg-2.png") no-repeat !important;
+    background-size: 150% 180% !important;
+    background-position: -10px -10px !important;
+    color: #000;
+    border-radius: 3px;
+    border: 1px solid #afafaf;
+  }
+
+  .widget.textarea {
+    color: #000;
+    border: 1px dashed #555;
+  }
+
+  select.widget.choice {
+    background: transparent;
+    color: #000;
+    border: 0 none;
+    font-family: kinder;
+    border-radius: 0;
+    border-bottom: 1px solid #6d665c;
+  }
+
+  .custom-control.custom-checkbox {
+    top: -6px;
+  }
+
+  .custom-checkbox .custom-control-input ~ .custom-control-label::before {
+    background: transparent url("checkbox.png") no-repeat 50% 50%;
+    border: 0;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background: transparent url("checkbox.png") no-repeat 50% 50%;
+    border: 0;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='darkblue' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+  }
+
+  .text-title {
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  }
+
+  .nav-tabs .nav-link {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    background-blend-mode: overlay !important;
+    background-image: url("title-bg.png");
+    background-size: 100% 100%;
+    border: 0 none;
+    border-bottom: 1px solid #000;
+  }
+
+  .repeater .btn-repeater-add,
+  .repeater .done-btn {
+    font-family: "kinder";
+    font-weight: bold;
+    background-color: #fff;
+    background-blend-mode: overlay !important;
+    background-image: url("title-bg.png");
+    background-size: 100% 100%;
+    color: #000;
+  }
+
+  @import "theme-light";
+}

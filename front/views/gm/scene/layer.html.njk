@@ -1,0 +1,27 @@
+<div class="separator" data-position="{{ position }}"></div>
+
+<li class="layer d-flex justify-content-start align-items-center {% if not visible %}not-visible{% endif %} {% if locked %}locked{% endif %}" data-key="{{ key }}" draggable="true" data-position="{{ position }}">
+    <span class="quick-action quick-visibility" data-visible="{% if visible %}1{% else %}0{% endif %}" title="{% if visible %}{{ __('Hide layer') }}{% else %}{{ __('Show layer') }}{% endif %}">
+        <i class="fas {% if visible %}fa-eye{% else %}fa-eye-slash{% endif %} layer-icon"></i>
+    </span>
+
+    <div class="layer-inside d-flex justify-content-start align-items-center flex-grow-1">
+        <div class="preview"></div>
+
+        {% if gm %}<i class="fas fa-shield-alt layer-icon"></i>{% endif %}
+        {% if token %}<i class="fas fa-user-friends layer-icon"></i>{% endif %}
+        {% if drawings %}<i class="fas fa-paint-brush-alt layer-icon"></i>{% endif %}
+
+        <a href="#" class="title">{{ name }}</a>
+
+        <span class="quick-action quick-lock ml-auto" data-locked="{% if locked %}1{% else %}0{% endif %}" title="{% if locked %}{{ __('Unlock layer') }}{% else %}{{ __('Lock layer') }}{% endif %}">
+            <i class="fas {% if locked %}fa-lock{% else %}fa-lock-open{% endif %} layer-icon"></i>
+        </span>
+
+        <span class="layer-grip"><i class="fas fa-grip-lines"></i></span>
+    </div>
+</li>
+
+{% if not position %}
+    <div class="separator" data-position="-1"></div>
+{% endif %}

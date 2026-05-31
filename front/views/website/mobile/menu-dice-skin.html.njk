@@ -1,0 +1,19 @@
+<div class="submenu">
+    {% if dice|length %}
+        <ul class="dice-skins">
+            {% for die in dice %}
+                <li>
+                    <a href="#" data-id="{{ die.id }}" data-path="{{ die.path }}" data-owned="{% if die.is_owned %}1{% else %}0{% endif %}" data-catid="{{ die.revenuecat_product_id }}">
+                        <img src="{{ cdnUrl }}/{{ die.thumb_path }}">
+                        <strong>{{ die.name }}</strong>
+                        {% if not die.is_owned %}
+                            <small>{{ __("Buy this dice set") }}</small>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong class="empty">{{ __("You don't have any dice skins at the moment. Visit our website to buy some!") }}</strong>
+    {% endif %}
+</div>

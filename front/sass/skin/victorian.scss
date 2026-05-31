@@ -1,0 +1,113 @@
+@import "../variables";
+
+@font-face {
+  font-family: "neuton";
+  src: url("Neuton-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "neuton";
+  src: url("Neuton-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.sheet.skin-victorian {
+  font-family: neuton;
+
+  background-color: #0e1113 !important;
+  background-size: 100% 50%, 100% !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: center top, left top !important;
+
+  @each $name, $color in $themes {
+    &.theme-#{$name} {
+      background-image: radial-gradient(
+          ellipse at top,
+          rgba($color, 0.5),
+          transparent 50%
+        ),
+        url("victorian-stone.jpg") !important;
+    }
+  }
+
+  .highlight-1 {
+    border-radius: 0;
+    background: #282929 !important;
+    border: 3px double #fff;
+    background-image: url("victorian-pattern.png") !important;
+    background-repeat: repeat !important;
+  }
+
+  .highlight-2 {
+    border-radius: 0;
+    border: 3px solid #878787;
+    background-color: #0e1012 !important;
+    background-image: url("victorian-tl.png"), url("victorian-tr.png"),
+      url("victorian-br.png"), url("victorian-bl.png") !important;
+    background-position: top left, top right, bottom right, bottom left !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #686868;
+    border: 1px solid #38393b;
+  }
+
+  .widget.label {
+    font-family: neuton;
+    font-size: 105%;
+  }
+
+  select.widget.choice {
+    font-family: neuton;
+    font-size: 105%;
+    color: white;
+    border-radius: 0;
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    background: rgba(#0e1113, 0.9) url("victorian-caret.png") no-repeat center
+      right 1px;
+    padding-right: 18px;
+    border: 1px solid #707070;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    background: rgba(#131618, 0.9);
+    color: #fff;
+    font-family: neuton;
+    font-size: 105%;
+    font-weight: bold;
+    border: 1px solid #707070;
+    border-radius: 0;
+  }
+
+  .nav-tabs {
+    border-bottom: 0 none;
+    margin-bottom: 2px;
+  }
+
+  a.nav-link.active {
+    border-radius: 4px;
+    background: #2f3031;
+    color: #fff;
+    border-bottom: 0 none;
+  }
+
+  a.nav-link {
+    border-left: 0 none;
+    border-right: 0 none;
+    border-top: 0 none;
+    text-transform: none;
+    font-family: neuton;
+    background: transparent;
+    font-size: 110%;
+  }
+}

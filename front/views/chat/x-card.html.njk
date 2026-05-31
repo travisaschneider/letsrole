@@ -1,0 +1,20 @@
+<div class="x-card">
+    <p>
+        <strong>{{ __('Someone at the table used an') }}</strong>
+    </p>
+
+    <img src="/assets/img/x-card.png">
+
+    {% if reason %}
+        <p>{{ __('They gave the following reason:') }}</p>
+        <p><em>{{ reason }}</em></p>
+    {% endif %}
+
+    <p>
+        <strong class="small">{{ __('Please act appropriately.') }}</strong>
+    </p>
+
+    <p class="close">
+        <a href="#"><i class="fas fa-times-circle"></i> {{ __('Close') }}</a>
+    </p>
+</div>

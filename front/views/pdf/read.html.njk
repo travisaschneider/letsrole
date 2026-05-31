@@ -1,0 +1,14 @@
+<div class="pdf-toolbar">
+    <div class="section">
+        <a href="#" class="back-btn"><i class="fas fa-angle-left"></i> {{ __('Go back') }}</a>
+    </div>
+    <div class="section flex-grow-1">
+        <form action="#" class="pdf-search-form d-flex">
+            <input type="search" class="form-control pdf-search flex-grow-1" placeholder="{{ __('Find something in this PDF...') }}">
+            <button type="submit" class="btn btn-search"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+<embed src="{{ pdfUrl }}/view/{{ file.id }}/inline#view=FitH{% if page %}&page={{ page }}{% endif %}" width="100%"
+       type="application/pdf" id="pdf-reader">

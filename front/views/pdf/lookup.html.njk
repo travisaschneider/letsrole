@@ -1,0 +1,21 @@
+<div class="listing">
+    {% for pdf in pdfs %}
+    <div class="pdf-entry" data-id="{{ pdf.id }}">
+        <a href="#" style="background-image: url('{{ pdfUrl }}/cover/{{ pdf.id }}/list')"></a>
+    </div>
+    {% endfor %}
+</div>
+
+<nav class="simple-pagination pr-3">
+    <div class="justify-content-between align-items-center d-flex">
+        {% if page > 1 %}
+            <a href="#" data-page="{{ page - 1 }}" class="pagination-page"><i class="fas fa-angle-left"></i> {{ __('Previous') }}</a>
+        {% endif %}
+
+        <span>{{ __('PDFs: %{count}', {count: total}) }}</span>
+
+        {% if page < pages %}
+            <a href="#" data-page="{{ page + 1 }}" class="pagination-page">{{ __('Next')}} <i class="fas fa-angle-right"></i></a>
+        {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,5 @@
+<option value="">{{ __('Select a playlist') }}</option>
+
+{% for playlist in playlists %}
+    <option value="{{ playlist.id }}">{{ playlist.title }}</option>
+{% endfor %}

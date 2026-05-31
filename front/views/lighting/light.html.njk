@@ -1,0 +1,32 @@
+<h3>{{ __('Light') }}</h3>
+<small class="subtitle">{{ __('Selected') }}</small>
+
+<div class="row no-gutters">
+    <div class="col mr-2">
+        <div class="form-group">
+            <label>{{ __('Range (%{unit})', { unit: unit }) }}</label>
+            <input type="number" class="form-control light-range" value="{{ range_value|e }}">
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label>{{ __('Intensity') }}</label>
+            <input type="range" class="form-control light-intensity" value="{{ light.configuration.intensity|e }}" min="0" max="1" step="0.05">
+        </div>
+    </div>
+</div>
+
+<div class="row no-gutters">
+    <div class="col mr-2">
+        <div class="form-group">
+            <label>{{ __('Color') }}</label>
+            <input class="form-control color-picker light-color" value="{{ light.configuration.color|e }}">
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label>{{ __('Delete') }}</label>
+            <a href="#" class="delete-btn"><i class="fas fa-trash-alt"></i> {{ __('Delete light') }}</a>
+        </div>
+    </div>
+</div>

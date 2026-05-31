@@ -1,0 +1,19 @@
+{% if empty %}
+    <p>{{ __('No result for this query.') }}</p>
+{% endif %}
+
+<div class="row">
+    {% for sound in sounds %}
+    <div class="col-6 mb-2 sound-entry" data-path="{{ sound.path }}" data-id="{{ sound.id }}" draggable="true" data-type="sfx">
+        <div class="d-flex">
+            <a href="#" class="play-btn">
+                <i class="fas fa-play"></i>
+                <i class="fas fa-stop"></i>
+            </a>
+            <div class="ml-2">
+                <strong>{{ sound.title }}</strong>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

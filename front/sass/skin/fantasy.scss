@@ -1,0 +1,113 @@
+@import "../variables";
+
+@font-face {
+  font-family: "notoserif";
+  src: url("NotoSerif-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.sheet.skin-fantasy {
+  background: #171717;
+  font-family: notoserif;
+  background-repeat: repeat-x, repeat-x !important;
+
+  @each $name, $color in $themes {
+    &.theme-#{$name} {
+      background-image: linear-gradient(
+          rgba($color, 0.4),
+          darken(rgba($color, 0.8), 50%) 130px,
+          #171717 234px
+        ),
+        url("bg-fantasy.jpg") !important;
+
+      .nav-tabs .nav-item.show .nav-link,
+      .nav-tabs .nav-link.active {
+        background: $color;
+      }
+    }
+  }
+
+  .col:first-child.highlight-2 {
+    background: url("left-column-bg.jpg") !important;
+    border: 0 !important;
+  }
+
+  .highlight-1 {
+    box-sizing: border-box;
+    background: rgba(16, 20, 26, 0.5) !important;
+    background-image: url("top-left.png"), url("top-right.png"),
+      url("bottom-right.png"), url("bottom-left.png") !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-position: top left, top right, bottom right, bottom left !important;
+    border-radius: 0;
+    border: 2px solid #383838;
+  }
+
+  .highlight-2 {
+    border-radius: 0;
+    border: 1px solid #595656;
+    background: #3e3e3e6b !important;
+  }
+
+  .widget.label {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: notoserif;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #171717;
+    border: 1px solid #38393b;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    background: rgba(7, 8, 11, 0.7);
+    color: #fff;
+    font-family: notoserif;
+    font-weight: bold;
+    border: 1px solid #38393b;
+    border-radius: 0;
+  }
+
+  select.widget.choice {
+    font-family: notoserif;
+    color: white;
+    border-radius: 0;
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    background: rgba(7, 8, 11, 0.7) url("select-caret.png") no-repeat center
+      right;
+    padding-right: 18px;
+  }
+
+  a.nav-link.active {
+    border-bottom: 3px solid #fff;
+  }
+
+  a.nav-link {
+    border-left: 0 none;
+    border-right: 0 none;
+    border-top: 0 none;
+    text-transform: none;
+    font-family: notoserif;
+  }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    background: #2b8bd0;
+    color: #fff;
+  }
+
+  a.btn-secondary {
+    border-radius: 0;
+    background: #323231;
+    border: 1px solid #797979;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}

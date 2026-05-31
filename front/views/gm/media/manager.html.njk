@@ -1,0 +1,41 @@
+<div class="media-manager">
+    <div class="tabs d-flex flex-column">
+        <a class="tab active" href="#my-content">{{ __('My Content') }}</a>
+        <a class="tab" href="#partner-content">{{ __('Partners Content') }} <i class="fas fa-stars"></i></a>
+    </div>
+    <div class="tab-content my-content">
+        <div class="mb-2">
+            <input type="search" class="search-medias form-control" placeholder="{{ __('Find in your medias...') }}">
+        </div>
+
+        <div id="progress-container"></div>
+
+        <div class="d-flex align-items-center">
+            <form id="upload-container" onsubmit="return false" method="post" class="flex-grow-1 mr-2">
+                    <input type="file" class="form-control" id="customFile" name="media[]" multiple accept="image/jpeg, image/jpg, image/png, image/gif, image/webp, video/webm, video/mp4, video/m4v">
+            </form>
+            <div class="create-folder">
+                <a href="#" class="btn btn-secondary create-folder-btn" title="New folder"><i class="fas fa-folder-plus"></i></a>
+            </div>
+        </div>
+
+        <div class="space-container">
+            <div class="space-left d-flex align-items-center" id="media-space">
+                <span class="used-size"></span> {{ __('used out of') }} <span class="total-size"></span>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%;"><span class="percent-size"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="media-scroller">
+            <div class="folder-container"></div>
+            <div class="folders row no-gutters"></div>
+            <div class="medias row no-gutters"></div>
+            <div class="media-pagination"></div>
+        </div>
+    </div>
+
+    <div class="tab-content partner-content d-none">
+    </div>
+</div>

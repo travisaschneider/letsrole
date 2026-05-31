@@ -1,0 +1,21 @@
+#zoom {
+  position: absolute;
+  bottom: 10px;
+  right: 2rem;
+  z-index: $zZoomToolbar;
+  right: 10px !important;
+  bottom: 10px !important;
+}
+
+.right-column-open #zoom {
+  right: calc(#{$column-width} + 2rem);
+}
+
+#zoom.with-quickbar {
+  bottom: 6.7rem;
+}
+
+#ping-btn,
+#zoom-map-btn {
+  margin-top: 6px;
+}

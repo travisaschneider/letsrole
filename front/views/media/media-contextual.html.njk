@@ -1,0 +1,10 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    <a href="#" class="dropdown-item" data-action="rename"><i class="fas fa-edit"></i> {{ __('Rename') }}</a>
+    <a href="#" class="dropdown-item" data-action="delete"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+    <a href="#" class="dropdown-item" data-action="add-scene"><i class="fas fa-archway"></i> {{ __('Add to scene') }}</a>
+    <a href="#" class="dropdown-item" data-action="create-scene"><i class="fas fa-plus-octagon"></i> {{ __('Create scene') }}</a>
+
+    {% if type == 'image' or type == 'animated' %}
+        <a href="#" class="dropdown-item" data-action="create-journal"><i class="fas fa-book"></i> {{ __('Create journal entry') }}</a>
+    {% endif %}
+</div>

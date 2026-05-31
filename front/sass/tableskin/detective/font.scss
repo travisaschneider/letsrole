@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url($assetPath + "/fonts/OpenSans-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "elite";
+  src: url("./SpecialElite-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

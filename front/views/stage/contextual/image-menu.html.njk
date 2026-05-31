@@ -1,0 +1,19 @@
+<div class="menu dropdown-menu show" style="left: {{ left }}px; top: {{ top }}px">
+    {% if title %}
+        <h6 class="dropdown-header">
+            {{ title }}
+            {% include 'stage/contextual/layer.html.njk' %}
+        </h6>
+    {% endif %}
+
+    {% if isGm %}
+        {% if canAdapt %}
+             {% include 'stage/contextual/adapt.html.njk' %}
+        {% endif %}
+
+        {% include 'stage/contextual/order.html.njk' %}
+        {% include 'stage/contextual/layer-move.html.njk' %}
+        {% include 'stage/contextual/controls.html.njk' %}
+        <a href="#" class="dropdown-item delete-action"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+    {% endif %}
+</div>

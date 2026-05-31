@@ -1,0 +1,51 @@
+<p>{{ __('Record your voice (up to 2 minutes) to play it back to your players later.') }}</p>
+
+<p>
+    <a href="#" class="start-record-btn btn btn-secondary">
+        <i class="fas fa-microphone"></i>
+        {{ __('Start recording') }}
+    </a>
+
+    <a href="#" class="stop-recording-btn btn btn-secondary text-danger d-none">
+        <i class="fas fa-stop"></i>
+        {{ __('Stop recording') }}
+    </a>
+</p>
+
+<p class="transformers-container d-none">
+    <select class="transformers" class="form-control">
+        {% for key, name in transformers %}
+        <option value="{{ key }}">{{ name }}</option>
+        {% endfor %}
+    </select>
+    <a href="#" class="play-transformation-btn btn btn-secondary">
+        <i class="fas fa-play"></i>
+        <i class="fas fa-stop d-none"></i>
+        <i class="fas fa-circle-notch fa-spin d-none"></i>
+    </a>
+</p>
+
+<div class="row mt-2 mb-2 save-container d-none">
+    <div class="col-7">
+        <input type="text" placeholder="{{ __('Give a name to this recording...') }}" class="form-control recording-name">
+    </div>
+    <div class="col">
+        <a href="#" class="save-btn btn btn-secondary">
+            <span><i class="fas fa-cloud-upload"></i> {{ __('Save to my library') }}</span>
+        </a>
+    </div>
+</div>
+
+<p>
+    <span class="saving d-none">
+        <i class="fas fa-circle-notch fa-spin d-none"></i> <i class="fas fa-circle-notch fa-spin d-none"></i> {{ __('Saving...') }}
+    </span>
+
+<div class="saved d-none text-success mt-2">
+    {{ __('The recording has been saved to your library!') }}
+</div>
+</p>
+
+<p class="text-muted">
+    <small>{{ __('Recordings are counted in your disk space quota.') }}</small>
+</p>

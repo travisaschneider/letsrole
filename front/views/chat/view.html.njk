@@ -1,0 +1,16 @@
+<div class="chat-container" id="chat-container-all"></div>
+<div id="chat-related"></div>
+<div id="chat-tabs"></div>
+
+<div class="chat-input-container d-flex">
+    <input type="text" class="form-control form-control-sm" placeholder="{{ __('Send a message...') }}" id="chat-input">
+    <button id="dice-roller-btn" title="{{ __('Use the Roll Maker') }}" class="col-1"><i class="fas fa-dice"></i></button>
+    <button id="emoji-drawer-btn" title="{{ __('View all emojis') }}" class="col-1">😊</button>
+</div>
+
+<div class="chat-footer d-flex align-items-center">
+    <div class="is-typing d-flex align-items-center">
+        <img src="/assets/img/typing.png" class="mr-1 d-none">
+        <span class="who-is-typing"></span>
+    </div>
+</div>

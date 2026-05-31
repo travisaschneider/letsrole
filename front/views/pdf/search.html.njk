@@ -1,0 +1,23 @@
+<div class="pdf-search">
+    <form action="#" class="pdf-search-form d-flex">
+        <input type="search" class="form-control pdf-search flex-grow-1" placeholder="{{ __('Find something in this PDF...') }}">
+        <button type="submit" class="btn btn-search"><i class="fas fa-search"></i></button>
+    </form>
+
+    <div class="pdf-content">
+        {% for file in files %}
+            {% if file.type == 'pdf' %}
+                <div class="pdf-file" data-id="{{ file.id }}">
+                    <h4>{{ file.filename }}</h4>
+                    <a href="#" class="btn btn-primary">{{ __('Read full PDF') }}</a>
+                </div>
+            {% else %}
+                <div class="pdf-file small">
+                    <h4>{{ file.filename }}</h4>
+                    <a href="{{ pdfUrl }}/view/{{ file.id }}/download" target="_blank" class="btn btn-primary">{{ __('Download') }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>

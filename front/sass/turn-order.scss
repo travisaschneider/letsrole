@@ -1,0 +1,48 @@
+.turn-order {
+  .character-avatar {
+    width: 40px;
+    height: 40px;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  .turn-order-color {
+    width: 7px;
+    height: 40px;
+    margin-right: 1px;
+  }
+
+  &.as-gm {
+    .name,
+    .value {
+      cursor: text;
+    }
+  }
+
+  .name {
+    margin-left: 10px;
+  }
+
+  .value {
+    margin-right: 10px;
+  }
+
+  .remove-btn {
+    display: none;
+    color: $orange;
+  }
+
+  .item {
+    background: $dark1;
+    font-family: $font2;
+    font-weight: bold;
+    font-size: 16px;
+    color: $white;
+    margin-top: 10px;
+    height: 40px;
+
+    &:hover .remove-btn {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="binding-view sheet" id="binding-{{ id }}">
+    <div class="view-container">
+        {{ view|safe }}
+    </div>
+    {% if character %}
+    <div class="character">
+        {% if character.token %}
+            <img src="{{ cdnReadUrl }}/{{ character.token }}">
+        {% endif %}
+
+        {{ character.name }}
+    </div>
+    {% endif %}
+</div>

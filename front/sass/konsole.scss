@@ -1,0 +1,22 @@
+#konsole-container {
+  overflow-y: auto;
+  max-height: 300px;
+
+  .message {
+    padding: 5px;
+    border-bottom: 1px solid #555;
+  }
+
+  pre {
+    margin-bottom: 0;
+    font-size: 11px;
+  }
+
+  .log pre {
+    color: #999;
+  }
+
+  .error pre {
+    color: #ff8585;
+  }
+}

@@ -1,0 +1,25 @@
+<aside class="character character-simple character-{{ character.id }} {% if character.idle %}character-idle character-closed{% endif %} theme-{{ character.color }} {% if character.avatar_frame %}with-frame{% endif %}" data-id="{{ character.id }}" draggable="true">
+    <div class="title">
+        <h6 title="{{ __('User: %{username}', {username: user.chatname}) }}">
+            {{ character.name }} <small class="status"></small>
+        </h6>
+    </div>
+    <div class="avatar-container" data-id="{{character.id}}">
+        {% if character.avatar %}
+            <div class="avatar" style="background-image: url('{{cdnReadUrl}}/{{character.avatar}}')">
+        {% else %}
+            <div class="avatar" style="background-image: url('{{cdnReadUrl}}/static/default-avatar.png')">
+        {% endif %}
+            <div class="avatar-frame">
+            {% if character.avatar_frame %}
+                <img src="/assets/frame/{{ character.avatar_frame }}">
+            {% endif %}
+            </div>
+        </div>
+        <div class="tools">
+            {% if not isMe %}
+                <a href="#" class="chat-btn" title="{{ __('Send a private message') }}"><i class="fas fa-comment-lines"></i></a>
+            {% endif %}
+        </div>
+    </div>
+</aside>

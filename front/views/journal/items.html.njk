@@ -1,0 +1,18 @@
+{% for entry in entries %}
+    <div class="journal-card d-flex" data-id="{{ entry.id }}" data-keyid="{{ entry.keyid }}">
+        <span class="dash">—</span>
+        <a href="letsrole://journal/{{ entry.keyid }}" class="title">{% if entry.title %}{{ entry.title }}{% else %}<em>{{ __('Untitled') }}</em>{% endif %}</a>
+    </div>
+{% else %}
+    <em class="no-result">{{ __('No entry found') }}</em>
+{% endfor %}
+
+<div class="d-flex justify-content-between journal-pagination">
+    {% if page > 1 %}
+        <a href="#" class="prev-page"><i class="fas fa-chevron-left"></i> {{ __('Previous') }}</a>
+    {% endif %}
+
+    {% if page < pages %}
+        <a href="#" class="next-page">{{ __('Next') }} <i class="fas fa-chevron-right"></i></a>
+    {% endif %}
+</div>

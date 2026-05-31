@@ -1,0 +1,129 @@
+.dice-log-user {
+  background: $dark1;
+  margin-right: 2px;
+  height: 40px;
+  font-family: $font2;
+  color: $white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
+
+  strong {
+    display: block;
+    padding-top: 7px;
+    margin-left: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+#dock-dice-log {
+  min-height: 250px;
+}
+
+.log-container {
+  .dice-log {
+    .dice-icon {
+      max-width: 56px;
+      max-height: 56px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid $grey5;
+      margin-left: 8px;
+    }
+
+    &:first-child {
+      .dice-log-user {
+        margin-top: 0;
+      }
+    }
+
+    header {
+      margin: 2px 8px -8px 8px;
+      cursor: pointer;
+      min-height: 30px;
+
+      .title {
+        font-family: $font1;
+        color: $white;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .line {
+        border-top: 1px solid $grey5;
+        height: 1px;
+        margin: 0 8px;
+      }
+
+      .visibility {
+        color: $grey5;
+        margin-right: 5px;
+      }
+
+      .total {
+        font-family: $font2;
+        color: $white;
+        font-size: 24px;
+      }
+
+      small {
+        font-size: 14px;
+        margin-left: 3px;
+      }
+    }
+
+    .custom-roll {
+      margin: 5px 8px;
+      border-radius: 3px;
+    }
+
+    &.condensed {
+      .formula,
+      .rolls,
+      .actions,
+      .dice-icon,
+      .custom-roll {
+        display: none;
+      }
+    }
+  }
+
+  .formula {
+    font-family: $font1;
+    color: $grey5;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0 8px;
+  }
+
+  .dice-color {
+    height: 40px;
+    width: 7px;
+    margin-right: 1px;
+  }
+
+  .character-avatar {
+    height: 40px;
+    width: 40px;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  .actions {
+    margin: 5px 8px 3px 8px;
+  }
+
+  .roll {
+    margin: 0;
+  }
+
+  .rolls {
+    margin: 4px 8px 0 8px;
+  }
+}

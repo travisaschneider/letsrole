@@ -1,0 +1,9 @@
+<div class="col-3 media-box" draggable="true" data-id="{{ media.id }}" data-source="{{ cdnReadUrl }}/{{ media.path }}">
+    <div class="media-wrapper mr-2">
+        <div class="img-container">
+            <img src="{{ cdnThumbnailUrl }}/{{ media.path }}" height="150">
+        </div>
+
+        <h5 class="card-title">{% if media.title %}{{ media.title }}{% else %}{{ media.filename }}{% endif %}</h5>
+    </div>
+</div>

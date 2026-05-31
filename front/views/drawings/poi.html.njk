@@ -1,0 +1,30 @@
+<div class="drawing-options" data-tool="polygon">
+    <div class="form-group">
+        <label>{{ __('Title') }}</label>
+        <input class="form-control attribute" type="text" data-bind="title" data-delay="true" value="{{title|e}}">
+    </div>
+
+    <div class="form-group">
+        <label>{{ __('Color') }}</label>
+        {% set colors = [
+            ["red", __('Red')],
+            ["pink", __('Pink')],
+            ["blue", __('Blue')],
+            ["lightblue", __('Light Blue')],
+            ["green", __('Green')],
+            ["yellow", __('Yellow')],
+            ["orange", __('Orange')],
+            ["grey", __('Grey')]
+        ] %}
+        <select class="form-control attribute" data-bind="color">
+            {% for col in colors %}
+                <option value="{{ col[0] }}" {% if col[0] == color %}selected{% endif %}>{{ col[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{ __('Description') }}</label>
+        <textarea class="form-control attribute" rows="10" data-bind="description" data-delay="true">{{description|e}}</textarea>
+    </div>
+</div>

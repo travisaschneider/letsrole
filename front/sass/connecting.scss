@@ -1,0 +1,150 @@
+#connecting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  z-index: $zConnecting;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 1s linear;
+
+  .promo-logo {
+    max-width: 460px;
+    margin-bottom: 70px;
+  }
+
+  .left-side {
+    min-width: 460px;
+    position: absolute;
+    top: 18%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &.fadeout {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .connecting-error-message {
+    position: absolute;
+    width: 450px;
+    top: 120px;
+    left: calc(50% - 225px);
+    opacity: 0;
+    transition: opacity 1s linear;
+    font-family: $font1;
+    font-size: 11px;
+    color: #fff;
+    background: transparentize($dark1, 0.15);
+    border-radius: 5px;
+    padding: 18px;
+    font-weight: bold;
+    border-top: 2px solid #db3939;
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .loading-bar {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .progress {
+      max-width: 450px;
+      min-width: 450px;
+      transition: height 0.5s linear;
+
+      &.error {
+        height: 50px;
+
+        .progress-bar {
+          background: linear-gradient(to right, #db3939 0, #e11111 450px);
+          height: 50px;
+
+          .error-icon {
+            display: block;
+          }
+        }
+      }
+
+      .progress-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: linear-gradient(to right, #db6439 0, #e69340 450px);
+
+        .error-icon {
+          font-size: 26px;
+          margin-right: 15px;
+          display: none;
+          animation: pulse 1s infinite;
+        }
+
+        &.bg-success {
+          background: linear-gradient(to right, #4ed94a 0, #13bb2c 450px);
+        }
+      }
+    }
+  }
+
+  .promo {
+    width: 100%;
+    flex-grow: 1;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .tip {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: $font1;
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+    padding: 0 25px;
+  }
+
+  .product {
+    width: 300px;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+$primaryColor: #ef613c;
+$font3: $font1;
+$borderRadius: 5px;
+$spacer: 20px;
+$darkColor: #242b3b;

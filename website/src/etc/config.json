@@ -1,0 +1,24 @@
+{
+  "userid": 1,
+  "database": {
+    "host": "mariadb",
+    "user": "letsrole",
+    "database": "letsrole",
+    "password": "letsrole",
+    "port": 3306
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "cassandra": {
+    "contact_points": ["cassandra"],
+    "port": null,
+    "keyspace": "letsrole",
+    "replication_factor": 1,
+    "datacenter": "datacenter1"
+  },
+  "opensearch": {
+    "node": "http://opensearch:9200"
+  }
+}

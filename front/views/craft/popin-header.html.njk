@@ -1,0 +1,37 @@
+<div class="dropleft d-inline-block" id="dropdownSkinContainer">
+    <a href="#" class="dock dropdown-toggle" id="dropdownSkinButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-paint-roller"></i>
+    </a>
+    <div class="dropdown-menu skin-menu" aria-labelledby="dropdownSkinButton">
+
+    </div>
+</div>
+
+<a href="#" class="rename-craft-btn mr-3"><i class="fas fa-signature"></i> {{ __('Rename') }}</a>
+
+<div class="dropleft d-inline-block" id="dropdownShareContainer">
+    <a href="#" class="options-btn dropdown-toggle craft-share-dropdown mr-3" id="dropdownShareButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-share-alt"></i> {{ __('Share') }}
+    </a>
+    <div class="dropdown-menu options" id="shared-with-list" aria-labelledby="dropdownShareButton">
+        {% if canShare %}
+            {% for user in users %}
+            <a href="#" class="dropdown-item share-action {% if alreadyControl[user.id] %}bg-success text-white{% endif %}" data-user-id="{{ user.id }}">
+                <i class="fas fa-user-plus"></i> {{ user.chatname }}
+            </a>
+            {% endfor %}
+        {% else %}
+            <a href="#" class="dropdown-item text-muted">
+                <i class="fas fa-user-alt-slash"></i> {{ __('No one to share this craft with') }}
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+<a href="#" class="drop-btn d-none mr-3" draggable="true"><i class="fas fa-grip-vertical"></i> {{ __('Drop') }}</a>
+
+<a href="#" class="clone-btn mr-3" draggable="true"><i class="fas fa-clone"></i> {{ __('Clone') }}</a>
+
+<a href="#" class="delete-craft-btn mr-3"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+
+<span class="shared-by"></span>

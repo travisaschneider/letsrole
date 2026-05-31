@@ -1,0 +1,13 @@
+<p>{{ __('You are about to delete the folder <strong>%{name}</strong>', { name: folder.name|e })|safe }}.</p>
+
+<p>
+    <a href="#" class="move-btn">{{ __('I want to <strong>move</strong> all the content in the parent directory')|safe }}</a>
+</p>
+
+<p>
+    <a href="#" class="delete-all-btn">{{ __('I want to permanently <strong class="text-danger">delete</strong> all the content of the folder') }}</a>
+</p>
+
+<p>
+    <a class="button button-primary delete-cancel-btn" href="#">{{ __('Cancel') }}</a>
+</p>

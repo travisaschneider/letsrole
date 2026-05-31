@@ -1,0 +1,243 @@
+#dice {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $zDice;
+  pointer-events: none;
+  opacity: 1;
+}
+
+#dice.fadeout {
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+#dice-result-container {
+  position: absolute;
+  top: $dice-result-top;
+  width: 310px;
+  left: 50%;
+  margin-left: -155px;
+  z-index: $zDiceResult;
+  right: 1rem;
+}
+
+$lightshadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+  -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+
+.dice-result {
+  position: absolute;
+  color: #fff;
+  opacity: 0;
+  top: 0;
+  background: transparentize($dark1, 0.2);
+  margin-right: 1rem;
+  max-width: 250px;
+  border-radius: 4px;
+  width: 310px;
+
+  &.with-icon {
+    width: calc(310px + 64px);
+
+    .dice-icon {
+      max-width: 48px;
+      max-height: 48px;
+      margin-left: 8px;
+      margin-top: 8px;
+      border-radius: 4px;
+      border: 1px solid $grey5;
+      margin-bottom: 8px;
+    }
+  }
+
+  @each $name, $color in $themes {
+    &.theme-#{$name} {
+      border-left: 8px solid $color;
+    }
+  }
+
+  header {
+    padding: 6px 12px;
+  }
+
+  .from {
+    font-family: $font1;
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;
+    margin-bottom: -4px;
+  }
+
+  .custom-roll {
+    margin: 6px 12px;
+    border-radius: 3px;
+  }
+
+  .line {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 1px;
+  }
+
+  .actions {
+    margin: -6px 12px 10px 12px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ababab;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    color: #000;
+    font-size: 11px;
+    text-align: center;
+    padding-top: 2px;
+
+    &:hover {
+      background: $orange;
+      color: #fff;
+    }
+  }
+
+  .total {
+    font-family: $font2;
+    font-size: 24px;
+    color: #fff;
+    font-weight: normal;
+  }
+
+  .for {
+    font-family: $font1;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .rolls {
+    margin: -4px 12px 5px 12px;
+  }
+}
+
+aside.rolls {
+  span {
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    text-align: center;
+    height: 36px;
+    background: #313131;
+    border: 1px solid #686868;
+    border-radius: 2px;
+    padding: 2px 6px;
+    color: $white;
+    line-height: 14px;
+  }
+
+  i.icon {
+    z-index: -1;
+    position: absolute;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    top: 17px;
+    width: 100%;
+    text-align: center;
+    color: #717681;
+    font-size: 0.8rem;
+    font-smooth: always;
+    font-style: normal;
+    left: 0;
+  }
+
+  span.fumble {
+    color: $fumble;
+
+    i.icon {
+      color: $fumble;
+    }
+  }
+
+  span.critical {
+    color: $critical;
+
+    i.icon {
+      color: $critical;
+    }
+  }
+
+  @each $name, $color in $themes {
+    span.#{$name} {
+      color: $color;
+
+      i.icon {
+        color: $color;
+      }
+    }
+  }
+
+  span.discarded {
+    opacity: 0.5;
+  }
+
+  span.dimension-4 i.icon::before {
+    content: "\f6d0";
+  }
+  span.dimension-6 i.icon::before {
+    content: "\f6d1";
+  }
+  span.dimension-8 i.icon::before {
+    content: "\f6d2";
+  }
+  span.dimension-10 i.icon::before {
+    content: "\f6cd";
+  }
+  span.dimension-12 i.icon::before {
+    content: "\f6ce";
+  }
+  span.dimension-20 i.icon::before {
+    content: "\f6cf";
+  }
+}
+
+.dice-log {
+  .token img {
+    max-width: 35px;
+    width: 35px;
+    position: relative;
+    top: 5px;
+  }
+
+  .token {
+    margin-right: 0.6rem;
+  }
+
+  .no-token {
+    width: 35px;
+    color: $lightblue;
+    font-size: 2.25rem;
+    position: relative;
+    top: 8px;
+  }
+
+  .character-name {
+    color: $lightblue;
+    font-size: 0.85rem;
+  }
+
+  .title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  }
+
+  .roll {
+    font-size: 1.35rem;
+    line-height: 1.5rem;
+  }
+}

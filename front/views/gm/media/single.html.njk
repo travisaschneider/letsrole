@@ -1,0 +1,59 @@
+<div class="media">
+    <div class="d-flex w-100">
+        <div class="picture mr-4">
+            <figure>
+                {% if isVideo %}
+                    <video class="img-fluid" muted autoplay loop>
+                        <source src="{{ cdnReadUrl }}/{{ media.path }}" type="{{ media.mime }}">
+                    </video>
+                {% else %}
+                    <img src="{{ cdnThumbnailUrl }}/{{ media.path }}" class="img-fluid">
+                {% endif %}
+            </figure>
+        </div>
+        <div class="form flex-grow-1">
+            {% if media.title %}
+                <h3>{{ media.title }}</h3>
+                <p class="text-muted">{{ media.filename }}</p>
+            {% else %}
+                <h3>{{ media.filename }}</h3>
+            {% endif %}
+
+            <div class="d-flex justify-content-between">
+                <p class="text-muted">{{ media.sizeHuman }}</p>
+                <a href="{{ cdnReadUrl }}/{{ media.path }}" target="_blank"><i class="fas fa-cloud-download"></i> {{ __('Download') }}</a>
+            </div>
+
+            <div class="form-group">
+                <label>{{ __('Title') }}</label>
+                <input type="text" name="title" class="form-control" value="{{ media.title|e }}">
+            </div>
+
+            <div class="form-group">
+                <label>{{ __('Tags') }}</label>
+                <input type="text" name="tags" class="form-control" value="{{ media.tags|e }}">
+            </div>
+
+            <div class="form-group">
+                <label>{{ __('Folder') }}</label>
+                <select class="form-control" name="folderid">
+                    <option value="">({{ __('None') }})</option>
+
+                    {% for folder in folders %}
+                        <option value="{{ folder.id }}" {% if folder.id == media.folderId %}selected{% endif %}>
+                            {% for i in range(0, folder.depth) %}&nbsp;&nbsp;&nbsp;{% endfor %}{{ folder.name}}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <a href="#" class="btn btn-secondary submit">{{ __('Save') }}</a>
+            </div>
+
+            <div class="form-group">
+                <a href="#" class="text-danger delete-btn">{{ __('Delete this media') }}</a>
+            </div>
+        </div>
+    </div>
+</div>

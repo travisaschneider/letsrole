@@ -1,0 +1,48 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../website/sass/game-icons";
+
+@import "../node_modules/bootstrap-colorpicker/src/sass/colorpicker";
+
+@import "global";
+@import "structure";
+@import "connecting";
+
+@import "menu";
+@import "chat";
+@import "dice";
+@import "popin";
+@import "character";
+@import "gm";
+@import "journal";
+@import "ruler";
+@import "drawing";
+@import "zoom";
+@import "dice-log";
+@import "sound";
+@import "turn-order";
+@import "binding";
+@import "quickbar";
+@import "token";
+@import "craft";
+@import "music";
+@import "konsole";
+@import "tools";
+@import "books";
+@import "responsive";
+@import "pdf";
+@import "lighting";
+@import "media-manager";
+@import "dice-roller";
+@import "responsive";
+
+@import "mobile.scss";
+
+:root {
+  --primary-color: #{$orange};
+  --default-color: #{$grey1};
+  --opened-door-url: #{$doorOpenedUrl};
+  --closed-door-url: #{$doorClosedUrl};
+}

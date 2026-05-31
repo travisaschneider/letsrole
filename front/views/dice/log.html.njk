@@ -1,0 +1,99 @@
+<div class="dice-log" data-token="{{ user.id }}-{{ character.id }}-{{ craft.id }}" data-character-id="{{ character.id }}" data-craft-id="{{ craft.id }}" draggable="true">
+    <div class="dice-log-user">
+        <div class="d-flex">
+            {% if character %}
+                <div class="dice-color bg-theme-{{ character.color }}"></div>
+                {% if character.avatar %}
+                    <div class="character-avatar" style="background-image: url('{{ cdnReadUrl }}/{{ character.avatar }}')"></div>
+                {% endif %}
+            {% endif %}
+
+            {% if craft %}
+                <div class="dice-color"></div>
+
+                {% if craft.avatar %}
+                    <div class="character-avatar" style="background-image: url('{{ cdnReadUrl }}/{{ craft.avatar.avatar }}')"></div>
+                {% endif %}
+            {% endif %}
+
+            <strong>
+                {% if character %}
+                    {{ character.name }}
+                {% elseif craft %}
+                    {{ craft.name }}
+                {% else %}
+                    {{ user.chatname }}
+                {% endif %}
+            </strong>
+        </div>
+    </div>
+    <div>
+        <div>
+            <header class="d-flex align-items-center">
+                <div class="title" {% if title %}title="{{ title|e }}"{% endif %}>
+                    {% if title %}
+                        {{ title }}
+                    {% else %}
+                        <em>{{ __('(roll)') }}</em>
+                    {% endif %}
+                </div>
+
+                <div class="line flex-grow-1"></div>
+
+                {% if not custom %}
+                    {% if dice_result.visibility == "gm" %}
+                        <span class="visibility" title="{{ __('Visible by the GM & you only') }}"><i class="fas fa-lock-alt"></i></span>
+                    {% endif %}
+
+                    {% if dice_result.visibility == 'gmonly' %}
+                        <span class="visibility" title="{{ __('Visible by the GM only') }}"><i class="fas fa-lock-alt"></i></span>
+                    {% endif %}
+
+                    <span class="total d-flex align-items-center">
+                        {% if dice_result.type == "comparison" %}
+                            {{ dice_result.success }}
+                            <small>
+                                {% if dice_result.success > 1 %}
+                                    {{ __('successes') }}
+                                {% else %}
+                                    {{ __('success') }}
+                                {% endif %}
+                            </small>
+                        {% else %}
+                            {{ dice_result.total }}
+                        {% endif %}
+                    </span>
+                {% endif %}
+            </header>
+
+            <div class="d-flex">
+                {% if iconPath %}
+                    <img src="{{ iconPath }}" class="dice-icon">
+                {% endif %}
+                <div class="flex-grow-1">
+                    <div class="formula">
+                        {{ dice_result.formula }}
+                    </div>
+
+                    {% if custom %}
+                        <div class="custom-roll sheet" id="{{ id }}"></div>
+                    {% endif %}
+
+                    <aside class="rolls">
+                        {% for dice in dice_result.all %}
+                            <span class="dimension-{{ dice.dimension }}
+                                {% if dice.discarded %}discarded{% endif %}
+                                {{ getCriticalType(dice.dimension, dice.value) }}">
+                                {{ dice.value }}
+                                <i class="icon"></i>
+                            </span>
+                        {% endfor %}
+                    </aside>
+                    <aside class="actions">
+                        <span class="inset"></span>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="dice-roller">
+    <div class="header">
+        <div class="d-flex">
+            <input type="text" class="roll-render form-control flex-grow-1" readonly value="">
+            <a href="#" class="roll btn btn-primary">
+                {% if type == 'chat' %}
+                    {{ __('Roll') }}
+                {% else %}
+                    {{ __('Set') }}
+                {% endif %}
+            </a>
+        </div>
+        <div class="mt-1">
+            <select class="form-control visibility-picker">
+                <option value="visible">{{ __('Everyone can see') }}</option>
+                <option value="gm">{{ __('Only you and GMs can see') }}</option>
+                <option value="gmonly">{{ __('Only GMs can see') }}</option>
+            </select>
+        </div>
+    </div>
+
+    <aside class="func-bar">
+        <div class="row no-gutters">
+            <div class="col"><div class="node"><a href="#" title="{{ __("Advantage") }}" data-action="func" data-func="adv">{{ __('ADV') }}</a></div></div>
+            <div class="col separator"><div class="node"><a href="#" title="{{ __("Disadvantage") }}" data-action="func" data-func="disadv">{{ __('DISADV') }}</a></div></div>
+            <div class="col"><div class="node"><a href="#" title="{{ __("Exploding") }}" data-action="func" data-func="expl">{{ __('EXPL') }}</a></div></div>
+            <div class="col"><div class="node"><a href="#" title="{{ __("Explode and sum the dice") }}" data-action="func" data-func="expladd">{{ __('EXPL ADD') }}</a></div></div>
+        </div>
+    </aside>
+
+    <div class="main-content">
+        <div class="dice-grid">
+            <div class="node"><a href="#" title="{{ __('d4') }}" data-action="dice" data-value="4"><i class="fas fa-dice-d4"></i><span class="count"></span></a></div>
+            <div class="node"><a href="#" title="{{ __('d6') }}" data-action="dice" data-value="6"><i class="fas fa-dice-d6"></i><span class="count"></span></a></div>
+            <div class="node"><a href="#" title="{{ __('d8') }}" data-action="dice" data-value="8"><i class="fas fa-dice-d8"></i><span class="count"></span></a></div>
+            <div class="node node-action"><a href="#" title="{{ __("Less than") }}" data-action="compare" data-value="<"><i class="fas fa-less-than"></i></a></div>
+            <div class="node node-action"><a href="#" title="{{ __("Greater than") }}" data-action="compare" data-value=">"><i class="fas fa-greater-than"></i></a></div>
+
+            <div class="node"><a href="#" title="{{ __('d10') }}" data-action="dice" data-value="10"><i class="fas fa-dice-d10"></i><span class="count"></span></a></div>
+            <div class="node"><a href="#" title="{{ __('d12') }}" data-action="dice" data-value="12"><i class="fas fa-dice-d12"></i><span class="count"></span></a></div>
+            <div class="node"><a href="#" title="{{ __('d20') }}" data-action="dice" data-value="20"><i class="fas fa-dice-d20"></i><span class="count"></span></a></div>
+            <div class="node node-action"><a href="#" title="{{ __("Drag'n drop onto the QuickBar") }}" data-action="quickbar" draggable="true"><i class="fas fa-star"></i></a></div>
+            <div class="node node-action"><a href="#" title="{{ __("Copy to clipboard") }}" data-action="copy"><i class="fas fa-copy"></i></a></div>
+
+            <div class="node">
+                <a href="#" title="{{ __('d100') }}" data-action="dice" data-value="100">
+                    {% include "dice/d100.svg.njk" %}
+                    <span class="count"></span>
+                </a>
+            </div>
+            <div class="node more-less-node">
+                <a class="more" data-action="value" data-type="more"><i class="fas fa-caret-up"></i></a>
+                <small>{{ __("Value") }}</small>
+                <a class="less" data-action="value" data-type="less"><i class="fas fa-caret-down"></i></a>
+            </div>
+            <div class="node value-node">
+                <input class="big" type="number" min="-999" max="999" step="1" value="0">
+            </div>
+            <div class="node node-action"><a href="#" title="{{ __("Undo") }}" data-action="undo"><i class="fas fa-undo"></i></a></div>
+            <div class="node node-action"><a href="#" title="{{ __("Clear formula") }}" data-action="clear"><i class="fas fa-eraser"></i></a></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+export interface System {
+  id: string;
+  author_id: number;
+  game_id: number;
+  name: string;
+  content: any;
+  is_active: boolean;
+  is_delete: boolean;
+  current_content: any;
+  tagline: string;
+  is_official: boolean;
+  current_commit: number;
+  description: string;
+  description_source: string;
+  share_key: string;
+  forked_from_id: number;
+  allow_fork: boolean;
+  licence_template: string;
+  licence_title: string;
+  licence_content: string;
+  translation_fields: any;
+  default_locale: string;
+  is_archived: boolean;
+  last_activity: number;
+  is_published: boolean;
+  likes: number;
+  dislikes: number;
+  banner_path: string;
+  user_count: number;
+  publisher: string;
+  publisher_id: number;
+  banner: string;
+  tags: string[];
+  thread: string;
+  created_at: number;
+}

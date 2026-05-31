@@ -1,0 +1,28 @@
+{% macro sort(type) %}
+<div class="sort">
+    <span data-sort="{{ type }}" data-direction="asc"><i class="fas fa-caret-up"></i></span>
+    <span data-sort="{{ type }}" data-direction="desc"><i class="fas fa-caret-down"></i></span>
+</div>
+{% endmacro %}
+
+<table class="media-table-layout">
+    <thead>
+        <tr>
+            <th data-type="name">
+                {{ __('Name') }}
+                {{ sort('name') }}
+            </th>
+            <th data-type="date">
+                {{ __('Date') }}
+                {{ sort('date') }}
+            </th>
+            <th data-type="size">
+                {{ __('Size') }}
+                {{ sort('size') }}
+            </th>
+        </tr>
+    </thead>
+    <tbody id="medias-container">
+
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+<div class="popin {{ className }}" id="{{ id }}" style="width: {{ width }}px">
+    <header class="d-flex flex-row align-items-center">
+        <h3 class="mr-auto">{{ title }}</h3>
+
+        {% if gm %}
+        <div class="dropdown">
+            <a href="#" class="dock dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item kick-btn" href="#"><i class="fas fa-user-times"></i> {{ __('Kick character from the table') }}</a>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="dropleft" id="dropdownSkinContainer">
+            <a href="#" class="dock dropdown-toggle" id="dropdownSkinButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-paint-roller"></i>
+            </a>
+            <div class="dropdown-menu skin-menu" aria-labelledby="dropdownSkinButton">
+
+            </div>
+        </div>
+
+        <a href="#" class="minimize"><i class="fas fa-window-minimize"></i></a>
+        <a href="#" class="maximize"><i class="far fa-window-maximize"></i></a>
+        <a href="#" class="close"><i class="fas fa-times"></i></a>
+    </header>
+    <main>
+        {{ html|safe }}
+    </main>
+    <span class="resize">◢</span>
+</div>

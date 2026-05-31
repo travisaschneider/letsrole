@@ -1,0 +1,10 @@
+<div class="dropdown-menu options show">
+    <a class="update-btn dropdown-item" href="#"><i class="fas fa-edit"></i> <span>{{ __('Update') }}</span></a>
+    <a class="icon-btn dropdown-item" href="#"><i class="fas fa-image"></i> <span>{{ __('Change Icon') }}</span></a>
+
+    {% if item.sound %}
+        <a class="sound-btn dropdown-item" href="#"><i class="fas fa-music-alt-slash"></i> <span>{{ __('Remove sound') }}</span></a>
+    {% endif %}
+
+    <a class="delete-btn dropdown-item" href="#"><i class="fas fa-trash-alt"></i> <span>{{ __('Remove') }}</span></a>
+</div>

@@ -1,0 +1,55 @@
+<div class="pdf-search-result">
+
+    <div class="search-header">
+        {{ __('We have <strong>%{total}</strong> results with the term <em>%{term}</em>.', {
+            total: result.total,
+            term: result.q|e
+        })|safe }}
+    </div>
+
+    <div class="results">
+        {% for hit in result.hits %}
+            <div class="pdf-search-result">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <div class="header">
+                            {% set cnt = hit.highlights|length  %}
+
+                            {% if cnt >= 5 %}
+                                {% set cnt = "5+" %}
+                            {% endif %}
+
+                            {% if hit.highlights|length > 1 %}
+                                {{ __('Page %{page} - "%{term}" found <strong>%{time} times</strong>', {
+                                    page: hit.page_display,
+                                    term: result.q|e,
+                                    time: cnt
+                                })|safe }}
+                            {% else %}
+                                {{ __('Page %{page} - "%{term}" found <strong>once</strong>', {
+                                    page: hit.page_display,
+                                    term: result.q|e
+                                })|safe }}
+                            {% endif %}
+                        </div>
+
+                        <div class="highlight">
+                            {{ hit.highlights[0]|safe }}
+                        </div>
+                    </div>
+
+                    <div class="ml-4 actions">
+                        <a class="btn btn-secondary page-btn" href="#" data-fileid="{{ hit.file_id }}" data-page="{{ hit.page_number }}">
+                            <i class="fas fa-page-break"></i>
+                            {{ __('Go to page %{page}', {page: hit.page_display}) }}
+                        </a>
+                        <a class="btn btn-full btn-secondary full-btn" data-fileid="{{ hit.file_id }}" href="#" data-page="{{ hit.page_number }}">
+                            <i class="fas fa-file-pdf"></i>
+                            {{ __('Open full PDF at page %{page}', {page: hit.page_display}) }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

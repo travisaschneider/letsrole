@@ -1,0 +1,31 @@
+<div class="media-container">
+    <div class="d-flex align-items-center mb-2">
+        <a href="#" class="btn btn-secondary mr-2" data-action="add-scene"><i class="fas fa-archway"></i> {{ __('Add to scene') }}</a>
+        <a href="#" class="btn btn-secondary" data-action="create-scene"><i class="fas fa-plus-octagon"></i> {{ __('Create scene') }}</a>
+
+        {% if type == 'image' %}
+            <a href="#" class="btn btn-secondary ml-auto" data-action="create-journal"><i class="fas fa-book"></i> {{ __('Create journal entry') }}</a>
+        {% endif %}
+    </div>
+
+    <div class="media">
+        {% if type == 'image' %}
+            <img src="{{ cdnReadUrl }}/{{ media.path }}">
+        {% endif %}
+        {% if type == 'video' %}
+            <video controls width="100%" autoplay muted crossorigin="anonymous" loop>
+                <source src="{{ cdnReadUrl }}/{{ media.path }}" type="{{ media.mime }}">
+            </video>
+        {% endif %}
+
+        <a download="{{ media.filename|e }}" href="{{ cdnReadUrl }}/{{ media.path }}" class="btn btn-secondary download-btn">
+            {{ __('Download') }} <i class="fas fa-file-download"></i>
+        </a>
+    </div>
+
+    <div class="d-flex align-items-center mt-2">
+        <input type="text" name="media-title" value="{{ name|e }}" class="mr-2 flex-grow-1" placeholder="{{ __('Title') }}">
+        <input type="text" name="media-tags" value="{{ media.tags|e }}" class="mr-4" placeholder="{{ __('Tags') }}">
+        <a href="#" class="btn btn-secondary" data-action="delete" title="{{ __('Delete') }}"><i class="fas fa-trash-alt"></i></a>
+    </div>
+</div>

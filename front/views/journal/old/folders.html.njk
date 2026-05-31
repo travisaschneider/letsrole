@@ -1,0 +1,8 @@
+<div class="folders-container">
+    {% for folder in folders %}
+        <a href="#" title="{{ folder.name|e }}" data-id="{{ folder.id }}" class="folder-item">
+            <i class="fas fa-folder"></i>
+            {{ folder.name }}
+        </a>
+    {% endfor %}
+</div>

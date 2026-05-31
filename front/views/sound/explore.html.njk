@@ -1,0 +1,32 @@
+<form class="sound-search mb-3" onsubmit="return false">
+    <input type="search" name="q" placeholder="{{ __('Find a sound...') }}" class="form-control">
+</form>
+
+<div class="search-result">
+
+</div>
+
+<div class="categories-container">
+    <h2>{{ __('Sound Categories') }}</h2>
+
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-6 mb-2 sound-category" data-id="{{ category.id }}">
+                <div class="d-flex align-items-center">
+                    {% if category.icon %}
+                        <i class="{{ category.icon }} mr-2"></i>
+                    {% endif %}
+
+                    <span>{{ category.name }}</span>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="col-6 mb-2 sound-category" data-id="recording">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-microphone mr-2"></i>
+                <span>{{ __('My recordings') }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="aura-selector">
+    <div class="form-group">
+        <div class="d-flex justify-content-between">
+            <label>{{ __('Text') }}</label>
+        </div>
+        <input type="text" class="form-control aura-text" placeholder="{{ __('Text status...') }}">
+    </div>
+    <div class="form-group">
+        <label>{{ __('Text color') }}</label>
+        <div>
+            {% for color in colors %}
+            <a href="#" class="color-item" style="background-color:{{ color }}" data-color="{{ color }}"></a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="form-group d-none" id="icon-selector">
+        <label>{{ __('Icons') }}</label>
+        <select id="pack-selector" class="form-control"></select>
+        <div id="icons-container" class="mt-2"></div>
+
+        <div id="selected-icons" class="mt-2"></div>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="not-share-status">
+            <label class="custom-control-label" for="not-share-status">{{ __('Do not share status') }}</label>
+        </div>
+    </div>
+</div>

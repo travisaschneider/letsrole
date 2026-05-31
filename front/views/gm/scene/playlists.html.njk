@@ -1,0 +1,5 @@
+<option value="">{{ __('Do not start a playlist') }}</option>
+
+{% for playlist in playlists %}
+    <option value="{{ playlist.id }}" {% if playlist.id == current %}selected{% endif %}>{{ playlist.title }}</option>
+{% endfor %}

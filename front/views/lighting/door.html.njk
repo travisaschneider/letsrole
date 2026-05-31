@@ -1,0 +1,14 @@
+<h3>{{ __('Door') }}</h3>
+<small class="subtitle">{{ __('Selected') }}</small>
+
+<div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="door-gm" {% if door.gm %}checked{% endif %}>
+    <label class="custom-control-label" for="door-gm">{{ __('GM door') }}</label>
+</div>
+
+<p class="mt-2">
+    {#
+    <a href="#" data-action="door"><i class="fas fa-dungeon"></i> {{ __('Convert to wall') }}</a>
+    #}
+    <a href="#" class="delete-btn"><i class="fas fa-trash-alt"></i> {{ __('Delete') }}</a>
+</p>

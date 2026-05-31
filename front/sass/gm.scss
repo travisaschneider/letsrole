@@ -1,0 +1,725 @@
+$media-manager-tabs-width: 40px;
+
+.scene-data {
+  #layers {
+    .separator {
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+      box-sizing: border-box;
+    }
+    .separator.active {
+      padding-top: 0;
+      padding-bottom: 0;
+      border-top-color: $orange;
+      border-bottom-color: $orange;
+      border-top-width: 3px;
+    }
+  }
+
+  .layer {
+    .layer-inside {
+      background: $dark1;
+    }
+
+    &.not-visible {
+      opacity: 0.5;
+    }
+
+    .preview {
+      height: 36px;
+      width: 36px;
+      text-align: center;
+      margin-right: 5px;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .quick-action {
+      cursor: pointer;
+      margin-left: 5px;
+      margin-right: 5px;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+
+    a.title {
+      font-family: $font1;
+      color: $white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .layer-icon {
+      font-size: 0.75rem;
+      color: $white;
+      margin-right: 0.2rem;
+      opacity: 0.8;
+    }
+
+    .layer-grip {
+      color: #919090;
+      margin-right: 8px;
+      cursor: move;
+    }
+  }
+
+  .layer.active {
+    .layer-inside {
+      background: $grey1;
+    }
+  }
+}
+
+#scene-explorer main {
+  padding: 0;
+}
+
+.scene-explorer-header {
+  background: $grey2;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+
+  .search {
+    background: $dark1;
+    border-radius: 3px;
+    margin-right: 8px;
+    height: 30px;
+
+    .icon {
+      width: 8%;
+      text-align: center;
+    }
+
+    input {
+      border: 0 none;
+      font-family: $font1;
+      font-size: 13px;
+      color: $white;
+      height: 100%;
+      background: $dark1;
+      width: 80%;
+    }
+
+    .clear-search {
+      display: inline-block;
+      width: 8%;
+      color: $grey5;
+      text-align: center;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+.scene-explorer {
+  position: absolute;
+  overflow-y: auto;
+  top: 90px;
+  bottom: 45px;
+  left: 15px;
+  right: 15px;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track;
+    border-radius: 20px;
+  }
+}
+
+.scene-browser {
+  .pack-header {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $dark1;
+    margin-bottom: 15px;
+
+    p {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $orange;
+    }
+  }
+  .unlocked-scenes {
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    left: 210px;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 15px 0 0;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-thumb;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-track;
+      border-radius: 20px;
+    }
+  }
+
+  .scene-entry {
+    width: 100%;
+    min-height: 165px;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1px solid $darkColor;
+
+    &:hover {
+      border-color: $orange;
+
+      a.use-scene {
+        color: $orange;
+      }
+    }
+
+    .use-scene {
+      display: block;
+      color: $white;
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: transparentize($dark1, 0.25);
+      color: #fff;
+      font-size: 12px;
+      padding: 5px;
+
+      .name {
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: auto;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .tabs {
+    background: $grey1;
+    padding-top: 7px;
+    padding-left: 15px;
+
+    .tab {
+      color: $white;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 8px 25px;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      text-align: center;
+
+      &.active {
+        background: $grey2;
+      }
+    }
+  }
+
+  .unlocked-container {
+    display: flex;
+
+    .sidebar {
+      position: absolute;
+      overflow-y: scroll;
+      top: 55px;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      min-width: 200px;
+      background: $grey2;
+      padding-right: 10px;
+      padding-left: 10px;
+
+      &::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $scrollbar-thumb;
+        border-radius: 20px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $scrollbar-track;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
+#unlocked-packs {
+  .scene-pack {
+    width: 100%;
+    min-height: 120px;
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 1px solid $dark1;
+
+    &:hover,
+    &.active {
+      border-color: $orange;
+    }
+
+    strong {
+      background: transparentize($color: $dark1, $amount: 0.15);
+      padding: 5px 10px;
+      display: block;
+      width: 100%;
+
+      small {
+        display: block;
+        margin-top: 1px;
+        font-size: 10px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.scene-explorer-toolbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 12px;
+  align-items: center;
+
+  .import-scene-btn {
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+.scene-box {
+  background: $dark1;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 5px;
+  font-family: $font1;
+  color: $white;
+
+  .thumbnail-container {
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    background-color: $grey1;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin-right: 8px;
+  }
+
+  .thumbnail {
+    max-width: 55px;
+    max-height: 38px;
+  }
+
+  .name {
+    font-family: $font2;
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .loaders {
+    width: 120px;
+
+    a.active {
+      font-weight: bold;
+      color: $orange;
+    }
+
+    a i {
+      width: 16px;
+    }
+  }
+
+  .actions {
+    width: 170px;
+  }
+
+  a {
+    color: $white;
+    font-size: 11px;
+
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+    }
+  }
+}
+
+.give-control-form {
+  min-width: 250px;
+}
+
+/*
+.media-manager {
+
+  #media-space {
+    margin-top: 5px;
+
+    .progress {
+      min-width: 200px;
+      max-height: 8px;
+    }
+
+    .used-size {
+      margin-right: 5px;
+    }
+
+    .total-size {
+      margin-left: 5px;
+      margin-right: 10px;
+    }
+
+    .percent-size {
+      font-size: 9px;
+    }
+  }
+
+  .my-content {
+    margin-left: $media-manager-tabs-width;
+  }
+
+  .partner-content {
+    margin-left: $media-manager-tabs-width;
+
+    .go-back {
+      color: #fff;
+    }
+
+    .media-scroller {
+      top: 9rem;
+    }
+
+    .partner {
+      background: $dark1;
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        h3 {
+          color: $orange;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        border-radius: 50%;
+        display: block;
+      }
+
+      h3 {
+        margin-top: 5px;
+        text-align: center;
+      }
+    }
+
+    .partner-heading {
+      background: $dark1;
+      padding: 20px;
+      position: relative;
+      border-radius: 4px;
+
+      .back-root {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: #fff;
+        font-size: 1.3rem;
+      }
+
+      .logo {
+        max-width: 75px;
+        margin-right: 15px;
+
+        img {
+          max-width: 75px;
+          border-radius: 50%;
+        }
+      }
+
+      .referer {
+        color: $white;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    width: $media-manager-tabs-width;
+    background: $dark1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    .tab {
+      display: inline-block;
+      font-family: $font1;
+      font-size: 13px;
+      color: #fff;
+      padding: 10px;
+      text-orientation: sideways;
+      writing-mode: vertical-lr;
+      transform: rotate(-180deg);
+
+      &:hover {
+        color: $orange;
+        text-decoration: none;
+      }
+
+      &.active {
+        background: $grey2;
+      }
+    }
+  }
+
+  .folder-item {
+    width: 95%;
+    max-width: 95%;
+    margin-right: 5px;
+    border: 0 none;
+  }
+
+  #progress-container {
+    position: absolute;
+    z-index: 2;
+    top: -0.6rem;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .create-folder-btn {
+    height: 34px;
+    top: 2px;
+    margin-right: 0.3rem;
+    font-size: 1.2rem;
+    padding-top: 2px;
+  }
+
+  .media-scroller {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 1rem;
+    top: 7.5rem;
+    left: calc(1rem + #{$media-manager-tabs-width});
+    right: 1rem;
+  }
+
+  nav {
+    margin-top: 0.5rem;
+  }
+
+  .medias {
+    .media-box {
+
+      cursor: pointer;
+
+      h5 {
+        text-overflow: ellipsis;
+        max-width: 100%;
+        width: inherit;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-transform: none;
+        margin-bottom: 0;
+        margin-top: 0.4rem;
+        font-size: 0.8rem;
+      }
+
+      .img-container {
+        overflow: hidden;
+        max-height: 200px;
+
+        img {
+          width: auto;
+          height: auto;
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.media-wrapper {
+  background: $dark1;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.folder-name {
+  width: inherit;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.folder-item {
+  cursor: pointer;
+}
+
+.media {
+  h3 {
+    overflow-wrap: break-word;
+  }
+
+  .picture {
+    max-width: 45%;
+  }
+
+  figure {
+    img {
+    }
+  }
+}*/
+
+#scene-infos {
+  .scene-name {
+    font-family: $font2;
+    font-size: 16px;
+    color: $white;
+    font-weight: bold;
+  }
+
+  #edit-scene-btn {
+  }
+
+  .scene-details {
+    font-family: $font1;
+    color: $white;
+    font-size: 11px;
+
+    span {
+      display: block;
+    }
+  }
+
+  #teleport-scene-btn {
+    color: $orange;
+  }
+}
+
+.media-manager-container {
+  text-align: center;
+  margin-top: 12px;
+
+  #media-manager-btn {
+    display: inline-block;
+    color: $white;
+    font-family: $font1;
+    font-weight: bold;
+    border: 1px solid $white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+      border-color: $orange;
+    }
+  }
+}
+
+.fog-tools {
+  padding: 8px;
+
+  small {
+    font-family: $font1;
+    font-size: 13px;
+    font-weight: bold;
+    color: $white;
+  }
+
+  .btn-secondary {
+    margin-right: 4px;
+  }
+}
+
+.folder-container {
+  h4 {
+    font-size: 14px;
+    font-family: $font1;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .folder-up-btn {
+    color: $white;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+.param-group {
+  border: 1px solid transparentize($grey1, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+
+  .mr-2 {
+    margin-right: 12px;
+  }
+}

@@ -1,0 +1,304 @@
+$journal-bgcolor: #d7cec2;
+$journal-dark: darken($journal-bgcolor, 17%);
+
+#popin-container {
+  pointer-events: none;
+}
+
+.popin {
+  pointer-events: auto;
+  position: absolute;
+  width: 80%;
+  height: auto;
+  top: 2%;
+  left: 2%;
+  background: $grey2;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  border-radius: 4px;
+
+  .maximize {
+    display: none;
+  }
+
+  &.minimized {
+    width: auto;
+
+    main,
+    .resize,
+    .minimize {
+      display: none;
+    }
+
+    .maximize {
+      display: inline-block;
+    }
+  }
+
+  header {
+    height: $popin-header-height;
+    cursor: move;
+    background: $dark1;
+
+    .extra-header, .header-options {
+      font-family: $font1;
+      font-size: 11px;
+      font-weight: normal;
+    }
+
+    .header-options {
+      margin-right: 8px;
+      
+      a {
+        color: $white;
+      }
+
+      a:hover {
+        color: $orange;
+        text-decoration: none;
+      }
+    }
+
+    h3 {
+      margin: 0 0 0 1rem;
+      padding: 0;
+      color: $white;
+      font-family: $font2;
+      font-size: 16px;
+      font-weight: bold;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+      padding-right: 1rem;
+      margin-right: auto;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .popin-icon {
+      color: $grey5;
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-right: -10px;
+    }
+
+    a.close {
+      margin-right: 1rem;
+      font-size: 13px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    a.minimize,
+    a.dock,
+    a.maximize {
+      margin-right: 0.6rem;
+      color: #fff;
+      opacity: 0.5;
+      font-size: 13px;
+
+      &:hover {
+        opacity: 0.75;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  main {
+    width: 100%;
+    height: calc(100% - 3.5rem);
+    padding: 1rem;
+    overflow: auto;
+    color: #fff;
+    position: relative;
+    font-family: $font1;
+    font-size: 12px;
+  }
+
+  .resize {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0;
+    color: #aaa;
+    cursor: se-resize;
+  }
+
+  select,
+  select:focus,
+  select:active {
+    color: $white;
+    font-family: $font2;
+    font-size: 12px;
+    font-weight: bold;
+    background: $dark1;
+    border: 0 none;
+    padding: 5px 8px;
+  }
+
+  input,
+  input:focus,
+  input:active,
+  textarea,
+  textarea:focus,
+  textarea:active {
+    color: $white;
+    font-family: $font1;
+    font-size: 11px;
+    font-weight: bold;
+    background: $dark1;
+    border: 0 none;
+    padding: 5px 8px;
+  }
+
+  input[type="range"] {
+    max-width: 100%;
+  }
+
+  h3 {
+    font-family: $font2;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  label {
+    margin-bottom: 0.15rem;
+  }
+
+  .custom-control-label {
+    line-height: 22px;
+  }
+
+  .resource-dropdown {
+    a {
+      cursor: pointer;
+    }
+    .dropdown-toggle::after,
+    .dropdown-toggle::before {
+      display: none;
+    }
+  }
+
+  a.nav-link {
+    color: $white;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+/*
+.popin.popin-journal {
+  background: $journal-bgcolor;
+
+  header {
+    background: $journal-dark;
+    color: $dark1;
+
+    h3,
+    a {
+      color: $dark1;
+    }
+
+    .header-options {
+      margin-right: 8px;
+    }
+  }
+
+  label {
+    font-family: $font1;
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: $dark1;
+    font-weight: bold;
+  }
+
+  h4,
+  p {
+    font-family: $font1;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+
+  .form-text {
+    font-family: $font1;
+    font-size: 11px;
+  }
+
+  .form-group {
+    margin-bottom: 6px;
+  }
+
+  input,
+  select {
+    background: $journal-dark;
+    color: $dark1;
+    font-family: $font1;
+    font-size: 14px;
+
+    &:focus {
+      border-color: $orange;
+      box-shadow: 0 0 0 0.2rem rgba(241, 90, 36, 0.5);
+    }
+  }
+
+  .ql-container {
+    font-family: $font1;
+    font-size: 13px;
+    color: $dark1;
+  }
+
+  .ql-editor {
+    padding: 0;
+  }
+
+  &.minimized .actions {
+    display: none;
+  }
+
+  .actions {
+    position: absolute;
+    width: 40px;
+    left: -40px;
+    top: 60px;
+    z-index: 4;
+
+    a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: $journal-dark;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      color: $dark1;
+      font-size: 20px;
+      padding: 5px 12px;
+      margin-bottom: 5px;
+
+      &:hover {
+        background: $orange;
+        color: $dark1;
+      }
+    }
+  }
+
+  .resize {
+    cursor: nwse-resize;
+  }
+
+  .access-users,
+  .access-tables {
+    font-size: 12px;
+    color: $dark1;
+    font-family: $font1;
+  }
+}
+*/

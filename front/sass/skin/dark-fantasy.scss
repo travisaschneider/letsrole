@@ -1,0 +1,164 @@
+@import "../variables";
+
+@font-face {
+  font-family: "opensans";
+  src: url("OpenSans-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.sheet.skin-dark-fantasy {
+  background: #1b1915;
+  font-family: opensans;
+  color: #fff;
+
+  .col:first-child.highlight-2 {
+    border-radius: 0;
+    border: 1px solid #3c3b3a;
+    background: #201e1a !important;
+    position: relative;
+
+    &:before {
+      background: transparent;
+      background-image: url("big-corner-top-left.png"),
+        url("big-corner-top-right.png"), url("big-corner-bottom-right.png"),
+        url("big-corner-bottom-left.png") !important;
+      background-repeat: no-repeat !important;
+      background-position: top left, top right, bottom right, bottom left !important;
+      content: " ";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  .highlight-1 {
+    box-sizing: border-box;
+    outline: 1px solid #3b3a3a;
+    border: 3px solid #0f1111 !important;
+    border-radius: 0;
+    z-index: 2;
+    background: #171513 !important;
+    background-image: url("corner-top-left.png"), url("corner-top-right.png"),
+      url("corner-bottom-right.png"), url("corner-bottom-left.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: top left, top right, bottom right, bottom left !important;
+  }
+
+  .highlight-2 {
+    border-radius: 0;
+    background: #2e2b27 !important;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+    border: 1px solid #3b3a3a;
+    background-image: url("rust-corner-top-left-2.png"),
+      url("rust-corner-top-right-2.png"), url("rust-corner-bottom-right-2.png"),
+      url("rust-corner-bottom-left-2.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: top left, top right, bottom right, bottom left !important;
+  }
+
+  .widget.label {
+    color: #fff;
+    font-family: opensans;
+    font-weight: bold;
+
+    &.text-large,
+    &.text-title,
+    &.text-giant,
+    &.text-gargantuan {
+      color: #867563;
+    }
+  }
+
+  .widget {
+    &.clickable {
+      cursor: pointer;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+  .custom-control-label:before {
+    background-color: #141210;
+    border: 1px solid #464949;
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #171717;
+    border: 1px solid #38393b;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    background: #181614;
+    color: #7b7a78;
+    font-family: opensans;
+    font-weight: bold;
+    border: 2px solid #11100e;
+    outline: 1px solid #2d2b2a;
+    border-radius: 0;
+  }
+
+  select.widget.choice {
+    font-family: opensans;
+    color: white;
+    border-radius: 0;
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    border: 2px solid #11100e;
+    outline: 1px solid #2d2b2a;
+    background: #181614 url("dropdown.png") no-repeat center right;
+    padding-right: 25px;
+  }
+
+  a.nav-item {
+    font-family: opensans;
+    font-weight: bold;
+  }
+
+  a.nav-link {
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 0 !important;
+    border: 2px solid #13100d;
+    outline: 1px solid #5d5d5d;
+    background: #2c2620 url("wood.jpg") 50% 50%;
+    text-transform: none;
+    font-weight: bold;
+    transition: filter 0.25s linear;
+    color: #867563;
+    margin-bottom: 4px;
+  }
+
+  a.nav-link.active,
+  a.nav-link:hover {
+    filter: brightness(1.75);
+    color: #fff;
+  }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    color: #fff;
+  }
+
+  a.btn-secondary {
+    border-radius: 2px;
+    font-family: opensans;
+    font-weight: bold;
+    outline: 1px solid #000;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: linear-gradient(#260e0b, #7f221f);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+}

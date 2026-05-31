@@ -1,0 +1,166 @@
+#sound-box {
+  .playing {
+    small {
+      display: block;
+    }
+  }
+
+  .volume-music,
+  .volume-fx {
+    label {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+  }
+}
+
+.sound-library {
+  h2 {
+    font-size: 1.3rem;
+    font-family: $font2;
+    font-weight: bold;
+  }
+
+  .sound-category {
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+
+    i {
+      font-size: 2rem;
+      margin-bottom: 5px;
+      width: 45px;
+      text-align: center;
+    }
+  }
+
+  .my-playlists-title {
+    font-size: 1.1rem;
+    font-family: $font2;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  .playlist-entry {
+    display: block;
+    padding: 8px;
+    background: $dark1;
+    border-radius: 3px;
+    color: #fff;
+    transition: background-color 0.5s;
+
+    &.drop {
+      color: $dark1 !important;
+      background: $orange;
+    }
+
+    &.added {
+      background: #0c6d40;
+      color: #fff;
+    }
+
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+    }
+  }
+
+  .menu-container {
+    max-height: 500px;
+  }
+
+  .playlist-list {
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+
+.sound-entry {
+  .play-btn {
+    .fa-stop {
+      display: none;
+    }
+
+    &.playing {
+      .fa-stop {
+        display: inherit;
+      }
+
+      .fa-play {
+        display: none;
+      }
+    }
+  }
+
+  .play-btn {
+    color: $grey3;
+    background: $dark1;
+    height: 100%;
+    padding: 2px;
+    width: 30px;
+    min-width: 30px;
+    text-align: center;
+    border-radius: 3px;
+
+    .fa-stop {
+      padding: 3px 0 3px 0;
+    }
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  .actions {
+    display: block;
+
+    a {
+      color: $grey5;
+      margin-right: 8px;
+      display: inline-block;
+    }
+  }
+}
+
+.playlist-actions {
+  margin-bottom: 10px;
+  margin-top: 3px;
+
+  a {
+    font-size: 12px;
+    color: $grey5;
+    margin-right: 8px;
+    display: inline-block;
+  }
+}
+
+.content .sound-entry {
+  font-size: 12px;
+  font-family: $font1;
+  color: $grey3;
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
+.sounds {
+  .content {
+    color: $grey3;
+    font-family: $font1;
+    font-size: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  .gm-only {
+    color: $grey3;
+    font-family: $font1;
+    font-size: 12px;
+  }
+
+  .volume-icon {
+    color: $grey3;
+    padding: 3px 5px;
+  }
+}

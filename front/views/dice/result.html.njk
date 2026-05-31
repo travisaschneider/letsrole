@@ -1,0 +1,77 @@
+<div class="dice-result {% if character.color %}theme-{{ character.color }}{% endif %} {% if iconPath %}with-icon{% endif %}" id="{{ id }}">
+    <a href="#" class="close-btn"><i class="fas fa-times"></i></a>
+
+    <div class="d-flex">
+        {% if iconPath %}
+            <img src="{{ iconPath }}" class="dice-icon">
+        {% endif %}
+
+        <div class="flex-grow-1">
+            <header>
+                <div class="from">
+                    {% if character %}
+                        <span class="character">
+                            {{ character.name }}
+                        </span>
+                    {% else %}
+                        <span class="user">
+                            {{ user.chatname }}
+                        </span>
+                    {% endif %}
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <span class="for">
+                        {% if title %}
+                            {{ title }}
+                        {% else %}
+                            {{ __('Roll') }}
+                        {% endif %}
+                    </span>
+
+                    <span class="line flex-grow-1"></span>
+
+                    {% if not custom %}
+                        <main class="total">
+                            {% if result.type == "number" or result.type == "dice" %}
+                                {{ result.total }}
+                            {% endif %}
+
+                            {% if result.type == "comparison" %}
+                                {{ result.success }}
+                                <small>
+                                    {% if result.success > 1 %}
+                                        {{ __('successes') }}
+                                    {% else %}
+                                        {{ __('success') }}
+                                    {% endif %}
+                                </small>
+                            {% endif %}
+                        </main>
+                    {% endif %}
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <div>
+        {% if custom %}
+            <div class="custom-roll sheet" id="{{ id }}"></div>
+        {% endif %}
+
+        <div class="d-flex actions">
+            <span class="inset"></span>
+        </div>
+
+        <aside class="rolls">
+            {% for dice in result.all %}
+                <span class="dimension-{{ dice.dimension }}
+                                {% if dice.discarded %}discarded{% endif %}
+                                {{ getCriticalType(dice.dimension, dice.value) }}">
+                                {{ dice.value }}
+                                <i class="icon"></i>
+                            </span>
+            {% endfor %}
+        </aside>
+    </div>
+</div>

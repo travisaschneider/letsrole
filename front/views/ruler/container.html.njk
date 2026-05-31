@@ -1,0 +1,53 @@
+<div class="p-2 rulers-content">
+    <div class="d-flex">
+        <a href="#" class="ruler-btn d-flex" data-type="line"><i class="ruler-line-icon"></i> <span>{{ __('Line') }}</span></a>
+        <a href="#" class="ruler-btn d-flex" data-type="cone"><i class="ruler-cone-icon"></i> <span>{{ __('Cone') }}</span></a>
+    </div>
+    <div class="d-flex mt-1">
+        <a href="#" class="ruler-btn d-flex" data-type="circle"><i class="ruler-circle-icon"></i> <span>{{ __('Circle') }}</span></a>
+        <a href="#" class="ruler-btn d-flex" data-type="rectangle"><i class="ruler-rect-icon"></i> <span>{{ __('Rectangle') }}</span></a>
+    </div>
+    <div class="ruler-option option-line d-none">
+        <div class="custom-control custom-switch mt-2">
+            <input type="checkbox" class="custom-control-input" id="line-ruler-highlight" checked>
+            <label class="custom-control-label" for="line-ruler-highlight">{{ __('Highlight the grid') }}</label>
+        </div>
+        <p class="mt-2 help">
+            <small>{{ __('Use <kbd>Shift + click</kbd> to create waypoints.')|safe }}</small>
+        </p>
+    </div>
+
+    <div class="ruler-option option-cone d-none">
+        <div class="d-flex">
+            <div class="mr-2">
+                <label for="cone-ruler-angle">{{ __('Angle °') }}</label>
+                <input type="number" min="1" max="360" step="1" id="cone-ruler-angle" value="45" class="form-control" size="3">
+            </div>
+            <div>
+                <label for="cone-ruler-size">{{ __('Size in')}} <span class="metrics-name"></span></label>
+                <input id="cone-ruler-size" type="number" step="0.1" min="0.1" class="form-control" size="6" value="30">
+            </div>
+        </div>
+        <p class="mt-2 help">
+            <small>{{ __("Click where you want the cone's origin, then move the mouse to change the orientation") }}</small>
+        </p>
+    </div>
+
+    <div class="ruler-option option-circle d-none">
+        <label for="circle-ruler-angle">{{ __('Radius in') }} <span class="metrics-name"></span></label>
+        <input id="circle-ruler-size" type="number" step="0.1" min="0.1" class="form-control" size="6" value="30">
+    </div>
+
+    <div class="ruler-option option-rectangle d-none">
+        <div class="d-flex">
+            <div class="mr-2">
+                <label for="rectangle-ruler-width">{{ __('Width in') }} <span class="metrics-name"></span></label>
+                <input id="rectangle-ruler-width" type="number" step="0.1" min="0.1" class="form-control" size="6" value="10">
+            </div>
+            <div>
+                <label for="rectangle-ruler-height">{{ __('Height in') }} <span class="metrics-name"></span></label>
+                <input id="rectangle-ruler-height" type="number" step="0.1" min="0.1" class="form-control" size="6" value="10">
+            </div>
+        </div>
+    </div>
+</div>

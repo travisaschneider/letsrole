@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between align-items-center">
+    <h2 class="mb-3">
+        {% if category.icon %}
+        <i class="{{ category.icon }}"></i>
+        {% endif %}
+        {{ category.name }}
+    </h2>
+    <a href="#" class="go-back-btn text-light"><i class="fas fa-caret-left"></i> {{ __('Go back') }}</a>
+</div>
+
+<div class="row">
+    {% for sound in sounds %}
+    <div class="col-6 mb-2 sound-entry" data-path="{{ sound.path }}" data-id="{{ sound.id }}" draggable="true" data-type="sfx">
+        <div class="d-flex">
+            <a href="#" class="play-btn">
+                <i class="fas fa-play"></i>
+                <i class="fas fa-stop"></i>
+            </a>
+            <div class="ml-2">
+                <strong>{{ sound.title }}</strong>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if hasPagination %}
+<nav>
+    <ul class="pagination justify-content-end">
+        {% if prev %}
+        <li class="page-item"><a class="page-link" href="#" data-page="{{ prevPage }}"><i class="fas fa-angle-left"></i> {{ __('Previous') }}</a></li>
+        {% endif %}
+
+        {% if next %}
+        <li class="page-item "><a class="page-link" href="#" data-page="{{ nextPage }}">{{ __('Next') }} <i class="fas fa-angle-right"></i></a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

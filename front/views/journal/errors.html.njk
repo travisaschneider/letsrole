@@ -1,0 +1,7 @@
+<ul>
+    {% for error in errors %}
+    <li>
+        {{ error.message }} <small>{{ __('(code: %{code})', { code: error.code }) }}</small>
+    </li>
+    {% endfor %}
+</ul>

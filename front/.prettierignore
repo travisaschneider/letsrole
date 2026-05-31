@@ -1,0 +1,12 @@
+# Ignore artifacts:
+.vscode
+dist
+node_modules
+shared
+web
+webpack*
+i18next-scanner*
+src/Engine/Util/SuperGif*
+src/View/Sound/Jungle.ts
+src/View/Sound/Transformer/*
+src/Website/grammar.ts
