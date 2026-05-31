@@ -1,0 +1,10 @@
+# Ignore artifacts:
+node_modules
+
+icons/out
+icons/template.css.hbs
+
+grammar.ts
+grammar.pegjs
+reference.ts
+reference.pegjs
